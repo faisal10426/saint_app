@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Paint a Saint">
+  <rect width="512" height="512" rx="112" fill="#1d6fc9"/>
+  <circle cx="256" cy="210" r="128" fill="#fff8dc" stroke="#e5bd4f" stroke-width="20"/>
+  <circle cx="256" cy="216" r="70" fill="#f5c6a3" stroke="#3a2c27" stroke-width="16"/>
+  <path d="M148 420c14-104 70-150 108-150s94 46 108 150" fill="#7d5ab5" stroke="#3a2c27" stroke-width="16"/>
+  <path d="M370 92l34 34-158 158-50 14 14-50z" fill="#ff8a3d" stroke="#3a2c27" stroke-width="16" stroke-linejoin="round"/>
+</svg>
