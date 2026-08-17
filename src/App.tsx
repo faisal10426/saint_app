@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import SaintArt from './components/SaintArt';
-import { categories, saints } from './data/saints';
+import { categories, FREE_SAINT_IDS, saints } from './data/saints';
 import { LIFETIME_PRICE_LABEL, purchaseLifetimeUnlock, restoreLifetimeUnlock, verifyEntitlement } from './lib/commerce';
 import { printColoringPage } from './lib/printing';
 import type { PaintMap, RegionId, Saint } from './types';
@@ -9,7 +9,6 @@ const ARTWORK_STORAGE_KEY = 'paint-a-saint-artwork-v2';
 const PREMIUM_STORAGE_KEY = 'paint-a-saint-premium-v1';
 const SVG_ID = 'paint-a-saint-export-art';
 const EMPTY_COLOR = '#fffdf8';
-const FREE_SAINT_IDS = new Set(saints.slice(0, 5).map((saint) => saint.id));
 
 type ArtworkStore = Record<string, PaintMap>;
 type HistoryEntry = { saintId: string; previous: PaintMap };
@@ -102,7 +101,7 @@ export default function App() {
     const needle = search.trim().toLowerCase();
     return saints.filter((saint) => {
       const categoryMatch = category === 'All' || saint.category === category;
-      const searchMatch = !needle || `${saint.name} ${saint.summary} ${saint.attribute}`.toLowerCase().includes(needle);
+      const searchMatch = !needle || `${saint.name} ${saint.summary} ${saint.attribute} ${saint.symbols} ${saint.feast} ${saint.catalogCategory}`.toLowerCase().includes(needle);
       return categoryMatch && searchMatch;
     });
   }, [category, search]);
@@ -130,7 +129,7 @@ export default function App() {
   }, [notice]);
 
   function isSaintUnlocked(saint: Saint): boolean {
-    return hasPremium || FREE_SAINT_IDS.has(saint.id);
+    return hasPremium || saint.free || FREE_SAINT_IDS.has(saint.id);
   }
 
   function openPaywall(reason: PaywallReason) {
@@ -365,7 +364,7 @@ export default function App() {
             </div>
             {!hasPremium && (
               <section className="premium-strip" aria-label="Premium unlock details">
-                <div><strong>One simple family unlock.</strong><span>All 51 saint pages, {premiumPaletteCount} premium colors, and printable coloring pages.</span></div>
+                <div><strong>One simple family unlock.</strong><span>The full {saints.length}-saint library, {premiumPaletteCount} premium colors, and printable coloring pages.</span></div>
                 <button className="button button--gold" onClick={() => openPaywall('gallery')}>Unlock for {LIFETIME_PRICE_LABEL}</button>
               </section>
             )}
@@ -378,16 +377,24 @@ export default function App() {
               {filteredSaints.map((saint) => {
                 const locked = !isSaintUnlocked(saint);
                 return (
-                  <article className={`saint-card ${locked ? 'saint-card--locked' : ''}`} key={saint.id}>
-                    <div className={`saint-card__medallion saint-card__medallion--${saint.category.toLowerCase().replace(/\s+/g, '-')}`} aria-hidden="true">
-                      <span>{saint.shortName.split(' ').filter(Boolean).slice(-1)[0].slice(0, 1)}</span>
+                  <article className={`saint-card ${locked ? 'saint-card--locked' : ''} ${saint.cardImage ? 'saint-card--portrait' : ''}`} key={saint.id}>
+                    <div className="saint-card__art">
+                      {saint.cardImage ? (
+                        <img src={saint.cardImage} alt={saint.name} />
+                      ) : (
+                        <div className={`saint-card__placeholder saint-card__placeholder--${saint.category.toLowerCase().replace(/\s+/g, '-')}`} aria-hidden="true">
+                          <span className="saint-card__halo" />
+                          <strong>{saint.shortName}</strong>
+                        </div>
+                      )}
+                      {saint.free && <span className="free-badge">Free</span>}
+                      {locked && <span className="lock-badge" aria-label="Premium saint">Premium</span>}
                     </div>
                     <div className="saint-card__copy">
-                      <p className="saint-card__category">{saint.category}</p>
-                      <h3>{saint.name}</h3>
-                      <p>{saint.attribute}</p>
+                      <p className="saint-card__category">{saint.catalogCategory}</p>
+                      {!saint.cardImage && <h3>{saint.name}</h3>}
+                      <p>{saint.feast} · {saint.attribute}</p>
                     </div>
-                    {locked && <span className="lock-badge" aria-label="Premium saint">🔒 Premium</span>}
                     <button className={`button ${locked ? 'button--locked' : 'button--card'}`} onClick={() => chooseSaint(saint)}>{locked ? `Unlock all · ${LIFETIME_PRICE_LABEL}` : 'Color this saint'}</button>
                   </article>
                 );
@@ -400,12 +407,16 @@ export default function App() {
         <main className="paint-page">
           <aside className="saint-panel">
             <button className="back-link" onClick={() => setScreen('gallery')}>← All saints</button>
+            {activeSaint.cardImage && (
+              <img className="saint-panel__card" src={activeSaint.cardImage} alt={activeSaint.name} />
+            )}
             <p className="eyebrow">Now coloring</p>
             <h1>{activeSaint.name}</h1>
             <p className="saint-panel__description">{activeSaint.summary}</p>
             <div className="saint-facts">
               <div><span>Feast day</span><strong>{activeSaint.feast}</strong></div>
-              <div><span>Special symbol</span><strong>{activeSaint.attribute}</strong></div>
+              <div><span>Special symbols</span><strong>{activeSaint.symbols}</strong></div>
+              <div><span>Category</span><strong>{activeSaint.catalogCategory}</strong></div>
             </div>
             <label className="jump-select">
               <span>Choose another saint</span>
@@ -413,7 +424,7 @@ export default function App() {
                 {saints.map((saint) => <option key={saint.id} value={saint.id} disabled={!isSaintUnlocked(saint)}>{saint.name}{!isSaintUnlocked(saint) ? ' · Premium' : ''}</option>)}
               </select>
             </label>
-            {!hasPremium && <button className="button button--gold saint-panel__upgrade" onClick={() => openPaywall('saint')}>Unlock all 51 saints · {LIFETIME_PRICE_LABEL}</button>}
+            {!hasPremium && <button className="button button--gold saint-panel__upgrade" onClick={() => openPaywall('saint')}>Unlock all {saints.length} saints · {LIFETIME_PRICE_LABEL}</button>}
           </aside>
 
           <section className="canvas-panel" aria-label="Coloring canvas">
@@ -507,7 +518,7 @@ export default function App() {
         </div>
       )}
 
-      <footer className="footer">Paint a Saint starter app · Original simplified SVG artwork for prototype use · No ads or external links in the child experience.</footer>
+      <footer className="footer">Paint a Saint · Child-safe, ad-free, and account-free · Approved saint cards in the library · SVG coloring pages for painting.</footer>
     </div>
   );
 }
