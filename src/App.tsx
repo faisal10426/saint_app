@@ -357,12 +357,6 @@ export default function App() {
                 <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search saints…" />
               </label>
             </div>
-            {!hasPremium && (
-              <section className="premium-strip" aria-label="Premium unlock details">
-                <div><strong>One simple family unlock.</strong><span>The full {saints.length}-saint library, {premiumPaletteCount} premium colors, and printable coloring pages.</span></div>
-                <button className="button button--gold" onClick={() => openPaywall('gallery')}>Unlock for {LIFETIME_PRICE_LABEL}</button>
-              </section>
-            )}
             <div className="category-row" aria-label="Filter by category">
               {categories.map((item) => (
                 <button key={item} className={`chip ${item === category ? 'chip--active' : ''}`} onClick={() => setCategory(item)}>{item}</button>
