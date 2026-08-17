@@ -346,15 +346,6 @@ export default function App() {
 
       {screen === 'gallery' ? (
         <main className="gallery-page">
-          <section className="hero">
-            <p className="eyebrow">A Catholic coloring app for children</p>
-            <h1>Choose a saint. Pick a color. Tap to paint.</h1>
-            <p>Color the first five saints free. A one-time {LIFETIME_PRICE_LABEL} unlock opens the remaining {premiumSaintCount} saints, {premiumPaletteCount} extra colors, and printable coloring pages.</p>
-            <div className="hero__actions">
-              <button className="button button--primary" onClick={() => chooseSaint(saints[0])}>Start free coloring</button>
-              {!hasPremium && <button className="button button--quiet" onClick={() => openPaywall('gallery')}>See full unlock</button>}
-            </div>
-          </section>
 
           <section className="library" aria-label="Saint library">
             <div className="library__toolbar">
