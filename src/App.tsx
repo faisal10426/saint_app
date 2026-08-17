@@ -383,8 +383,6 @@ export default function App() {
                           <strong>{saint.shortName}</strong>
                         </div>
                       )}
-                      {saint.free && <span className="free-badge">Free</span>}
-                      {locked && <span className="lock-badge" aria-label="Premium saint">Premium</span>}
                     </div>
                     <div className="saint-card__copy">
                       <p className="saint-card__category">{saint.catalogCategory}</p>
