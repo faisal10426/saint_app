@@ -338,7 +338,6 @@ export default function App() {
         <div className="topbar__actions">
           <span className="saved-note">Saved on this device</span>
           {!hasPremium && <button className="button button--gold" onClick={() => openPaywall('gallery')}>Unlock all · {LIFETIME_PRICE_LABEL}</button>}
-          <button className="button button--quiet" onClick={parentZone}>Parent Zone</button>
         </div>
       </header>
 
