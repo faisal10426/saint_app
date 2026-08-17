@@ -161,7 +161,12 @@ export default function App() {
     setPaywallStep('processing');
     const purchase = await purchaseLifetimeUnlock();
     if (!purchase.ok) {
-      setPaywallStep('offer');
+      if (purchase.reason === 'unavailable' || purchase.reason === 'cancelled') {
+        setPaywallOpen(false);
+        setPaywallStep('gate');
+      } else {
+        setPaywallStep('offer');
+      }
       if (purchase.reason !== 'cancelled') setNotice(purchase.message ?? 'The purchase could not be completed.');
       return;
     }
