@@ -9,6 +9,27 @@
 export const LIFETIME_PRODUCT_ID = 'com.paintasaint.lifetimeunlock';
 export const LIFETIME_PRICE_LABEL = '$4.99';
 
+const PAID_FREE_TEST_PARAM = 'paidfreetest';
+const PAID_FREE_TEST_SESSION_KEY = 'paint-a-saint-paidfreetest';
+
+/**
+ * Dummy tester unlock: open the app with `?paidfreetest=true` to use every
+ * paid saint, color, and print feature without a store purchase.
+ * Example: https://example.com/?paidfreetest=true
+ */
+export function isPaidFreeTestUnlock(): boolean {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get(PAID_FREE_TEST_PARAM) === 'true') {
+      sessionStorage.setItem(PAID_FREE_TEST_SESSION_KEY, '1');
+      return true;
+    }
+    return sessionStorage.getItem(PAID_FREE_TEST_SESSION_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
 export type PurchaseResult =
   | { ok: true; receiptData?: unknown; source: 'webtonative' | 'demo' }
   | { ok: false; reason: 'cancelled' | 'unavailable' | 'failed'; message?: string };

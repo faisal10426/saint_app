@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import SaintArt from './components/SaintArt';
 import { categories, FREE_SAINT_IDS, saints } from './data/saints';
-import { LIFETIME_PRICE_LABEL, purchaseLifetimeUnlock, restoreLifetimeUnlock, verifyEntitlement } from './lib/commerce';
+import { LIFETIME_PRICE_LABEL, isPaidFreeTestUnlock, purchaseLifetimeUnlock, restoreLifetimeUnlock, verifyEntitlement } from './lib/commerce';
 import { printColoringPage } from './lib/printing';
 import type { PaintMap, RegionId, Saint } from './types';
 
@@ -85,7 +85,9 @@ export default function App() {
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState<(typeof categories)[number]>('All');
   const [notice, setNotice] = useState('');
-  const [hasPremium, setHasPremium] = useState(readPremiumEntitlement);
+  const [purchasedPremium, setPurchasedPremium] = useState(readPremiumEntitlement);
+  const [testUnlock] = useState(isPaidFreeTestUnlock);
+  const hasPremium = purchasedPremium || testUnlock;
   const [paywallOpen, setPaywallOpen] = useState(false);
   const [paywallReason, setPaywallReason] = useState<PaywallReason>('gallery');
   const [paywallStep, setPaywallStep] = useState<PaywallStep>('gate');
@@ -116,11 +118,11 @@ export default function App() {
 
   useEffect(() => {
     try {
-      localStorage.setItem(PREMIUM_STORAGE_KEY, hasPremium ? 'unlocked' : '');
+      localStorage.setItem(PREMIUM_STORAGE_KEY, purchasedPremium ? 'unlocked' : '');
     } catch {
       // Artwork and premium access remain usable for this session even when storage is unavailable.
     }
-  }, [hasPremium]);
+  }, [purchasedPremium]);
 
   useEffect(() => {
     if (!notice) return;
@@ -178,7 +180,7 @@ export default function App() {
       return;
     }
 
-    setHasPremium(true);
+    setPurchasedPremium(true);
     setPaywallOpen(false);
     setNotice('Premium unlocked! Every saint, every color, and printing are now available.');
   }
@@ -199,7 +201,7 @@ export default function App() {
       return;
     }
 
-    setHasPremium(true);
+    setPurchasedPremium(true);
     setPaywallOpen(false);
     setNotice('Your Paint a Saint purchase was restored.');
   }
