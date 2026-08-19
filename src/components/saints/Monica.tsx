@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function bloom(cx: number, cy: number) {
   return (
@@ -15,11 +15,11 @@ export default function Monica({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M62 148c6-28 40-40 66-14 14-26 58-22 70 8 24-12 50 12 40 36 18 8 12 34-12 36-8 20-46 20-56 0-16 16-48 8-58-12-20 8-52-8-50-54z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M448 70c8-20 42-24 56-2 12-18 48-12 56 12 20-8 36 16 24 32 12 6 6 26-12 28-6 16-34 14-44-2-12 14-40 6-48-10-14 8-38-8-32-58z"
       />
 

@@ -1,28 +1,28 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function MartinOfTours({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M40 168c8-34 50-44 74-16 18-30 64-24 76 10 26-14 54 12 42 38 22 8 14 40-14 40-8 24-50 20-60-4-18 20-54 8-64-16-22 10-60-8-54-52z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M456 72c10-22 46-26 60-4 14-20 52-14 58 12 22-8 40 18 26 34 14 8 6 30-14 30-6 18-38 14-46-4-14 16-44 6-52-12-16 8-44-10-32-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M28 488c6-24 42-30 60-8 14-22 52-16 62 12 20-8 36 16 24 32 12 8 6 28-14 30-6 16-36 14-46-4-12 14-40 6-48-12-16 8-40-6-38-50z"
       />
 
-      <path {...paperShape} d="M18 655C70 590 150 568 214 618C168 638 88 652 18 655Z" />
-      <path {...paperShape} d="M622 655C560 575 470 562 400 620C458 644 548 654 622 655Z" />
+      <path {...p('cloud')} d="M18 655C70 590 150 568 214 618C168 638 88 652 18 655Z" />
+      <path {...p('cloud')} d="M622 655C560 575 470 562 400 620C458 644 548 654 622 655Z" />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M478 548h28v72h-28zM506 520h22v100h-22zM528 538h26v82h-26zM548 512h18v108h-18zM566 544h16v76h-16z"
       />
-      <path {...paperShape} d="M516 512l12-22 12 22zM558 512l8-16 8 16z" />
+      <path {...p('cloud')} d="M516 512l12-22 12 22zM558 512l8-16 8 16z" />
 
       <g {...p('halo')}>
         <circle cx="292" cy="228" r="118" />

@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function PaulMiki({ p, detail }: PortraitProps) {
   const rays = Array.from({ length: 10 }, (_, i) => {
@@ -17,7 +17,7 @@ export default function PaulMiki({ p, detail }: PortraitProps) {
         <path d={rays} fill="none" stroke={STROKE} strokeWidth="6" strokeLinecap="round" />
       </g>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M36 192c6-28 42-38 64-14 16-26 58-22 70 8 24-12 50 14 38 36 18 8 10 36-12 38-8 20-46 20-56-2-16 18-50 10-58-12-20 8-52-8-48-54z"
       />
 

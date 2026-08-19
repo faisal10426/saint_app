@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function rose(cx: number, cy: number, r: number) {
   return (
@@ -28,17 +28,17 @@ export default function JuanDiego({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M28 180c10-34 50-46 76-16 16-28 64-22 74 12 26-14 54 14 42 40 22 6 14 38-12 40-8 24-50 20-60-4-16 20-54 8-64-16-22 10-62-10-56-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M460 76c10-22 46-26 60-4 12-18 50-14 58 12 22-8 40 18 26 34 14 6 6 30-14 30-6 16-38 14-46-2-12 16-42 6-50-12-16 8-42-10-34-58z"
       />
-      <path {...paperShape} d="M8 655C48 560 110 520 168 568C130 608 62 640 8 655Z" />
-      <path {...paperShape} d="M632 655C578 548 500 518 430 574C478 618 560 644 632 655Z" />
-      <path {...paperShape} d="M8 655C70 610 140 618 190 655H8z" />
-      <path {...paperShape} d="M632 655C570 608 500 616 450 655H632z" />
+      <path {...p('cloud')} d="M8 655C48 560 110 520 168 568C130 608 62 640 8 655Z" />
+      <path {...p('cloud')} d="M632 655C578 548 500 518 430 574C478 618 560 644 632 655Z" />
+      <path {...p('cloud')} d="M8 655C70 610 140 618 190 655H8z" />
+      <path {...p('cloud')} d="M632 655C570 608 500 616 450 655H632z" />
 
       <g {...p('symbol')}>
         {cactus(58, 590, 1.15)}

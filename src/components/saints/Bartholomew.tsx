@@ -1,14 +1,14 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function Bartholomew({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M36 176c8-32 46-42 72-16 16-28 62-24 74 8 26-14 54 12 42 38 22 8 14 38-12 40-8 22-50 22-60-2-18 20-54 10-64-14-22 10-56-8-52-54z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M36 508c6-24 40-30 58-8 14-22 50-16 60 12 20-8 36 16 24 32 12 8 6 28-14 30-6 16-34 14-44-4-12 14-40 6-48-12-16 8-40-6-36-50z"
       />
 

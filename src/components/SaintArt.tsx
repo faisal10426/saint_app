@@ -28,7 +28,14 @@ export default function SaintArt({ saint, colors, onPaint, svgId, compact = fals
     },
     className: 'paint-region',
   });
-  const p = (region: RegionId) => ({ fill: color(region), stroke: STROKE, strokeWidth: 6, strokeLinejoin: 'round' as const, ...interactive(region) });
+  const p = (region: RegionId) => ({
+    fill: color(region),
+    stroke: STROKE,
+    strokeWidth: 6,
+    strokeLinejoin: 'round' as const,
+    pointerEvents: 'visiblePainted' as const,
+    ...interactive(region),
+  });
   const detail = { fill: 'none', stroke: STROKE, strokeWidth: 6, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, pointerEvents: 'none' as const };
   const Portrait = portraits[saint.id];
 

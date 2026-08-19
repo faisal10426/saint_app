@@ -1,14 +1,14 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function FrancisDeSales({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M42 176c8-30 46-40 70-14 16-28 60-22 72 8 26-12 52 14 40 38 20 8 12 36-12 38-8 22-48 20-58-2-16 18-52 8-62-14-22 8-56-8-50-54z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M460 90c8-20 42-24 56-4 12-18 46-14 54 10 20-6 36 18 24 32 12 6 6 28-12 28-6 16-36 16-46-2-12 14-40 6-48-12-14 6-40-8-32-52z"
       />
 

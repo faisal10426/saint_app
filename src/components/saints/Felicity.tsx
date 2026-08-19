@@ -1,22 +1,22 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function Felicity({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M46 186c6-32 44-46 70-20 16-30 62-26 76 8 28-14 56 12 44 38 22 8 16 40-12 42-8 24-50 22-62-2-18 20-54 10-64-14-22 10-58-8-52-52z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M438 86c8-22 42-28 58-8 12-20 48-16 58 10 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 16-48-2-12 16-42 8-50-10-16 8-42-8-34-54z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M32 508c6-24 42-30 60-8 14-22 52-16 62 12 20-8 36 16 24 32 12 8 6 28-14 30-6 16-36 14-46-4-12 14-40 6-48-12-16 8-40-6-38-50z"
       />
 
-      <g {...paperShape}>
+      <g {...p('cloud')}>
         <path d="M508 655V430h16V655zM548 655V430h16V655zM588 655V430h16V655z" />
         <path d="M496 430h124v20H496z" />
         <path d="M508 404l54-36 54 36v26H508z" />

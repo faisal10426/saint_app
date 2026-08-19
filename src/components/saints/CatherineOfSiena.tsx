@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function lilyBloom(cx: number, cy: number, rot: number) {
   return (
@@ -18,19 +18,19 @@ export default function CatherineOfSiena({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M44 188c4-30 40-44 66-18 16-28 60-26 72 6 26-12 52 12 42 36 20 8 14 38-12 40-8 22-48 22-58-2-16 18-50 10-60-12-22 10-54-8-50-52z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M452 80c8-22 42-26 56-4 12-18 48-16 56 10 20-8 38 16 26 32 14 8 8 28-12 30-6 16-36 16-46 0-12 14-40 8-48-10-16 8-40-8-32-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M16 512c8-26 42-32 60-8 14-22 52-16 62 12 20-8 36 16 24 32 12 8 6 28-14 30-6 16-36 14-46-4-12 14-40 6-48-12-16 8-40-6-38-50z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M470 500c6-24 42-30 60-6 14-22 50-16 60 12 20-8 36 16 24 32 12 8 6 28-14 30-6 16-36 14-46-4-12 14-40 6-48-12-16 8-40-6-36-52z"
       />
 

@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function loaf(cx: number, cy: number, rx: number, ry: number) {
   return (
@@ -13,26 +13,26 @@ export default function VincentDePaul({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M36 176c6-32 46-46 72-18 16-30 64-26 76 8 28-14 56 12 44 38 22 8 16 40-12 42-8 24-50 22-62-2-18 20-54 10-64-14-22 10-58-8-56-54z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M448 78c8-22 44-28 60-6 12-20 50-16 58 10 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 16-48-2-12 16-42 8-50-10-16 8-42-8-36-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M30 500c6-24 42-30 60-8 14-22 52-16 62 12 20-8 36 16 24 32 12 8 6 28-14 30-6 16-36 14-46-4-12 14-40 6-48-12-16 8-40-6-38-50z"
       />
 
-      <path {...paperShape} d="M8 655C52 580 128 560 188 612C130 636 58 650 8 655Z" />
-      <path {...paperShape} d="M632 655C575 568 490 552 418 610C478 640 560 652 632 655Z" />
-      <path {...paperShape} d="M528 430h36v170H528z" />
-      <path {...paperShape} d="M518 430h56l-8-48-20-22-20 22z" />
-      <path {...paperShape} d="M542 360v22" />
-      <path {...paperShape} d="M536 360h12v8h-12z" />
-      <path {...paperShape} d="M534 410h28v20H534z" />
-      <circle cx="548" cy="398" r="8" {...paperShape} />
+      <path {...p('cloud')} d="M8 655C52 580 128 560 188 612C130 636 58 650 8 655Z" />
+      <path {...p('cloud')} d="M632 655C575 568 490 552 418 610C478 640 560 652 632 655Z" />
+      <path {...p('cloud')} d="M528 430h36v170H528z" />
+      <path {...p('cloud')} d="M518 430h56l-8-48-20-22-20 22z" />
+      <path {...p('cloud')} d="M542 360v22" />
+      <path {...p('cloud')} d="M536 360h12v8h-12z" />
+      <path {...p('cloud')} d="M534 410h28v20H534z" />
+      <circle cx="548" cy="398" r="8" {...p('cloud')} />
 
       <g {...p('halo')}>
         <circle cx="286" cy="236" r="124" />

@@ -1,20 +1,20 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function George({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M42 180c6-32 44-46 70-20 16-30 62-26 76 8 28-14 56 12 44 38 22 8 16 40-12 42-8 24-50 22-62-2-18 20-54 10-64-14-22 10-58-8-52-52z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M450 80c8-22 42-28 58-8 12-20 48-16 58 10 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 16-48-2-12 16-42 8-50-10-16 8-42-8-34-54z"
       />
-      <path {...paperShape} d="M8 655C70 560 160 548 240 610C180 638 80 650 8 655Z" />
-      <path {...paperShape} d="M632 655C560 540 450 548 380 612C450 640 550 650 632 655Z" />
+      <path {...p('cloud')} d="M8 655C70 560 160 548 240 610C180 638 80 650 8 655Z" />
+      <path {...p('cloud')} d="M632 655C560 540 450 548 380 612C450 640 550 650 632 655Z" />
 
-      <g {...paperShape}>
+      <g {...p('cloud')}>
         <path d="M72 655C48 560 28 470 52 400C78 430 92 500 86 575C96 520 118 470 142 430C128 500 120 575 128 655Z" />
         <ellipse cx="58" cy="392" rx="22" ry="18" />
         <path d="M42 380C28 360 48 340 68 354" />

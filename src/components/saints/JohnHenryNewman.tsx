@@ -1,15 +1,15 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function JohnHenryNewman({ p, detail }: PortraitProps) {
   return (
     <>
-      <path {...paperShape} d="M470 480h130v175H470z" />
-      <path {...paperShape} d="M500 430h70v50h-70z" />
-      <path {...paperShape} d="M520 400h30v30h-30z" />
-      <path {...paperShape} d="M508 510h24v50H508z" />
-      <path {...paperShape} d="M548 530h18v30h-18z" />
+      <path {...p('cloud')} d="M470 480h130v175H470z" />
+      <path {...p('cloud')} d="M500 430h70v50h-70z" />
+      <path {...p('cloud')} d="M520 400h30v30h-30z" />
+      <path {...p('cloud')} d="M508 510h24v50H508z" />
+      <path {...p('cloud')} d="M548 530h18v30h-18z" />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M36 190c6-28 42-38 64-14 16-26 58-22 70 8 24-12 50 14 38 36 18 8 10 36-12 38-8 20-46 20-56-2-16 18-50 10-58-12-20 8-52-8-48-54z"
       />
 

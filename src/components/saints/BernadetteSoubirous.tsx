@@ -1,31 +1,31 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function BernadetteSoubirous({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M438 88c8-22 42-28 58-8 12-20 48-18 58 8 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 18-48 0-12 16-42 10-50-10-16 8-42-8-34-54z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M40 200c4-32 42-46 68-22 16-30 62-28 76 6 28-14 56 10 46 36 22 8 16 40-12 42-8 24-50 24-62 0-18 20-54 12-64-12-22 10-56-8-52-50z"
       />
 
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M8 655C28 480 80 360 168 300C120 420 70 520 48 655Z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M48 655C70 500 130 390 220 340C170 450 110 550 90 655Z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M8 655C40 610 90 600 130 640C70 648 30 654 8 655Z"
       />
-      <ellipse cx="96" cy="628" rx="28" ry="12" {...paperShape} />
-      <path {...paperShape} d="M96 628c-4 16 2 22 12 18" />
+      <ellipse cx="96" cy="628" rx="28" ry="12" {...p('cloud')} />
+      <path {...p('cloud')} d="M96 628c-4 16 2 22 12 18" />
 
       <g {...p('halo')}>
         <circle cx="340" cy="248" r="110" />

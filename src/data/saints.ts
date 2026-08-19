@@ -1,6 +1,6 @@
 import type { Saint } from '../types';
 
-const all = ['background', 'halo', 'skin', 'hair', 'robe', 'mantle', 'accent', 'symbol'] as const;
+const all = ['background', 'cloud', 'halo', 'skin', 'hair', 'robe', 'mantle', 'accent', 'symbol'] as const;
 const angel = [...all, 'wings'] as const;
 
 export const saints: Saint[] = [

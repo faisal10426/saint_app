@@ -1,14 +1,14 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function LouisDeMontfort({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M36 180c8-32 48-42 72-16 18-28 62-24 74 8 26-12 54 14 42 38 20 8 14 38-12 40-8 22-50 20-60-2-16 18-54 10-64-14-22 8-58-8-52-54z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M452 88c8-20 42-24 56-4 12-18 48-14 56 10 20-6 38 18 26 32 12 6 6 28-12 28-6 16-36 16-46-2-12 14-40 8-48-10-14 6-40-8-32-54z"
       />
 

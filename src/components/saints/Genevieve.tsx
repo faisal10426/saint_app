@@ -1,16 +1,16 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function Genevieve({ p, detail }: PortraitProps) {
   return (
     <>
-      <path {...paperShape} d="M470 470h140v185H470z" />
-      <path {...paperShape} d="M500 430h80v40h-80z" />
-      <path {...paperShape} d="M512 390h24v40h-24z" />
-      <path {...paperShape} d="M552 398h18v32h-18z" />
-      <path {...paperShape} d="M508 510h22v70H508z" />
-      <path {...paperShape} d="M556 530h16v40h-16z" />
+      <path {...p('cloud')} d="M470 470h140v185H470z" />
+      <path {...p('cloud')} d="M500 430h80v40h-80z" />
+      <path {...p('cloud')} d="M512 390h24v40h-24z" />
+      <path {...p('cloud')} d="M552 398h18v32h-18z" />
+      <path {...p('cloud')} d="M508 510h22v70H508z" />
+      <path {...p('cloud')} d="M556 530h16v40h-16z" />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M36 188c6-28 42-38 64-14 16-26 58-22 70 8 24-12 50 14 38 36 18 8 10 36-12 38-8 20-46 20-56-2-16 18-50 10-58-12-20 8-52-8-48-54z"
       />
 

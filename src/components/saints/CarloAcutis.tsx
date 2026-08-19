@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function spark(cx: number, cy: number, r: number) {
   return `${cx},${cy - r} ${cx + r * 0.22},${cy - r * 0.22} ${cx + r},${cy} ${cx + r * 0.22},${cy + r * 0.22} ${cx},${cy + r} ${cx - r * 0.22},${cy + r * 0.22} ${cx - r},${cy} ${cx - r * 0.22},${cy - r * 0.22}`;
@@ -8,19 +8,19 @@ export default function CarloAcutis({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M40 168c8-32 46-44 72-16 16-28 62-24 74 8 26-14 54 12 42 36 22 8 14 38-12 40-8 22-48 22-60 0-16 18-52 10-62-12-22 10-58-8-54-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M448 74c8-20 42-26 58-6 12-18 48-16 56 8 20-8 38 16 26 30 14 8 8 28-12 30-6 16-36 16-46 0-12 14-40 8-48-10-16 8-40-8-34-52z"
       />
 
-      <path {...paperShape} d="M28 655C70 560 130 548 188 610C150 628 88 646 28 655Z" />
-      <path {...paperShape} d="M72 655C96 610 128 600 152 628C130 640 96 650 72 655Z" />
-      <path {...paperShape} d="M88 618h18v37H88z" />
-      <path {...paperShape} d="M80 618h34v12H80z" />
-      <path {...paperShape} d="M93 590l12-28 12 28z" />
+      <path {...p('cloud')} d="M28 655C70 560 130 548 188 610C150 628 88 646 28 655Z" />
+      <path {...p('cloud')} d="M72 655C96 610 128 600 152 628C130 640 96 650 72 655Z" />
+      <path {...p('cloud')} d="M88 618h18v37H88z" />
+      <path {...p('cloud')} d="M80 618h34v12H80z" />
+      <path {...p('cloud')} d="M93 590l12-28 12 28z" />
       <g {...detail}>
         <path d="M100 598v-8" />
       </g>
@@ -86,7 +86,7 @@ export default function CarloAcutis({ p, detail }: PortraitProps) {
         <path d="M226 466h188v22H226z" />
         <rect x="256" y="342" width="128" height="94" rx="8" />
       </g>
-      <circle {...paperShape} cx="320" cy="382" r="18" />
+      <circle {...p('cloud')} cx="320" cy="382" r="18" />
       <g {...detail}>
         <path d="M320 352v-8M288 368l-16-14M352 368l16-14M268 390h-12M372 390h12" />
         <path d="M304 428c8 14 24 14 32 0" />
@@ -100,7 +100,7 @@ export default function CarloAcutis({ p, detail }: PortraitProps) {
         <path d="M132 638h76" />
         <path d="M158 618h28M164 628h22" />
       </g>
-      <path {...paperShape} d="M118 655C128 642 168 638 198 650C176 656 144 658 118 655Z" />
+      <path {...p('cloud')} d="M118 655C128 642 168 638 198 650C176 656 144 658 118 655Z" />
 
       <g {...p('skin')}>
         <ellipse cx="248" cy="470" rx="20" ry="16" />

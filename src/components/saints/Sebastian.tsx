@@ -1,18 +1,18 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function Sebastian({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M44 184c6-32 44-46 70-20 16-30 62-26 76 8 28-14 56 12 44 38 22 8 16 40-12 42-8 24-50 22-62-2-18 20-54 10-64-14-22 10-58-8-52-52z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M448 82c8-22 42-28 58-8 12-20 48-16 58 10 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 16-48-2-12 16-42 8-50-10-16 8-42-8-34-54z"
       />
 
-      <g {...paperShape}>
+      <g {...p('cloud')}>
         <path d="M86 655C72 470 92 280 128 160C148 220 152 360 146 500C156 360 176 230 208 170C188 280 176 450 186 655Z" />
         <path d="M118 168C98 128 128 92 158 118C148 148 132 168 118 168Z" />
         <path d="M168 148C158 108 198 78 222 112C208 140 182 156 168 148Z" />

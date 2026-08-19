@@ -1,18 +1,18 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function MichaelTheArchangel({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M40 150c10-36 52-44 76-12 18-30 66-22 76 12 28-12 54 16 40 40 22 6 12 38-14 38-8 22-50 20-60-4-18 18-54 8-64-16-22 8-60-10-54-58z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M460 64c10-22 48-24 62 0 14-18 52-12 60 12 22-6 38 20 24 34 14 8 4 28-14 28-6 16-38 14-46-4-12 14-42 6-50-12-16 6-44-12-36-58z"
       />
-      <path {...paperShape} d="M8 655C80 575 170 590 230 650C150 654 70 656 8 655Z" />
-      <path {...paperShape} d="M632 655C548 560 430 575 360 648C460 654 560 656 632 655Z" />
+      <path {...p('cloud')} d="M8 655C80 575 170 590 230 650C150 654 70 656 8 655Z" />
+      <path {...p('cloud')} d="M632 655C548 560 430 575 360 648C460 654 560 656 632 655Z" />
 
       <g {...p('halo')}>
         <circle cx="320" cy="228" r="108" />

@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function shamrock(cx: number, cy: number, s: number) {
   return (
@@ -15,19 +15,19 @@ export default function Patrick({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M42 168c8-32 46-44 72-16 16-28 62-24 74 8 26-14 54 12 42 36 22 8 14 38-12 40-8 22-48 22-60-2-18 18-52 10-62-12-22 10-56-8-54-54z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M452 78c8-22 44-28 60-6 12-20 50-16 58 10 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 16-48-2-12 16-42 8-50-10-16 8-42-8-36-56z"
       />
 
-      <path {...paperShape} d="M8 655C48 520 148 478 248 560C180 590 86 628 8 655Z" />
-      <path {...paperShape} d="M632 655C572 508 448 468 368 558C452 598 548 638 632 655Z" />
-      <path {...paperShape} d="M180 655C230 575 330 568 400 640C340 648 250 652 180 655Z" />
-      <path {...paperShape} d="M40 655C90 610 150 618 190 650C120 654 70 656 40 655Z" />
-      <path {...paperShape} d="M600 655C548 600 480 610 440 648C510 654 570 656 600 655Z" />
+      <path {...p('cloud')} d="M8 655C48 520 148 478 248 560C180 590 86 628 8 655Z" />
+      <path {...p('cloud')} d="M632 655C572 508 448 468 368 558C452 598 548 638 632 655Z" />
+      <path {...p('cloud')} d="M180 655C230 575 330 568 400 640C340 648 250 652 180 655Z" />
+      <path {...p('cloud')} d="M40 655C90 610 150 618 190 650C120 654 70 656 40 655Z" />
+      <path {...p('cloud')} d="M600 655C548 600 480 610 440 648C510 654 570 656 600 655Z" />
 
       <g {...p('halo')}>
         <circle cx="320" cy="252" r="118" />

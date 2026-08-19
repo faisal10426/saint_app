@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function spark(cx: number, cy: number, r: number) {
   return `${cx},${cy - r} ${cx + r * 0.22},${cy - r * 0.22} ${cx + r},${cy} ${cx + r * 0.22},${cy + r * 0.22} ${cx},${cy + r} ${cx - r * 0.22},${cy + r * 0.22} ${cx - r},${cy} ${cx - r * 0.22},${cy - r * 0.22}`;
@@ -8,15 +8,15 @@ export default function PadrePio({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M42 174c8-32 48-44 74-16 16-28 62-24 74 8 26-14 54 12 42 36 22 8 16 38-12 40-8 22-48 22-60 0-16 18-52 10-62-12-22 10-56-8-52-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M452 80c8-20 42-26 58-6 12-18 48-16 56 8 20-8 38 16 26 30 14 8 8 28-12 30-6 16-36 16-46 0-12 14-40 8-48-10-16 8-40-8-34-52z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M28 508c6-24 42-30 60-8 14-22 52-16 62 12 20-8 36 16 24 32 12 8 6 28-14 30-6 16-36 14-46-4-12 14-40 6-48-12-16 8-40-6-38-50z"
       />
 

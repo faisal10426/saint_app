@@ -1,18 +1,18 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function JuniperoSerra({ p, detail }: PortraitProps) {
   return (
     <>
-      <path {...paperShape} d="M8 655C70 520 180 500 250 590C180 630 80 650 8 655Z" />
-      <path {...paperShape} d="M632 655C560 500 430 490 360 590C440 630 560 650 632 655Z" />
-      <path {...paperShape} d="M24 430h150v225H24z" />
-      <path {...paperShape} d="M44 390h110v40H44z" />
-      <path {...paperShape} d="M24 390l75-70 75 70z" />
-      <ellipse {...paperShape} cx="70" cy="360" rx="16" ry="18" />
-      <ellipse {...paperShape} cx="128" cy="360" rx="16" ry="18" />
-      <path {...paperShape} d="M86 470h28v70H86z" />
-      <path {...paperShape} d="M54 500h18v30H54z" />
-      <path {...paperShape} d="M128 500h18v30h-18z" />
+      <path {...p('cloud')} d="M8 655C70 520 180 500 250 590C180 630 80 650 8 655Z" />
+      <path {...p('cloud')} d="M632 655C560 500 430 490 360 590C440 630 560 650 632 655Z" />
+      <path {...p('cloud')} d="M24 430h150v225H24z" />
+      <path {...p('cloud')} d="M44 390h110v40H44z" />
+      <path {...p('cloud')} d="M24 390l75-70 75 70z" />
+      <ellipse {...p('cloud')} cx="70" cy="360" rx="16" ry="18" />
+      <ellipse {...p('cloud')} cx="128" cy="360" rx="16" ry="18" />
+      <path {...p('cloud')} d="M86 470h28v70H86z" />
+      <path {...p('cloud')} d="M54 500h18v30H54z" />
+      <path {...p('cloud')} d="M128 500h18v30h-18z" />
 
       <g {...p('halo')}>
         <circle cx="360" cy="228" r="112" />

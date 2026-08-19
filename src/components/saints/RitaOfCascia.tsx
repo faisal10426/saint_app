@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function rose(cx: number, cy: number, r: number) {
   return (
@@ -26,11 +26,11 @@ export default function RitaOfCascia({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M38 188c6-32 44-44 70-18 16-28 60-24 74 8 26-14 54 12 42 38 22 8 14 38-12 40-8 22-48 22-60-2-18 20-52 10-62-14-22 10-56-8-52-52z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M452 80c8-22 42-28 58-8 12-20 48-16 58 10 20-8 38 16 26 32 14 8 6 28-12 30-6 16-36 14-46-2-12 14-40 8-48-10-16 8-40-8-36-52z"
       />
 

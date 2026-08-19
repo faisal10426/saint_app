@@ -1,5 +1,6 @@
 export type RegionId =
   | 'background'
+  | 'cloud'
   | 'halo'
   | 'skin'
   | 'hair'

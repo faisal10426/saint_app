@@ -1,29 +1,29 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function Christopher({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M38 170c8-32 46-44 72-18 16-28 62-24 74 8 28-14 54 12 42 36 22 8 16 38-12 40-8 22-50 22-62-2-18 20-54 10-64-14-22 10-56-8-50-50z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M28 500c6-24 42-30 60-8 14-22 52-16 62 12 20-8 36 16 24 32 12 8 6 28-14 30-6 16-36 14-46-4-12 14-40 6-48-12-16 8-40-6-38-50z"
       />
 
-      <path {...paperShape} d="M4 655C80 575 180 560 270 618C190 642 80 652 4 655Z" />
-      <path {...paperShape} d="M636 655C550 555 430 548 340 616C430 644 540 652 636 655Z" />
+      <path {...p('cloud')} d="M4 655C80 575 180 560 270 618C190 642 80 652 4 655Z" />
+      <path {...p('cloud')} d="M636 655C550 555 430 548 340 616C430 644 540 652 636 655Z" />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M6 655C90 610 190 622 280 655C370 618 470 610 560 655C500 672 140 672 6 655Z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M40 630C70 608 110 618 130 642C100 648 60 650 40 630Z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M500 628C540 606 590 616 610 644C570 650 520 648 500 628Z"
       />
 

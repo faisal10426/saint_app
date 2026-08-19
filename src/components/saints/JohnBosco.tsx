@@ -1,18 +1,18 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function JohnBosco({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M22 168c10-36 52-44 78-14 18-28 66-22 76 12 26-16 54 14 42 40 20 6 12 38-14 40-10 22-52 20-62-4-16 18-54 8-64-16-24 10-64-10-56-58z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M458 72c12-24 48-26 62-4 14-22 54-14 60 14 24-10 44 20 28 36 16 6 6 32-16 32-8 18-40 14-48-4-14 16-46 6-52-14-18 8-46-12-34-60z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M24 488c8-28 46-34 64-8 16-24 56-14 64 14 22-10 40 18 24 36 14 6 4 30-16 30-8 16-38 12-46-6-12 16-44 4-50-14-18 8-44-8-40-52z"
       />
 

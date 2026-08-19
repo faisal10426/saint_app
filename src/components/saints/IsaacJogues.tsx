@@ -1,16 +1,16 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function IsaacJogues({ p, detail }: PortraitProps) {
   return (
     <>
-      <path {...paperShape} d="M18 200v220" />
-      <path {...paperShape} d="M18 200c-8-50 18-90 48-70 8 40-8 70-28 80" />
-      <path {...paperShape} d="M48 230c-6-40 16-70 40-52 6 32-6 56-22 64" />
-      <path {...paperShape} d="M70 250c-4-30 12-52 32-38 4 24-4 42-16 48" />
-      <path {...paperShape} d="M8 560c50-20 110 0 140 50-40 8-90 20-140 10z" />
-      <path {...paperShape} d="M20 560c12-24 50-20 62 8v36H20z" />
+      <path {...p('cloud')} d="M18 200v220" />
+      <path {...p('cloud')} d="M18 200c-8-50 18-90 48-70 8 40-8 70-28 80" />
+      <path {...p('cloud')} d="M48 230c-6-40 16-70 40-52 6 32-6 56-22 64" />
+      <path {...p('cloud')} d="M70 250c-4-30 12-52 32-38 4 24-4 42-16 48" />
+      <path {...p('cloud')} d="M8 560c50-20 110 0 140 50-40 8-90 20-140 10z" />
+      <path {...p('cloud')} d="M20 560c12-24 50-20 62 8v36H20z" />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M468 96c8-20 42-24 56-4 12-18 46-14 54 10 20-6 36 18 24 32 12 6 6 28-12 28-6 16-36 16-46-2-12 14-40 6-48-12-14 6-40-8-32-52z"
       />
 

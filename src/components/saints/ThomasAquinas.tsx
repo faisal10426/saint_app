@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function sunburst(cx: number, cy: number, outer: number, inner: number, n: number) {
   return Array.from({ length: n * 2 }, (_, i) => {
@@ -12,19 +12,19 @@ export default function ThomasAquinas({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M38 172c12-36 54-44 80-12 18-30 68-20 76 14 28-16 56 16 42 42 22 8 10 40-16 40-10 24-54 20-62-6-16 20-56 8-66-16-24 12-62-10-54-62z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M444 52c10-24 46-28 62-4 14-20 52-14 60 12 22-8 42 20 26 36 16 8 6 32-14 32-6 18-40 16-48-2-14 16-44 8-52-12-16 8-44-12-34-62z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M20 528c8-28 44-34 64-6 16-24 54-16 64 12 22-8 38 18 24 36 14 8 4 30-16 30-6 16-38 14-46-4-12 16-42 6-50-12-16 8-42-8-40-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M456 536c8-26 44-32 64-6 16-22 54-14 64 12 20-8 38 18 24 34 14 8 4 28-16 28-6 16-36 14-44-4-12 16-42 6-50-12-16 8-42-8-42-52z"
       />
 

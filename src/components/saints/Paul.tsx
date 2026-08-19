@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function spark(cx: number, cy: number, r: number) {
   return `${cx},${cy - r} ${cx + r * 0.22},${cy - r * 0.22} ${cx + r},${cy} ${cx + r * 0.22},${cy + r * 0.22} ${cx},${cy + r} ${cx - r * 0.22},${cy + r * 0.22} ${cx - r},${cy} ${cx - r * 0.22},${cy - r * 0.22}`;
@@ -8,16 +8,16 @@ export default function Paul({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M44 172c8-32 48-44 74-16 16-28 62-24 74 8 26-14 54 12 42 36 22 8 16 38-12 40-8 22-48 22-60 0-16 18-52 10-62-12-22 10-56-8-52-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M452 80c8-20 42-26 58-6 12-18 48-16 56 8 20-8 38 16 26 30 14 8 8 28-12 30-6 16-36 16-46 0-12 14-40 8-48-10-16 8-40-8-34-52z"
       />
 
-      <path {...paperShape} d="M16 655C48 590 96 572 138 608C108 628 58 646 16 655Z" />
-      <path {...paperShape} d="M22 638C48 618 88 622 108 642C78 650 44 648 22 638Z" />
+      <path {...p('cloud')} d="M16 655C48 590 96 572 138 608C108 628 58 646 16 655Z" />
+      <path {...p('cloud')} d="M22 638C48 618 88 622 108 642C78 650 44 648 22 638Z" />
       <g {...p('symbol')}>
         <path d="M58 628l8-36 10 4-4 32z" />
         <path d="M52 598h36l-6-16H58z" />
@@ -25,11 +25,11 @@ export default function Paul({ p, detail }: PortraitProps) {
         <path d="M68 572l4-14h12l4 14z" />
       </g>
 
-      <path {...paperShape} d="M548 655C520 600 478 572 438 598C468 622 512 640 548 655Z" />
-      <path {...paperShape} d="M500 620h48v35h-48z" />
-      <path {...paperShape} d="M492 620h64v14H492z" />
-      <path {...paperShape} d="M512 572h12v48h-12z" />
-      <path {...paperShape} d="M496 572h44v12h-44z" />
+      <path {...p('cloud')} d="M548 655C520 600 478 572 438 598C468 622 512 640 548 655Z" />
+      <path {...p('cloud')} d="M500 620h48v35h-48z" />
+      <path {...p('cloud')} d="M492 620h64v14H492z" />
+      <path {...p('cloud')} d="M512 572h12v48h-12z" />
+      <path {...p('cloud')} d="M496 572h44v12h-44z" />
       <g {...detail}>
         <path d="M508 590h28M508 602h28" />
       </g>

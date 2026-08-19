@@ -9,6 +9,7 @@ export type PaintFn = (region: RegionId) => {
   stroke: string;
   strokeWidth: number;
   strokeLinejoin: 'round';
+  pointerEvents: 'visiblePainted';
   role: 'button';
   tabIndex: number;
   'aria-label': string;
@@ -32,10 +33,3 @@ export type PortraitProps = {
 };
 
 export const ink = { fill: STROKE, stroke: 'none' as const, pointerEvents: 'none' as const };
-export const paperShape = {
-  fill: PAPER,
-  stroke: STROKE,
-  strokeWidth: 6,
-  strokeLinejoin: 'round' as const,
-  pointerEvents: 'none' as const,
-};

@@ -1,22 +1,22 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function Nicholas({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M36 176c8-34 48-46 74-18 16-30 64-26 76 8 28-14 56 12 44 38 22 8 16 40-12 42-8 24-50 22-62-2-18 20-54 10-64-14-22 10-58-8-56-54z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M448 72c10-24 46-28 62-6 14-20 50-16 58 10 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 16-48-2-12 16-42 8-50-10-16 8-44-10-38-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M24 520c8-26 44-32 62-8 16-24 54-16 64 12 22-8 38 18 24 34 14 8 4 30-16 30-6 18-38 14-46-4-12 16-42 6-50-12-16 8-42-8-38-52z"
       />
-      <path {...paperShape} d="M8 655C70 580 150 568 214 628C160 640 80 650 8 655Z" />
-      <path {...paperShape} d="M632 655C560 568 450 560 392 628C460 642 560 652 632 655Z" />
+      <path {...p('cloud')} d="M8 655C70 580 150 568 214 628C160 640 80 650 8 655Z" />
+      <path {...p('cloud')} d="M632 655C560 568 450 560 392 628C460 642 560 652 632 655Z" />
 
       <g {...p('halo')}>
         <circle cx="320" cy="268" r="124" />

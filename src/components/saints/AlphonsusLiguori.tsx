@@ -1,10 +1,10 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function AlphonsusLiguori({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M38 184c8-30 46-40 70-14 16-28 60-22 72 8 26-12 52 14 40 38 20 8 12 36-12 38-8 22-48 20-58-2-16 18-52 8-62-14-22 8-56-8-50-54z"
       />
 

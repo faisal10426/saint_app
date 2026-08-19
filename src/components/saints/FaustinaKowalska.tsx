@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function spark(cx: number, cy: number, r: number) {
   return `${cx},${cy - r} ${cx + r * 0.22},${cy - r * 0.22} ${cx + r},${cy} ${cx + r * 0.22},${cy + r * 0.22} ${cx},${cy + r} ${cx - r * 0.22},${cy + r * 0.22} ${cx - r},${cy} ${cx - r * 0.22},${cy - r * 0.22}`;
@@ -8,15 +8,15 @@ export default function FaustinaKowalska({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M48 186c4-32 42-46 68-22 16-30 62-28 76 6 28-14 56 10 46 36 22 8 16 40-12 42-8 24-50 24-62 0-18 20-54 12-64-12-22 10-56-8-52-50z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M438 88c8-22 42-28 58-8 12-20 48-18 58 8 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 18-48 0-12 16-42 10-50-10-16 8-42-8-34-54z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M36 520c6-24 40-30 58-8 14-22 50-18 60 10 20-8 36 16 24 32 12 8 6 28-14 30-6 16-36 16-46-2-12 14-40 8-48-10-16 8-40-6-34-52z"
       />
 
@@ -75,13 +75,13 @@ export default function FaustinaKowalska({ p, detail }: PortraitProps) {
         <circle cx="320" cy="478" r="18" />
       </g>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M292 508C286 492 300 478 320 476C340 478 354 492 348 508C372 530 368 560 352 572C340 548 300 548 288 572C272 560 268 530 292 508Z"
       />
-      <path {...paperShape} d="M348 500C360 492 372 498 368 512C362 508 352 508 348 500Z" />
-      <path {...paperShape} d="M292 500C280 492 268 498 272 512C278 508 288 508 292 500Z" />
-      <path {...paperShape} d="M320 508L382 572L382 548L332 512Z" />
-      <path {...paperShape} d="M320 508L382 560L370 572L320 524Z" />
+      <path {...p('cloud')} d="M348 500C360 492 372 498 368 512C362 508 352 508 348 500Z" />
+      <path {...p('cloud')} d="M292 500C280 492 268 498 272 512C278 508 288 508 292 500Z" />
+      <path {...p('cloud')} d="M320 508L382 572L382 548L332 512Z" />
+      <path {...p('cloud')} d="M320 508L382 560L370 572L320 524Z" />
 
       <g {...p('accent')}>
         <path d="M320 508L258 572L258 548L308 512Z" />

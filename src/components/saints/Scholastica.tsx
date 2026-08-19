@@ -1,19 +1,19 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function Scholastica({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M40 120c20-36 70-28 86 12 18-24 62-16 70 16 24-8 42 18 28 36 14 6 6 28-14 28-6 16-36 14-44-2-12 16-42 6-50-12-16 8-44-10-76-78z"
       />
-      <path {...paperShape} d="M72 150c-4 18 6 28 18 26M108 142c0 16 12 26 24 22M148 148c2 16 16 24 28 18" />
-      <path {...paperShape} d="M470 430h140v225H470z" />
-      <path {...paperShape} d="M490 390h100v40H490z" />
-      <path {...paperShape} d="M512 350h20v40h-20z" />
-      <path {...paperShape} d="M552 360h16v30h-16z" />
-      <path {...paperShape} d="M508 480h24v80H508z" />
-      <path {...paperShape} d="M556 500h16v50h-16z" />
+      <path {...p('cloud')} d="M72 150c-4 18 6 28 18 26M108 142c0 16 12 26 24 22M148 148c2 16 16 24 28 18" />
+      <path {...p('cloud')} d="M470 430h140v225H470z" />
+      <path {...p('cloud')} d="M490 390h100v40H490z" />
+      <path {...p('cloud')} d="M512 350h20v40h-20z" />
+      <path {...p('cloud')} d="M552 360h16v30h-16z" />
+      <path {...p('cloud')} d="M508 480h24v80H508z" />
+      <path {...p('cloud')} d="M556 500h16v50h-16z" />
 
       <g {...p('halo')}>
         <circle cx="292" cy="248" r="116" />

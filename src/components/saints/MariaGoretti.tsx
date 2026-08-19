@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function lily(cx: number, cy: number) {
   return (
@@ -26,28 +26,28 @@ export default function MariaGoretti({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M44 186c6-32 46-46 72-20 16-30 62-26 76 8 28-14 56 12 44 38 22 8 16 40-12 42-8 24-50 22-62-2-18 20-54 10-64-14-22 10-56-8-54-52z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M440 82c8-22 44-28 60-6 12-20 50-16 58 10 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 16-48-2-12 16-42 8-50-10-16 8-42-8-36-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M32 508c6-24 42-30 60-8 14-22 52-16 62 12 20-8 36 16 24 32 12 8 6 28-14 30-6 16-36 14-46-4-12 14-40 6-48-12-16 8-40-6-38-50z"
       />
 
-      <path {...paperShape} d="M18 655C88 540 168 548 214 630C140 648 68 656 18 655Z" />
-      <path {...paperShape} d="M622 655C548 528 450 540 400 628C478 648 560 656 622 655Z" />
-      <path {...paperShape} d="M78 520C88 430 118 380 138 430C148 390 178 400 172 470C168 530 108 560 78 520Z" />
-      <path {...paperShape} d="M562 518C552 428 522 378 502 428C492 388 462 398 468 468C472 528 532 558 562 518Z" />
+      <path {...p('cloud')} d="M18 655C88 540 168 548 214 630C140 648 68 656 18 655Z" />
+      <path {...p('cloud')} d="M622 655C548 528 450 540 400 628C478 648 560 656 622 655Z" />
+      <path {...p('cloud')} d="M78 520C88 430 118 380 138 430C148 390 178 400 172 470C168 530 108 560 78 520Z" />
+      <path {...p('cloud')} d="M562 518C552 428 522 378 502 428C492 388 462 398 468 468C472 528 532 558 562 518Z" />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M196 628v-40h10v-14h10v14h10v-20h10v20h10v-14h10v14h10v-18h10v18h10v-12h10v52z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M354 628v-36h10v-12h10v12h10v-18h10v18h10v-12h10v12h10v-16h10v16h10v-10h10v48z"
       />
 

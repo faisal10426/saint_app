@@ -1,14 +1,14 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function Lawrence({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M430 96c8-22 42-26 56-6 12-18 46-14 54 10 20-8 38 16 26 32 14 6 6 28-12 30-6 16-36 16-46-2-12 14-40 8-48-10-16 8-40-8-30-54z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M28 510c8-24 42-28 58-6 14-20 50-16 60 10 20-8 36 16 24 32 12 8 6 26-14 28-6 16-36 14-46-2-12 14-40 6-48-10-16 8-40-6-34-52z"
       />
 

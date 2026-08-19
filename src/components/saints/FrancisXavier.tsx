@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function burst(cx: number, cy: number, outer: number, inner: number, n: number) {
   return Array.from({ length: n * 2 }, (_, i) => {
@@ -12,17 +12,17 @@ export default function FrancisXavier({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M54 156c6-30 44-42 70-16 16-28 60-24 72 10 26-12 52 14 40 38 20 8 14 36-12 38-8 22-48 22-58-2-16 18-50 10-60-12-20 10-54-8-52-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M470 64c10-20 44-24 58-2 12-18 50-14 58 12 20-8 38 18 26 34 14 6 6 28-14 30-6 16-36 14-46-2-12 14-40 8-48-10-16 8-40-8-34-62z"
       />
 
-      <path {...paperShape} d="M8 655C28 590 70 540 118 552C96 600 52 636 8 655Z" />
-      <path {...paperShape} d="M430 655C470 610 530 600 632 628C620 644 560 656 430 655Z" />
-      <path {...paperShape} d="M428 608c22-14 48 4 70-4 24-8 48 10 72 0 20-8 40 6 62-6v52C590 640 530 656 430 655Z" />
+      <path {...p('cloud')} d="M8 655C28 590 70 540 118 552C96 600 52 636 8 655Z" />
+      <path {...p('cloud')} d="M430 655C470 610 530 600 632 628C620 644 560 656 430 655Z" />
+      <path {...p('cloud')} d="M428 608c22-14 48 4 70-4 24-8 48 10 72 0 20-8 40 6 62-6v52C590 640 530 656 430 655Z" />
 
       <g {...p('symbol')}>
         <path d="M12 655C48 548 92 492 138 518C112 572 64 622 12 655Z" />

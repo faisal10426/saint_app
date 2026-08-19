@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function lily(cx: number, cy: number) {
   return (
@@ -16,11 +16,11 @@ export default function Agnes({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M46 188c6-28 40-38 62-14 16-26 56-20 68 8 24-12 48 14 36 36 18 8 10 34-12 36-8 20-44 18-54-2-16 16-48 8-56-12-20 8-50-8-44-52z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M448 100c8-20 40-24 54-4 12-18 46-14 54 10 18-6 34 16 22 30 12 6 6 26-12 28-6 16-34 14-44-2-12 14-38 6-46-10-14 6-38-8-28-54z"
       />
 

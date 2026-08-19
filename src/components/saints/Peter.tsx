@@ -1,26 +1,26 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function Peter({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M42 176c8-34 48-46 74-18 16-30 64-26 76 8 28-14 56 12 44 38 22 8 16 40-12 42-8 24-50 22-62-2-18 20-54 10-64-14-22 10-58-8-56-54z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M452 82c8-22 44-28 60-6 12-20 50-16 58 10 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 16-48-2-12 16-42 8-50-10-16 8-42-8-36-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M12 600c50-30 120-20 150 20 40-24 110-16 130 22H12z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M40 640C70 575 140 560 200 610C140 628 80 638 40 640Z"
       />
-      <path {...paperShape} d="M70 610h90l-12 30H82z" />
-      <path {...paperShape} d="M100 590h40v20H100z" />
+      <path {...p('cloud')} d="M70 610h90l-12 30H82z" />
+      <path {...p('cloud')} d="M100 590h40v20H100z" />
 
       <g {...p('halo')}>
         <circle cx="320" cy="244" r="120" />

@@ -1,15 +1,15 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function KatharineDrexel({ p, detail }: PortraitProps) {
   return (
     <>
-      <path {...paperShape} d="M20 500h140v80H20z" />
-      <path {...paperShape} d="M20 500l70-48 70 48z" />
-      <path {...paperShape} d="M72 468v-22h16v16" />
-      <path {...paperShape} d="M48 530h24v50H48z" />
-      <path {...paperShape} d="M88 542h18v24h-18z" />
+      <path {...p('cloud')} d="M20 500h140v80H20z" />
+      <path {...p('cloud')} d="M20 500l70-48 70 48z" />
+      <path {...p('cloud')} d="M72 468v-22h16v16" />
+      <path {...p('cloud')} d="M48 530h24v50H48z" />
+      <path {...p('cloud')} d="M88 542h18v24h-18z" />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M470 94c8-20 42-24 56-4 12-18 46-14 54 10 20-6 36 18 24 32 12 6 6 28-12 28-6 16-36 16-46-2-12 14-40 6-48-12-14 6-40-8-32-52z"
       />
 

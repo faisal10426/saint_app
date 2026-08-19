@@ -1,16 +1,16 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function JeanDeBrebeuf({ p, detail }: PortraitProps) {
   return (
     <>
-      <path {...paperShape} d="M560 180v250" />
-      <path {...paperShape} d="M560 180c8-56-20-96-52-74-8 44 10 76 32 86" />
-      <path {...paperShape} d="M528 214c6-46-18-78-44-56-6 36 8 62 24 70" />
-      <path {...paperShape} d="M504 240c4-34-14-58-34-42-4 26 6 46 18 52" />
-      <path {...paperShape} d="M470 580c-50-24-120-8-160 48 48 10 110 22 160 12z" />
-      <path {...paperShape} d="M620 580c-14-28-56-22-70 10v40h70z" />
+      <path {...p('cloud')} d="M560 180v250" />
+      <path {...p('cloud')} d="M560 180c8-56-20-96-52-74-8 44 10 76 32 86" />
+      <path {...p('cloud')} d="M528 214c6-46-18-78-44-56-6 36 8 62 24 70" />
+      <path {...p('cloud')} d="M504 240c4-34-14-58-34-42-4 26 6 46 18 52" />
+      <path {...p('cloud')} d="M470 580c-50-24-120-8-160 48 48 10 110 22 160 12z" />
+      <path {...p('cloud')} d="M620 580c-14-28-56-22-70 10v40h70z" />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M36 176c8-30 46-40 70-14 16-28 60-22 72 8 26-12 52 14 40 38 20 8 12 36-12 38-8 22-48 20-58-2-16 18-52 8-62-14-22 8-56-8-50-54z"
       />
 

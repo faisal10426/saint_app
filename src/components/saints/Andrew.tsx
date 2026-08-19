@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function spark(cx: number, cy: number, r: number) {
   return `${cx},${cy - r} ${cx + r * 0.22},${cy - r * 0.22} ${cx + r},${cy} ${cx + r * 0.22},${cy + r * 0.22} ${cx},${cy + r} ${cx - r * 0.22},${cy + r * 0.22} ${cx - r},${cy} ${cx - r * 0.22},${cy - r * 0.22}`;
@@ -21,17 +21,17 @@ export default function Andrew({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M36 176c6-32 44-44 70-16 16-28 60-24 72 8 26-14 54 12 42 36 22 8 14 38-12 40-8 22-48 22-60 0-16 18-50 10-60-12-22 10-56-8-52-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M454 78c8-20 42-26 58-6 12-18 48-16 56 8 20-8 38 16 26 30 14 8 8 28-12 30-6 16-36 16-46 0-12 14-40 8-48-10-16 8-40-8-34-52z"
       />
 
-      <path {...paperShape} d="M8 655C60 600 140 592 210 630C150 642 70 652 8 655Z" />
-      <path {...paperShape} d="M8 638C80 608 160 612 220 640C140 648 60 650 8 638Z" />
-      <path {...paperShape} d="M20 622C70 600 130 604 176 628C110 632 50 632 20 622Z" />
+      <path {...p('cloud')} d="M8 655C60 600 140 592 210 630C150 642 70 652 8 655Z" />
+      <path {...p('cloud')} d="M8 638C80 608 160 612 220 640C140 648 60 650 8 638Z" />
+      <path {...p('cloud')} d="M20 622C70 600 130 604 176 628C110 632 50 632 20 622Z" />
       <g {...p('symbol')}>
         <path d="M86 618l10-28 8 4-6 24z" />
         <path d="M80 596h32l-8-14H88z" />

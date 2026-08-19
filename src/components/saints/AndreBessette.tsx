@@ -1,16 +1,16 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function AndreBessette({ p, detail }: PortraitProps) {
   return (
     <>
-      <path {...paperShape} d="M470 430h140v225H470z" />
-      <path {...paperShape} d="M500 390h80v40h-80z" />
-      <path {...paperShape} d="M530 360h20v30h-20z" />
-      <path {...paperShape} d="M512 470h22v70H512z" />
-      <path {...paperShape} d="M556 490h16v40h-16z" />
-      <path {...paperShape} d="M488 620h20v35h-20z" />
+      <path {...p('cloud')} d="M470 430h140v225H470z" />
+      <path {...p('cloud')} d="M500 390h80v40h-80z" />
+      <path {...p('cloud')} d="M530 360h20v30h-20z" />
+      <path {...p('cloud')} d="M512 470h22v70H512z" />
+      <path {...p('cloud')} d="M556 490h16v40h-16z" />
+      <path {...p('cloud')} d="M488 620h20v35h-20z" />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M36 188c6-28 42-38 64-14 16-26 58-22 70 8 24-12 50 14 38 36 18 8 10 36-12 38-8 20-46 20-56-2-16 18-50 10-58-12-20 8-52-8-48-54z"
       />
 

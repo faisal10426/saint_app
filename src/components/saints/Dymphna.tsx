@@ -1,14 +1,14 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function Dymphna({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M36 178c8-32 46-42 72-16 16-28 62-24 74 8 26-14 54 12 42 38 22 8 14 38-12 40-8 22-50 22-60-2-18 20-54 10-64-14-22 10-56-8-52-54z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M448 78c8-22 42-28 58-8 12-20 48-16 58 10 20-8 38 16 26 32 14 8 6 28-12 30-6 16-36 14-46-2-12 14-40 8-48-10-16 8-40-8-36-52z"
       />
 

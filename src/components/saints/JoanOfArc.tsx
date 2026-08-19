@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function fleur(cx: number, cy: number, s: number) {
   return (
@@ -15,15 +15,15 @@ export default function JoanOfArc({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M40 160c8-32 46-42 72-14 16-28 62-22 74 10 26-12 54 14 42 38 22 8 14 38-12 40-8 22-48 20-60-4-18 18-52 8-62-14-22 8-56-10-54-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M456 70c8-20 44-24 60-2 12-18 50-14 58 12 22-8 40 18 28 34 14 8 8 28-12 30-6 16-38 14-48-4-12 14-42 6-50-12-16 6-42-10-36-58z"
       />
-      <path {...paperShape} d="M8 655C70 580 160 590 230 648C140 652 60 656 8 655Z" />
-      <path {...paperShape} d="M632 655C560 575 450 585 370 648C470 654 560 656 632 655Z" />
+      <path {...p('cloud')} d="M8 655C70 580 160 590 230 648C140 652 60 656 8 655Z" />
+      <path {...p('cloud')} d="M632 655C560 575 450 585 370 648C470 654 560 656 632 655Z" />
 
       <g {...p('halo')}>
         <circle cx="300" cy="232" r="108" />

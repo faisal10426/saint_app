@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function rose(cx: number, cy: number, r: number) {
   return (
@@ -15,14 +15,14 @@ export default function RoseOfLima({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M24 560c40-80 110-90 170-30 20-50 90-40 110 20C250 600 140 640 24 655Z"
       />
-      <path {...paperShape} d="M40 620h90v36H40z" />
-      <path {...paperShape} d="M32 620l53-48 53 48z" />
-      <path {...paperShape} d="M78 596v-28h16v20" />
+      <path {...p('cloud')} d="M40 620h90v36H40z" />
+      <path {...p('cloud')} d="M32 620l53-48 53 48z" />
+      <path {...p('cloud')} d="M78 596v-28h16v20" />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M470 100c8-20 40-24 54-4 12-18 44-12 52 10 18-6 34 16 22 30 12 6 4 26-14 26-6 16-34 14-42-2-12 14-38 6-46-10-14 6-36-8-26-50z"
       />
 

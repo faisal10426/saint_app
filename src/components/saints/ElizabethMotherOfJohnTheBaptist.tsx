@@ -1,13 +1,13 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function ElizabethMotherOfJohnTheBaptist({ p, detail }: PortraitProps) {
   return (
     <>
-      <path {...paperShape} d="M92 655V268C92 168 198 78 320 78C442 78 548 168 548 268V655" />
-      <path {...paperShape} d="M128 655V292C128 206 214 118 320 118C426 118 512 206 512 292V655" />
-      <path {...paperShape} d="M168 248h304v22H168z" />
+      <path {...p('cloud')} d="M92 655V268C92 168 198 78 320 78C442 78 548 168 548 268V655" />
+      <path {...p('cloud')} d="M128 655V292C128 206 214 118 320 118C426 118 512 206 512 292V655" />
+      <path {...p('cloud')} d="M168 248h304v22H168z" />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M42 168c8-28 44-36 66-10 14-24 54-18 66 10 20-8 36 16 24 32 12 8 6 28-14 28-6 16-36 14-46-4-12 16-40 6-48-12-16 8-40-8-48-44z"
       />
 

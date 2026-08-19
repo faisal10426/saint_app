@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function lily(cx: number, cy: number) {
   return (
@@ -15,23 +15,23 @@ export default function Anne({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M28 168c8-32 48-44 74-16 16-30 64-24 76 10 26-14 54 12 42 38 22 8 14 40-14 40-8 24-50 20-60-4-18 20-54 8-64-16-22 10-60-8-54-52z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M460 70c10-22 46-26 60-4 14-20 52-14 58 12 22-8 40 18 26 34 14 8 6 30-14 30-6 18-38 14-46-4-14 16-44 6-52-12-16 8-44-10-32-56z"
       />
 
-      <path {...paperShape} d="M8 655C70 560 160 548 228 618C150 640 68 652 8 655Z" />
-      <path {...paperShape} d="M632 655C560 545 460 538 392 616C470 642 560 654 632 655Z" />
-      <path {...paperShape} d="M48 540C58 450 88 400 108 450C118 410 148 420 142 490C138 550 78 580 48 540Z" />
-      <path {...paperShape} d="M92 528C100 450 122 410 136 450C144 420 168 428 162 488C158 538 112 558 92 528Z" />
+      <path {...p('cloud')} d="M8 655C70 560 160 548 228 618C150 640 68 652 8 655Z" />
+      <path {...p('cloud')} d="M632 655C560 545 460 538 392 616C470 642 560 654 632 655Z" />
+      <path {...p('cloud')} d="M48 540C58 450 88 400 108 450C118 410 148 420 142 490C138 550 78 580 48 540Z" />
+      <path {...p('cloud')} d="M92 528C100 450 122 410 136 450C144 420 168 428 162 488C158 538 112 558 92 528Z" />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M478 548h26v72h-26zM504 528h22v92h-22zM526 540h24v80h-24zM550 520h18v100h-18zM568 544h16v76h-16z"
       />
-      <path {...paperShape} d="M516 528l10-18 10 18zM558 520l8-14 8 14z" />
+      <path {...p('cloud')} d="M516 528l10-18 10 18zM558 520l8-14 8 14z" />
 
       <g {...p('symbol')}>
         {lily(56, 600)}

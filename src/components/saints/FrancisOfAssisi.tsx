@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function spark(cx: number, cy: number, r: number) {
   return `${cx},${cy - r} ${cx + r * 0.22},${cy - r * 0.22} ${cx + r},${cy} ${cx + r * 0.22},${cy + r * 0.22} ${cx},${cy + r} ${cx - r * 0.22},${cy + r * 0.22} ${cx - r},${cy} ${cx - r * 0.22},${cy - r * 0.22}`;
@@ -23,15 +23,15 @@ export default function FrancisOfAssisi({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M36 186c6-34 46-48 72-20 18-32 66-26 78 8 30-16 58 12 46 38 24 8 14 42-14 42-8 24-52 22-62-2-18 22-56 10-64-14-24 12-62-8-56-52z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M448 78c10-24 46-30 62-6 14-22 52-16 60 10 24-8 42 18 28 34 16 8 6 32-14 32-6 18-40 16-48-2-14 16-44 8-52-12-16 8-44-10-36-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M28 498c8-26 44-32 62-8 16-24 54-16 64 12 22-8 38 18 24 34 14 8 4 30-16 30-6 18-38 14-46-4-12 16-42 6-50-12-16 8-42-8-38-52z"
       />
 
@@ -50,12 +50,12 @@ export default function FrancisOfAssisi({ p, detail }: PortraitProps) {
         <polygon points={spark(508, 198, 7)} />
       </g>
 
-      <path {...paperShape} d="M8 655C48 560 128 528 214 586C168 620 78 642 8 655Z" />
-      <path {...paperShape} d="M632 655C574 548 470 522 392 590C448 628 548 646 632 655Z" />
-      <path {...paperShape} d="M18 655C70 600 128 608 168 648C110 652 52 656 18 655Z" />
-      <path {...paperShape} d="M622 655C568 598 500 606 458 648C520 654 580 656 622 655Z" />
+      <path {...p('cloud')} d="M8 655C48 560 128 528 214 586C168 620 78 642 8 655Z" />
+      <path {...p('cloud')} d="M632 655C574 548 470 522 392 590C448 628 548 646 632 655Z" />
+      <path {...p('cloud')} d="M18 655C70 600 128 608 168 648C110 652 52 656 18 655Z" />
+      <path {...p('cloud')} d="M622 655C568 598 500 606 458 648C520 654 580 656 622 655Z" />
 
-      <g {...p('symbol')}>
+      <g {...p('cloud')}>
         {flower(58, 618)}
         {flower(108, 638)}
         {flower(532, 622)}

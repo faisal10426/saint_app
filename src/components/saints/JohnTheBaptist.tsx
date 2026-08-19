@@ -1,21 +1,21 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function JohnTheBaptist({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M46 176c8-34 48-46 74-18 16-30 64-26 76 8 28-14 56 12 44 38 22 8 16 40-12 42-8 24-50 22-62-2-18 20-54 10-64-14-22 10-58-8-56-54z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M452 78c8-22 44-28 60-6 12-20 50-16 58 10 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 16-48-2-12 16-42 8-50-10-16 8-42-8-36-56z"
       />
 
-      <path {...paperShape} d="M8 655C52 590 120 568 198 612C150 636 70 650 8 655Z" />
-      <path {...paperShape} d="M632 655C578 578 470 562 392 618C448 642 548 652 632 655Z" />
+      <path {...p('cloud')} d="M8 655C52 590 120 568 198 612C150 636 70 650 8 655Z" />
+      <path {...p('cloud')} d="M632 655C578 578 470 562 392 618C448 642 548 652 632 655Z" />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M12 655C80 620 160 628 220 655C280 628 360 622 420 655C480 630 560 624 628 655C560 668 80 668 12 655Z"
       />
 

@@ -1,12 +1,12 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function PierGiorgioFrassati({ p, detail }: PortraitProps) {
   return (
     <>
-      <path {...paperShape} d="M28 268l86-150 78 86 70-118 92 132 86-96 78 70 94 76v132H28z" />
-      <path {...paperShape} d="M114 200l28-48 22 36zM262 168l24-42 20 32zM456 190l22-40 18 30z" />
+      <path {...p('cloud')} d="M28 268l86-150 78 86 70-118 92 132 86-96 78 70 94 76v132H28z" />
+      <path {...p('cloud')} d="M114 200l28-48 22 36zM262 168l24-42 20 32zM456 190l22-40 18 30z" />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M36 498c8-24 42-30 60-8 14-22 50-16 62 12 20-8 36 16 24 32 12 8 6 28-14 30-6 16-34 14-44-4-12 14-40 6-48-12-16 8-40-6-40-50z"
       />
 

@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function bloom(cx: number, cy: number) {
   return (
@@ -15,11 +15,11 @@ export default function JosephineBakhita({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M32 530c8-24 42-28 58-6 14-20 50-16 60 10 20-8 36 16 24 32 12 8 6 26-14 28-6 16-36 14-46-2-12 14-40 6-48-10-16 8-40-6-34-52z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M468 96c8-20 42-24 56-4 12-18 46-14 54 10 20-6 36 18 24 32 12 6 6 28-12 28-6 16-36 16-46-2-12 14-40 6-48-12-14 6-40-8-32-52z"
       />
 

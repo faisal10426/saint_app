@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function spark(cx: number, cy: number, r: number) {
   return `${cx},${cy - r} ${cx + r * 0.22},${cy - r * 0.22} ${cx + r},${cy} ${cx + r * 0.22},${cy + r * 0.22} ${cx},${cy + r} ${cx - r * 0.22},${cy + r * 0.22} ${cx - r},${cy} ${cx - r * 0.22},${cy - r * 0.22}`;
@@ -8,11 +8,11 @@ export default function MaryMagdalene({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M40 170c8-32 46-44 72-16 16-28 62-24 74 8 26-14 54 12 42 36 22 8 16 38-12 40-8 22-48 22-60 0-16 18-52 10-62-12-22 10-56-8-52-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M448 72c8-20 42-26 58-6 12-18 48-16 56 8 20-8 38 16 26 30 14 8 8 28-12 30-6 16-36 16-46 0-12 14-40 8-48-10-16 8-40-8-34-52z"
       />
 
@@ -26,8 +26,8 @@ export default function MaryMagdalene({ p, detail }: PortraitProps) {
         <path d="M548 655C552 620 560 590 572 568" />
       </g>
 
-      <path {...paperShape} d="M18 655C48 600 96 572 148 598C108 620 58 642 18 655Z" />
-      <path {...paperShape} d="M36 640C58 618 92 610 118 628C86 638 56 644 36 640Z" />
+      <path {...p('cloud')} d="M18 655C48 600 96 572 148 598C108 620 58 642 18 655Z" />
+      <path {...p('cloud')} d="M36 640C58 618 92 610 118 628C86 638 56 644 36 640Z" />
 
       <g {...p('halo')}>
         <circle cx="320" cy="232" r="128" />

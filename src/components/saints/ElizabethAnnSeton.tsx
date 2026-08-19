@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function rose(cx: number, cy: number, r: number) {
   return (
@@ -15,16 +15,16 @@ export default function ElizabethAnnSeton({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M42 180c6-32 46-44 72-16 16-30 64-26 76 8 28-14 56 12 44 38 22 8 16 40-12 42-8 24-50 22-62-2-18 20-54 10-64-14-22 10-58-8-56-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M454 74c8-22 44-26 60-4 12-20 50-16 58 10 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 16-48-2-12 16-42 8-50-10-16 8-42-8-36-56z"
       />
 
-      <path {...paperShape} d="M8 655C62 575 150 552 228 610C160 638 72 652 8 655Z" />
-      <path {...paperShape} d="M632 655C568 560 470 548 392 612C460 642 552 654 632 655Z" />
+      <path {...p('cloud')} d="M8 655C62 575 150 552 228 610C160 638 72 652 8 655Z" />
+      <path {...p('cloud')} d="M632 655C568 560 470 548 392 612C460 642 552 654 632 655Z" />
 
       <g {...p('symbol')}>
         <path d="M468 488h92v140H468z" />
@@ -43,7 +43,7 @@ export default function ElizabethAnnSeton({ p, detail }: PortraitProps) {
       </g>
 
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M468 628v-48h8v-16h8v16h8v-22h8v22h8v-16h8v16h8v-20h8v20h8v-14h8v62z"
       />
       <g {...p('symbol')}>

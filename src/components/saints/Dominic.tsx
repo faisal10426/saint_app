@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function lily(cx: number, cy: number, rot: number) {
   return (
@@ -14,19 +14,19 @@ export default function Dominic({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M18 210c8-38 50-48 78-16 20-32 70-24 80 12 30-14 58 16 44 42 24 8 12 40-16 40-8 26-54 22-64-4-18 22-58 10-66-16-24 12-66-8-56-58z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M430 58c10-26 48-30 64-6 14-22 54-16 62 12 24-10 44 20 28 38 16 8 4 32-16 32-6 20-42 16-50-4-14 18-46 8-54-12-18 8-46-12-34-60z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M12 540c10-30 48-36 68-8 18-26 58-16 68 14 24-10 42 20 26 38 16 8 4 32-18 32-8 18-40 14-48-6-14 16-46 6-54-14-18 8-46-8-42-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M430 548c8-28 46-34 66-6 16-24 56-16 66 12 22-8 40 18 24 36 14 8 4 30-16 30-6 18-38 14-46-4-12 16-44 6-52-12-16 8-44-8-42-56z"
       />
 

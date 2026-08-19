@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function hibiscus(cx: number, cy: number) {
   return (
@@ -15,16 +15,16 @@ function hibiscus(cx: number, cy: number) {
 export default function DamienOfMolokai({ p, detail }: PortraitProps) {
   return (
     <>
-      <path {...paperShape} d="M36 430c-8 60 8 140 28 210H20C8 560 12 480 36 430Z" />
-      <path {...paperShape} d="M48 500c18-80 8-140-8-180 28 20 40 90 28 170" />
-      <ellipse {...paperShape} cx="52" cy="330" rx="28" ry="14" />
-      <path {...paperShape} d="M560 420c8 60-8 140-28 210h44C632 550 628 470 560 420Z" />
-      <path {...paperShape} d="M548 490c-18-80-8-140 8-180-28 20-40 90-28 170" />
-      <ellipse {...paperShape} cx="588" cy="320" rx="30" ry="14" />
-      <path {...paperShape} d="M470 500h140v155H470z" />
-      <path {...paperShape} d="M500 460h80v40h-80z" />
-      <path {...paperShape} d="M528 430h24v30h-24z" />
-      <path {...paperShape} d="M512 540h22v50H512z" />
+      <path {...p('cloud')} d="M36 430c-8 60 8 140 28 210H20C8 560 12 480 36 430Z" />
+      <path {...p('cloud')} d="M48 500c18-80 8-140-8-180 28 20 40 90 28 170" />
+      <ellipse {...p('cloud')} cx="52" cy="330" rx="28" ry="14" />
+      <path {...p('cloud')} d="M560 420c8 60-8 140-28 210h44C632 550 628 470 560 420Z" />
+      <path {...p('cloud')} d="M548 490c-18-80-8-140 8-180-28 20-40 90-28 170" />
+      <ellipse {...p('cloud')} cx="588" cy="320" rx="30" ry="14" />
+      <path {...p('cloud')} d="M470 500h140v155H470z" />
+      <path {...p('cloud')} d="M500 460h80v40h-80z" />
+      <path {...p('cloud')} d="M528 430h24v30h-24z" />
+      <path {...p('cloud')} d="M512 540h22v50H512z" />
 
       <g {...p('halo')}>
         <circle cx="308" cy="236" r="114" />

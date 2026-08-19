@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, type PortraitProps } from './types';
+import { PAPER, ink, type PortraitProps } from './types';
 
 function starPoints(cx: number, cy: number, r: number) {
   return Array.from({ length: 10 }, (_, i) => {
@@ -16,28 +16,13 @@ export default function MaryMotherOfGod({ p, detail }: PortraitProps) {
       cy: 258 + 142 * Math.sin(angle),
     };
   });
-  const cloud = {
-    fill: PAPER,
-    stroke: STROKE,
-    strokeWidth: 6,
-    strokeLinejoin: 'round' as const,
-    pointerEvents: 'none' as const,
-  };
-
   return (
     <>
-      <path
-        {...cloud}
-        d="M48 200c4-32 42-46 68-22 16-30 62-28 76 6 28-14 56 10 46 36 22 8 16 40-12 42-8 24-50 24-62 0-18 20-54 12-64-12-22 10-56-8-52-50z"
-      />
-      <path
-        {...cloud}
-        d="M438 88c8-22 42-28 58-8 12-20 48-18 58 8 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 18-48 0-12 16-42 10-50-10-16 8-42-8-34-54z"
-      />
-      <path
-        {...cloud}
-        d="M40 520c6-24 40-30 58-8 14-22 50-18 60 10 20-8 36 16 24 32 12 8 6 28-14 30-6 16-36 16-46-2-12 14-40 8-48-10-16 8-40-6-34-52z"
-      />
+      <g {...p('cloud')}>
+        <path d="M48 200c4-32 42-46 68-22 16-30 62-28 76 6 28-14 56 10 46 36 22 8 16 40-12 42-8 24-50 24-62 0-18 20-54 12-64-12-22 10-56-8-52-50z" />
+        <path d="M438 88c8-22 42-28 58-8 12-20 48-18 58 8 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 18-48 0-12 16-42 10-50-10-16 8-42-8-34-54z" />
+        <path d="M40 520c6-24 40-30 58-8 14-22 50-18 60 10 20-8 36 16 24 32 12 8 6 28-14 30-6 16-36 16-46-2-12 14-40 8-48-10-16 8-40-6-34-52z" />
+      </g>
 
       <g {...p('halo')}>
         <circle cx="320" cy="258" r="138" />

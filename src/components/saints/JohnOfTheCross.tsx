@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function JohnOfTheCross({ p, detail }: PortraitProps) {
   const stars = [
@@ -16,9 +16,9 @@ export default function JohnOfTheCross({ p, detail }: PortraitProps) {
 
   return (
     <>
-      <path {...paperShape} d="M8 655C48 540 120 500 200 560C150 600 70 640 8 655Z" />
-      <path {...paperShape} d="M632 655C560 520 440 500 360 580C430 620 540 646 632 655Z" />
-      <path {...paperShape} d="M40 580C80 540 140 560 170 610" />
+      <path {...p('cloud')} d="M8 655C48 540 120 500 200 560C150 600 70 640 8 655Z" />
+      <path {...p('cloud')} d="M632 655C560 520 440 500 360 580C430 620 540 646 632 655Z" />
+      <path {...p('cloud')} d="M40 580C80 540 140 560 170 610" />
 
       <g {...p('halo')}>
         <circle cx="308" cy="236" r="118" />

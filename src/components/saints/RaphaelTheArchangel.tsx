@@ -1,20 +1,20 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function RaphaelTheArchangel({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M32 188c8-32 46-44 72-16 16-28 62-24 74 8 26-14 54 12 42 36 22 8 14 38-12 40-8 22-48 22-60-2-18 18-52 10-62-12-22 10-56-8-54-54z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M448 86c8-22 44-26 60-4 12-20 50-16 58 10 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 16-48-2-12 16-42 8-50-10-16 8-42-8-36-56z"
       />
-      <path {...paperShape} d="M8 655C90 575 200 590 280 648C180 652 80 656 8 655Z" />
-      <path {...paperShape} d="M632 655C540 540 400 555 310 640C430 650 550 656 632 655Z" />
+      <path {...p('cloud')} d="M8 655C90 575 200 590 280 648C180 652 80 656 8 655Z" />
+      <path {...p('cloud')} d="M632 655C540 540 400 555 310 640C430 650 550 656 632 655Z" />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M12 600c40-20 90-8 110 24 30-18 80-10 90 22 24-8 50 12 36 32H12z"
       />
 

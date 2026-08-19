@@ -1,19 +1,19 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function IsidoreOfSeville({ p, detail }: PortraitProps) {
   return (
     <>
-      <path {...paperShape} d="M20 220h110v420H20z" />
-      <path {...paperShape} d="M32 250h86v18H32z" />
-      <path {...paperShape} d="M32 300h86v18H32z" />
-      <path {...paperShape} d="M32 350h86v18H32z" />
-      <path {...paperShape} d="M32 400h86v18H32z" />
-      <path {...paperShape} d="M32 450h86v18H32z" />
-      <path {...paperShape} d="M32 500h86v18H32z" />
-      <path {...paperShape} d="M32 550h86v18H32z" />
-      <path {...paperShape} d="M32 600h86v18H32z" />
+      <path {...p('cloud')} d="M20 220h110v420H20z" />
+      <path {...p('cloud')} d="M32 250h86v18H32z" />
+      <path {...p('cloud')} d="M32 300h86v18H32z" />
+      <path {...p('cloud')} d="M32 350h86v18H32z" />
+      <path {...p('cloud')} d="M32 400h86v18H32z" />
+      <path {...p('cloud')} d="M32 450h86v18H32z" />
+      <path {...p('cloud')} d="M32 500h86v18H32z" />
+      <path {...p('cloud')} d="M32 550h86v18H32z" />
+      <path {...p('cloud')} d="M32 600h86v18H32z" />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M468 92c8-20 42-24 56-4 12-18 46-14 54 10 20-6 36 18 24 32 12 6 6 28-12 28-6 16-36 16-46-2-12 14-40 6-48-12-14 6-40-8-32-52z"
       />
 

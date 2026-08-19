@@ -1,18 +1,18 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function JoseSanchezDelRio({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M42 176c8-34 48-46 74-18 16-30 64-26 76 8 28-14 56 12 44 38 22 8 16 40-12 42-8 24-50 22-62-2-18 20-54 10-64-14-22 10-58-8-56-54z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M452 80c8-22 44-28 60-6 12-20 50-16 58 10 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 16-48-2-12 16-42 8-50-10-16 8-42-8-36-56z"
       />
 
-      <g {...paperShape}>
+      <g {...p('cloud')}>
         <ellipse cx="86" cy="560" rx="28" ry="36" />
         <ellipse cx="118" cy="548" rx="22" ry="28" />
         <ellipse cx="58" cy="548" rx="20" ry="26" />

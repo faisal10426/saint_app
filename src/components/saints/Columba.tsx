@@ -1,18 +1,18 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function Columba({ p, detail }: PortraitProps) {
   return (
     <>
-      <path {...paperShape} d="M8 620C40 580 90 590 130 630C70 640 30 648 8 655Z" />
-      <path {...paperShape} d="M40 640C70 620 110 628 140 650" />
-      <path {...paperShape} d="M20 655C50 640 90 646 120 655" />
-      <path {...paperShape} d="M24 548c40-20 90-8 110 28-36 8-80 20-110 8z" />
-      <path {...paperShape} d="M36 548c8-18 36-16 44 4v28H36z" />
-      <path {...paperShape} d="M470 400h140v120H470z" />
-      <path {...paperShape} d="M490 360h100v40H490z" />
-      <path {...paperShape} d="M520 330h20v30h-20z" />
-      <path {...paperShape} d="M556 338h14v22h-14z" />
-      <path {...paperShape} d="M508 450h22v50H508z" />
+      <path {...p('cloud')} d="M8 620C40 580 90 590 130 630C70 640 30 648 8 655Z" />
+      <path {...p('cloud')} d="M40 640C70 620 110 628 140 650" />
+      <path {...p('cloud')} d="M20 655C50 640 90 646 120 655" />
+      <path {...p('cloud')} d="M24 548c40-20 90-8 110 28-36 8-80 20-110 8z" />
+      <path {...p('cloud')} d="M36 548c8-18 36-16 44 4v28H36z" />
+      <path {...p('cloud')} d="M470 400h140v120H470z" />
+      <path {...p('cloud')} d="M490 360h100v40H490z" />
+      <path {...p('cloud')} d="M520 330h20v30h-20z" />
+      <path {...p('cloud')} d="M556 338h14v22h-14z" />
+      <path {...p('cloud')} d="M508 450h22v50H508z" />
 
       <g {...p('halo')}>
         <circle cx="320" cy="232" r="114" />

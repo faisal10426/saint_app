@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function pine(cx: number, cy: number, w: number, h: number) {
   return (
@@ -27,11 +27,11 @@ export default function KateriTekakwitha({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M56 160c8-32 46-42 72-16 16-28 62-24 72 10 26-14 54 12 42 38 20 8 14 36-12 38-8 22-48 22-58-2-16 18-52 10-62-12-20 10-56-8-54-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M456 68c10-22 44-26 58-4 12-18 50-14 58 12 22-8 40 18 26 34 14 6 8 28-12 30-6 16-36 14-46-2-12 14-42 8-50-10-16 8-40-8-34-60z"
       />
 
@@ -41,14 +41,14 @@ export default function KateriTekakwitha({ p, detail }: PortraitProps) {
         {pine(588, 424, 40, 108)}
         {pine(534, 466, 32, 84)}
       </g>
-      <path {...paperShape} d="M8 655C80 590 180 600 240 655H8z" />
-      <path {...paperShape} d="M632 655C560 588 460 598 400 655H632z" />
+      <path {...p('cloud')} d="M8 655C80 590 180 600 240 655H8z" />
+      <path {...p('cloud')} d="M632 655C560 588 460 598 400 655H632z" />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M8 620C70 600 140 608 200 628C160 640 80 648 8 642Z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M632 620C570 600 500 608 440 628C480 640 560 648 632 642Z"
       />
 

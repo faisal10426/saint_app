@@ -1,4 +1,4 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 function lily(cx: number, cy: number) {
   return (
@@ -16,22 +16,22 @@ export default function Agatha({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M42 178c6-32 46-44 72-16 16-30 64-26 76 8 28-14 56 12 44 38 22 8 16 40-12 42-8 24-50 22-62-2-18 20-54 10-64-14-22 10-58-8-56-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M448 76c8-22 44-26 60-4 12-20 50-16 58 10 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 16-48-2-12 16-42 8-50-10-16 8-42-8-36-56z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M24 492c6-24 42-30 60-8 14-22 52-16 62 12 20-8 36 16 24 32 12 8 6 28-14 30-6 16-36 14-46-4-12 14-40 6-48-12-16 8-40-6-38-50z"
       />
 
-      <path {...paperShape} d="M8 655C78 560 170 548 230 618C160 640 72 652 8 655Z" />
-      <path {...paperShape} d="M632 655C555 545 448 538 372 616C450 642 548 654 632 655Z" />
-      <path {...paperShape} d="M48 560C58 470 88 410 108 460C118 420 148 430 142 500C138 560 78 590 48 560Z" />
-      <path {...paperShape} d="M88 548C96 470 118 430 132 470C140 440 164 448 158 508C154 558 108 578 88 548Z" />
+      <path {...p('cloud')} d="M8 655C78 560 170 548 230 618C160 640 72 652 8 655Z" />
+      <path {...p('cloud')} d="M632 655C555 545 448 538 372 616C450 642 548 654 632 655Z" />
+      <path {...p('cloud')} d="M48 560C58 470 88 410 108 460C118 420 148 430 142 500C138 560 78 590 48 560Z" />
+      <path {...p('cloud')} d="M88 548C96 470 118 430 132 470C140 440 164 448 158 508C154 558 108 578 88 548Z" />
 
       <g {...p('symbol')}>
         <path d="M478 430h96v180H478z" />

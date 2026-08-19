@@ -1,14 +1,14 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function Matthias({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M40 168c10-30 50-40 74-12 18-28 64-22 74 10 26-12 52 16 38 40 20 6 12 38-14 38-10 22-48 20-58-4-16 18-52 8-62-14-20 8-54-10-52-58z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M468 92c10-20 44-24 58-4 14-18 48-14 56 10 20-6 36 18 24 32 12 6 4 28-14 28-8 16-36 14-44-2-12 14-40 6-48-12-14 6-40-8-32-54z"
       />
 

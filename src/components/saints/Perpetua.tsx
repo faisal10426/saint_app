@@ -1,12 +1,12 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function Perpetua({ p, detail }: PortraitProps) {
   return (
     <>
-      <path {...paperShape} d="M72 92h160v210H72z" />
-      <path {...paperShape} d="M88 108h128v178H88z" />
+      <path {...p('cloud')} d="M72 92h160v210H72z" />
+      <path {...p('cloud')} d="M88 108h128v178H88z" />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M448 78c10-22 44-26 58-6 12-20 48-16 58 10 20-8 38 16 26 32 14 8 6 28-12 30-6 16-36 14-46-2-12 14-40 8-48-10-16 8-42-8-36-54z"
       />
 

@@ -1,21 +1,21 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function Benedict({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M42 176c8-34 48-46 74-18 16-30 64-26 76 8 28-14 56 12 44 38 22 8 16 40-12 42-8 24-50 22-62-2-18 20-54 10-64-14-22 10-58-8-56-54z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M452 82c8-22 44-28 60-6 12-20 50-16 58 10 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 16-48-2-12 16-42 8-50-10-16 8-42-8-36-56z"
       />
-      <path {...paperShape} d="M8 655C70 560 160 555 240 630C150 642 60 652 8 655Z" />
-      <path {...paperShape} d="M632 655C548 545 430 550 350 628C450 642 560 652 632 655Z" />
-      <path {...paperShape} d="M40 655C80 600 140 595 190 640C120 648 70 654 40 655Z" />
-      <path {...paperShape} d="M500 560h80v95H500z" />
-      <path {...paperShape} d="M490 560h100l-16-48H506z" />
+      <path {...p('cloud')} d="M8 655C70 560 160 555 240 630C150 642 60 652 8 655Z" />
+      <path {...p('cloud')} d="M632 655C548 545 430 550 350 628C450 642 560 652 632 655Z" />
+      <path {...p('cloud')} d="M40 655C80 600 140 595 190 640C120 648 70 654 40 655Z" />
+      <path {...p('cloud')} d="M500 560h80v95H500z" />
+      <path {...p('cloud')} d="M490 560h100l-16-48H506z" />
 
       <g {...p('halo')}>
         <circle cx="320" cy="244" r="118" />

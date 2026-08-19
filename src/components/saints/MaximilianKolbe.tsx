@@ -1,18 +1,18 @@
-import { PAPER, STROKE, ink, paperShape, type PortraitProps } from './types';
+import { PAPER, STROKE, ink, type PortraitProps } from './types';
 
 export default function MaximilianKolbe({ p, detail }: PortraitProps) {
   return (
     <>
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M48 188c6-32 44-46 70-20 16-30 62-26 76 8 28-14 56 12 44 38 22 8 16 40-12 42-8 24-50 22-62-2-18 20-54 10-64-14-22 10-58-8-52-52z"
       />
       <path
-        {...paperShape}
+        {...p('cloud')}
         d="M446 84c8-22 42-28 58-8 12-20 48-16 58 10 22-8 40 16 28 32 14 8 8 30-12 32-6 18-38 16-48-2-12 16-42 8-50-10-16 8-42-8-34-54z"
       />
 
-      <g {...paperShape}>
+      <g {...p('cloud')}>
         <path d="M52 220v435" />
         <path d="M84 200v455" />
         <path d="M116 220v435" />
