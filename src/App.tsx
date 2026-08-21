@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import SaintArt from './components/SaintArt';
-import { categories, FREE_SAINT_IDS, saints } from './data/saints';
+import { categories, publishedSaints } from './data/saints';
 import { LIFETIME_PRICE_LABEL, isPaidFreeTestUnlock, purchaseLifetimeUnlock, restoreLifetimeUnlock, verifyEntitlement } from './lib/commerce';
 import { printColoringPage } from './lib/printing';
 import type { PaintMap, RegionId, Saint } from './types';
@@ -77,7 +77,7 @@ function getPaywallCopy(reason: PaywallReason): string {
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>('gallery');
-  const [activeSaintId, setActiveSaintId] = useState(saints[0].id);
+  const [activeSaintId, setActiveSaintId] = useState(publishedSaints[0].id);
   const [artwork, setArtwork] = useState<ArtworkStore>(readArtwork);
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [activeColor, setActiveColor] = useState(palette[5].value);
@@ -94,14 +94,18 @@ export default function App() {
   const [parentChallenge, setParentChallenge] = useState(createParentChallenge);
   const [parentAnswer, setParentAnswer] = useState('');
 
-  const activeSaint = saints.find((saint) => saint.id === activeSaintId) ?? saints[0];
+  const activeSaint = publishedSaints.find((saint) => saint.id === activeSaintId) ?? publishedSaints[0];
   const activeArtwork = artwork[activeSaint.id] ?? {};
-  const freeSaintCount = FREE_SAINT_IDS.size;
-  const premiumSaintCount = saints.length - freeSaintCount;
+  const freeSaintCount = publishedSaints.filter((saint) => saint.free).length;
+  const premiumSaintCount = publishedSaints.length - freeSaintCount;
   const premiumPaletteCount = palette.filter((color) => color.premium).length;
+  const libraryCategories = useMemo(
+    () => categories.filter((item) => item === 'All' || publishedSaints.some((saint) => saint.category === item)),
+    [],
+  );
   const filteredSaints = useMemo(() => {
     const needle = search.trim().toLowerCase();
-    return saints.filter((saint) => {
+    return publishedSaints.filter((saint) => {
       const categoryMatch = category === 'All' || saint.category === category;
       const searchMatch = !needle || `${saint.name} ${saint.summary} ${saint.attribute} ${saint.symbols} ${saint.feast} ${saint.catalogCategory}`.toLowerCase().includes(needle);
       return categoryMatch && searchMatch;
@@ -131,7 +135,7 @@ export default function App() {
   }, [notice]);
 
   function isSaintUnlocked(saint: Saint): boolean {
-    return hasPremium || saint.free || FREE_SAINT_IDS.has(saint.id);
+    return hasPremium || saint.free;
   }
 
   function openPaywall(reason: PaywallReason) {
@@ -352,7 +356,7 @@ export default function App() {
             <div className="library__toolbar">
               <div>
                 <p className="eyebrow">Saint library</p>
-                <h2>{hasPremium ? `${saints.length} coloring pages unlocked` : `${freeSaintCount} free pages · ${premiumSaintCount} to unlock`}</h2>
+                <h2>{hasPremium ? `${publishedSaints.length} coloring pages unlocked` : `${freeSaintCount} free pages · ${premiumSaintCount} to unlock`}</h2>
               </div>
               <label className="search">
                 <span className="sr-only">Search saints</span>
@@ -360,7 +364,7 @@ export default function App() {
               </label>
             </div>
             <div className="category-row" aria-label="Filter by category">
-              {categories.map((item) => (
+              {libraryCategories.map((item) => (
                 <button key={item} className={`chip ${item === category ? 'chip--active' : ''}`} onClick={() => setCategory(item)}>{item}</button>
               ))}
             </div>
@@ -368,20 +372,12 @@ export default function App() {
               {filteredSaints.map((saint) => {
                 const locked = !isSaintUnlocked(saint);
                 return (
-                  <article className={`saint-card ${locked ? 'saint-card--locked' : ''} ${saint.cardImage ? 'saint-card--portrait' : ''}`} key={saint.id}>
+                  <article className={`saint-card ${locked ? 'saint-card--locked' : ''} saint-card--portrait`} key={saint.id}>
                     <div className="saint-card__art">
-                      {saint.cardImage ? (
-                        <img src={saint.cardImage} alt={saint.name} />
-                      ) : (
-                        <div className={`saint-card__placeholder saint-card__placeholder--${saint.category.toLowerCase().replace(/\s+/g, '-')}`} aria-hidden="true">
-                          <span className="saint-card__halo" />
-                          <strong>{saint.shortName}</strong>
-                        </div>
-                      )}
+                      <img src={saint.cardImage} alt={saint.name} />
                     </div>
                     <div className="saint-card__copy">
                       <p className="saint-card__category">{saint.catalogCategory}</p>
-                      {!saint.cardImage && <h3>{saint.name}</h3>}
                       <p>{saint.feast} · {saint.attribute}</p>
                     </div>
                     <button className={`button ${locked ? 'button--locked' : 'button--card'}`} onClick={() => chooseSaint(saint)}>{locked ? `Unlock all · ${LIFETIME_PRICE_LABEL}` : 'Color this saint'}</button>
@@ -409,11 +405,11 @@ export default function App() {
             </div>
             <label className="jump-select">
               <span>Choose another saint</span>
-              <select value={activeSaint.id} onChange={(event) => chooseSaint(saints.find((saint) => saint.id === event.target.value) ?? saints[0])}>
-                {saints.map((saint) => <option key={saint.id} value={saint.id} disabled={!isSaintUnlocked(saint)}>{saint.name}{!isSaintUnlocked(saint) ? ' · Premium' : ''}</option>)}
+              <select value={activeSaint.id} onChange={(event) => chooseSaint(publishedSaints.find((saint) => saint.id === event.target.value) ?? publishedSaints[0])}>
+                {publishedSaints.map((saint) => <option key={saint.id} value={saint.id} disabled={!isSaintUnlocked(saint)}>{saint.name}{!isSaintUnlocked(saint) ? ' · Premium' : ''}</option>)}
               </select>
             </label>
-            {!hasPremium && <button className="button button--gold saint-panel__upgrade" onClick={() => openPaywall('saint')}>Unlock all {saints.length} saints · {LIFETIME_PRICE_LABEL}</button>}
+            {!hasPremium && <button className="button button--gold saint-panel__upgrade" onClick={() => openPaywall('saint')}>Unlock all {publishedSaints.length} saints · {LIFETIME_PRICE_LABEL}</button>}
           </aside>
 
           <section className="canvas-panel" aria-label="Coloring canvas">
@@ -488,7 +484,7 @@ export default function App() {
                 <h2 id="premium-title">Everything for {LIFETIME_PRICE_LABEL}</h2>
                 <p className="paywall-lead">No subscription. One purchase unlocks the complete library on this store account.</p>
                 <ul className="premium-benefits">
-                  <li><strong>All {saints.length} saint coloring pages</strong><span>{freeSaintCount} free now, plus {premiumSaintCount} additional saints.</span></li>
+                  <li><strong>All {publishedSaints.length} saint coloring pages</strong><span>{freeSaintCount} free now, plus {premiumSaintCount} additional saints.</span></li>
                   <li><strong>{premiumPaletteCount} premium colors</strong><span>Gold, violet, rose, navy, and more.</span></li>
                   <li><strong>Printable coloring pages</strong><span>Print blank outlines or a child’s finished picture.</span></li>
                 </ul>

@@ -109,4 +109,6 @@ export const saints: Saint[] = [
 
 export const categories = ['All', 'Holy Family', 'Angels', 'Martyrs', 'Missionaries', 'Teachers', 'Witnesses'] as const;
 
+export const publishedSaints = saints.filter((saint) => Boolean(saint.cardImage));
+
 export const FREE_SAINT_IDS = new Set(saints.filter((saint) => saint.free).map((saint) => saint.id));
