@@ -60,7 +60,6 @@ export default function MaryMagdalene({ p }: PortraitProps) {
         d={MARY_LINE_ART}
         transform={`translate(${ART_X} 0) scale(${ART_SCALE_X} ${ART_SCALE_Y})`}
         fillRule="evenodd"
-        pointerEvents="none"
         {...ink}
       />
     </>

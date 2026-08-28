@@ -16,7 +16,12 @@ export type RegionId =
   | 'water'
   | 'veil'
   | 'book'
-  | 'rosary';
+  | 'rosary'
+  | 'habit'
+  | 'hood'
+  | 'innerCollar'
+  | 'quill'
+  | 'emblem';
 
 export type PaintMap = Partial<Record<RegionId, string>>;
 
