@@ -8,7 +8,15 @@ export type RegionId =
   | 'mantle'
   | 'accent'
   | 'symbol'
-  | 'wings';
+  | 'wings'
+  | 'garden'
+  | 'flowers'
+  | 'hills'
+  | 'church'
+  | 'water'
+  | 'veil'
+  | 'book'
+  | 'rosary';
 
 export type PaintMap = Partial<Record<RegionId, string>>;
 
