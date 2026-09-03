@@ -31,43 +31,43 @@ export default function Joseph({ p, detail }: PortraitProps) {
         {/* Cloud banks. The left underlay closes the open cloud contours from the generated art. */}
         <g {...p('cloud')} stroke="none">
           <path d={LEFT_CLOUD_UNDERLAY} />
-          <path d={CLOUD_EXACT_MASK} fillRule="evenodd" />
+          <path d={CLOUD_EXACT_MASK} fillRule="nonzero" />
         </g>
 
         {/* Circular halo disk behind the head */}
         <g {...p('halo')} stroke="none">
-          <path d={HALO_MASK} fillRule="evenodd" />
+          <path d={HALO_MASK} fillRule="nonzero" />
         </g>
 
         {/* Outer cloak / mantle */}
         <g {...p('mantle')} stroke="none">
-          <path d={MANTLE_MASK} fillRule="evenodd" />
+          <path d={MANTLE_MASK} fillRule="nonzero" />
         </g>
 
         {/* Inner tunic and inner sleeve panels */}
         <g {...p('robe')} stroke="none">
-          <path d={ROBE_MASK} fillRule="evenodd" />
+          <path d={ROBE_MASK} fillRule="nonzero" />
         </g>
 
         {/* Rope belt, collar clasp and small garment accents */}
         <g {...p('accent')} stroke="none">
-          <path d={ACCENT_MASK} fillRule="evenodd" />
-          <path d={HAMMER_MASK} fillRule="evenodd" />
+          <path d={ACCENT_MASK} fillRule="nonzero" />
+          <path d={HAMMER_MASK} fillRule="nonzero" />
         </g>
 
         {/* Lilies, buds, leaves and stems */}
         <g {...p('symbol')} stroke="none">
-          <path d={FLOWER_MASK} fillRule="evenodd" />
+          <path d={FLOWER_MASK} fillRule="nonzero" />
         </g>
 
         {/* Hair, moustache and beard */}
         <g {...p('hair')} stroke="none">
-          <path d={HAIR_MASK} fillRule="evenodd" />
+          <path d={HAIR_MASK} fillRule="nonzero" />
         </g>
 
         {/* Face, ears, neck and both hands */}
         <g {...p('skin')} stroke="none">
-          <path d={SKIN_MASK} fillRule="evenodd" />
+          <path d={SKIN_MASK} fillRule="nonzero" />
         </g>
 
         {/* Exact black line-art overlay; deliberately non-interactive through detail. */}

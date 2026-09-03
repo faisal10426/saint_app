@@ -51,42 +51,42 @@ export default function Lucy({
 
         {/* Cloud banks behind Lucy. */}
         <g {...p('cloud')} stroke="none">
-          <path d={CLOUD_MASK} fillRule="evenodd" />
+          <path d={CLOUD_MASK} fillRule="nonzero" />
         </g>
 
         {/* Circular halo behind the head. */}
         <g {...p('halo')} stroke="none">
-          <path d={HALO_MASK} fillRule="evenodd" />
+          <path d={HALO_MASK} fillRule="nonzero" />
         </g>
 
         {/* Oil lamp and flame. Kept behind the hands and garments. */}
         <g {...p('accent')} stroke="none">
-          <path d={ACCENT_MASK} fillRule="evenodd" />
+          <path d={ACCENT_MASK} fillRule="nonzero" />
         </g>
 
         {/* Palm of martyrdom and the small stars around the halo. */}
         <g {...p('symbol')} stroke="none">
-          <path d={SYMBOL_MASK} fillRule="evenodd" />
+          <path d={SYMBOL_MASK} fillRule="nonzero" />
         </g>
 
         {/* Veil, outer drape, and wide sleeves. */}
         <g {...p('mantle')} stroke="none">
-          <path d={MANTLE_MASK} fillRule="evenodd" />
+          <path d={MANTLE_MASK} fillRule="nonzero" />
         </g>
 
         {/* Main dress / tunic and lower garment. */}
         <g {...p('robe')} stroke="none">
-          <path d={ROBE_MASK} fillRule="evenodd" />
+          <path d={ROBE_MASK} fillRule="nonzero" />
         </g>
 
         {/* Hair visible beneath the veil. */}
         <g {...p('hair')} stroke="none">
-          <path d={HAIR_MASK} fillRule="evenodd" />
+          <path d={HAIR_MASK} fillRule="nonzero" />
         </g>
 
         {/* Face, neck, and both hands. */}
         <g {...p('skin')} stroke="none">
-          <path d={SKIN_MASK} fillRule="evenodd" />
+          <path d={SKIN_MASK} fillRule="nonzero" />
         </g>
 
         {/* Exact traced black line art. Keep this last and non-interactive. */}

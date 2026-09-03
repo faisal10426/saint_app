@@ -52,42 +52,42 @@ export default function JuanDiego({
 
         {/* Cloud banks on both sides. */}
         <g {...p('cloud')} stroke="none">
-          <path d={CLOUD_MASK} fillRule="evenodd" />
+          <path d={CLOUD_MASK} fillRule="nonzero" />
         </g>
 
         {/* Circular halo and radiant field behind Juan Diego. */}
         <g {...p('halo')} stroke="none">
-          <path d={HALO_MASK} fillRule="evenodd" />
+          <path d={HALO_MASK} fillRule="nonzero" />
         </g>
 
         {/* Tilma / outer draped cloth and shoulder folds. */}
         <g {...p('mantle')} stroke="none">
-          <path d={MANTLE_MASK} fillRule="evenodd" />
+          <path d={MANTLE_MASK} fillRule="nonzero" />
         </g>
 
         {/* Inner tunic and lower garment. */}
         <g {...p('robe')} stroke="none">
-          <path d={ROBE_MASK} fillRule="evenodd" />
+          <path d={ROBE_MASK} fillRule="nonzero" />
         </g>
 
         {/* Face, neck, and both hands. */}
         <g {...p('skin')} stroke="none">
-          <path d={SKIN_MASK} fillRule="evenodd" />
+          <path d={SKIN_MASK} fillRule="nonzero" />
         </g>
 
         {/* Hair and brows. */}
         <g {...p('hair')} stroke="none">
-          <path d={HAIR_MASK} fillRule="evenodd" />
+          <path d={HAIR_MASK} fillRule="nonzero" />
         </g>
 
         {/* Tilma knot, border accents, and selected floral details. */}
         <g {...p('accent')} stroke="none">
-          <path d={ACCENT_MASK} fillRule="evenodd" />
+          <path d={ACCENT_MASK} fillRule="nonzero" />
         </g>
 
         {/* Our Lady of Guadalupe image, roses, and selected cactus details. */}
         <g {...p('symbol')} stroke="none">
-          <path d={SYMBOL_MASK} fillRule="evenodd" />
+          <path d={SYMBOL_MASK} fillRule="nonzero" />
         </g>
 
         {/* Exact traced black line art from the supplied Juan Diego image.

@@ -13,7 +13,7 @@ const ART_TRANSFORM =
 
 const CLOUD_MASK = `M0 153L0 1054L82 1054L80 1008L93 945L122 895L166 857L222 824L254 790L275 756L303 723L329 695L332 642L320 597L290 556L247 519L206 500L182 473L157 438L136 419L108 405L89 375L62 350L37 337L0 333L0 153ZM1086 133L1086 1003L986 1003L984 955L968 900L940 861L903 826L868 801L842 762L826 723L812 653L816 595L837 543L876 498L928 464L969 430L997 392L1020 367L1044 351L1086 337L1086 133Z`;
 
-const HALO_MASK = `M543 38A256 256 0 1 1 542.9 38ZM543 92A202 202 0 1 0 542.9 92Z`;
+const HALO_MASK = `M495 52 A235 235 0 1 0 495 522 A235 235 0 1 0 495 52Z`;
 
 const MANTLE_MASK = `M117 556L194 520L306 524L383 550L372 581L333 627L301 677L281 728L275 818L277 1448L42 1448L41 1225L48 999L67 825L88 680ZM710 544L780 526L887 528L968 555L1012 650L1036 773L1046 943L1045 1448L795 1448L792 809L785 717L758 651L721 596ZM377 510L447 445L469 441L614 441L636 448L714 513L676 565L631 544L566 530L497 531L429 544L390 559Z`;
 
@@ -50,37 +50,37 @@ export default function Dominic({
 
         {/* Cloud banks on the left and right sides. */}
         <g {...p('cloud')} stroke="none">
-          <path d={CLOUD_MASK} fillRule="evenodd" />
+          <path d={CLOUD_MASK} fillRule="nonzero" />
         </g>
 
         {/* Circular halo behind St. Dominic. */}
         <g {...p('halo')} stroke="none">
-          <path d={HALO_MASK} fillRule="evenodd" />
+          <path d={HALO_MASK} fillRule="nonzero" />
         </g>
 
         {/* Outer hood, cape, and large sleeves. */}
         <g {...p('mantle')} stroke="none">
-          <path d={MANTLE_MASK} fillRule="evenodd" />
+          <path d={MANTLE_MASK} fillRule="nonzero" />
         </g>
 
         {/* Main inner robe/body garment. */}
         <g {...p('robe')} stroke="none">
-          <path d={ROBE_MASK} fillRule="evenodd" />
+          <path d={ROBE_MASK} fillRule="nonzero" />
         </g>
 
         {/* Bouquet of lilies, prayer book, rosary, and crucifix. */}
         <g {...p('accent')} stroke="none">
-          <path d={ACCENT_MASK} fillRule="evenodd" />
+          <path d={ACCENT_MASK} fillRule="nonzero" />
         </g>
 
         {/* Face, neck, and both visible hands. */}
         <g {...p('skin')} stroke="none">
-          <path d={SKIN_MASK} fillRule="evenodd" />
+          <path d={SKIN_MASK} fillRule="nonzero" />
         </g>
 
         {/* Hair, brows, and simple hair-shadow mass. */}
         <g {...p('hair')} stroke="none">
-          <path d={HAIR_MASK} fillRule="evenodd" />
+          <path d={HAIR_MASK} fillRule="nonzero" />
         </g>
 
         {/* Exact traced black line art from the supplied Dominic image.

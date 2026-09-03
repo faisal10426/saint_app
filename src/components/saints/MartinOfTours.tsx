@@ -53,42 +53,42 @@ export default function MartinOfTours({
 
         {/* Large cloud banks on both sides. */}
         <g {...p('cloud')} stroke="none">
-          <path d={CLOUD_MASK} fillRule="evenodd" />
+          <path d={CLOUD_MASK} fillRule="nonzero" />
         </g>
 
         {/* St. Martin's circular halo behind the helmet. */}
         <g {...p('halo')} stroke="none">
-          <path d={HALO_MASK} fillRule="evenodd" />
+          <path d={HALO_MASK} fillRule="nonzero" />
         </g>
 
         {/* Horse, distant church/city and selected scene symbols. */}
         <g {...p('symbol')} stroke="none">
-          <path d={SYMBOL_MASK} fillRule="evenodd" />
+          <path d={SYMBOL_MASK} fillRule="nonzero" />
         </g>
 
         {/* Martin's cape plus the beggar's outer cloak. */}
         <g {...p('mantle')} stroke="none">
-          <path d={MANTLE_MASK} fillRule="evenodd" />
+          <path d={MANTLE_MASK} fillRule="nonzero" />
         </g>
 
         {/* Martin's tunic/armor garments and the beggar's clothing. */}
         <g {...p('robe')} stroke="none">
-          <path d={ROBE_MASK} fillRule="evenodd" />
+          <path d={ROBE_MASK} fillRule="nonzero" />
         </g>
 
         {/* Helmet, sword, belt hardware and horse tack. */}
         <g {...p('accent')} stroke="none">
-          <path d={ACCENT_MASK} fillRule="evenodd" />
+          <path d={ACCENT_MASK} fillRule="nonzero" />
         </g>
 
         {/* Martin's exposed hair and the beggar's hair/beard. */}
         <g {...p('hair')} stroke="none">
-          <path d={HAIR_MASK} fillRule="evenodd" />
+          <path d={HAIR_MASK} fillRule="nonzero" />
         </g>
 
         {/* Martin's face/hands and the beggar's face/arms/hands. */}
         <g {...p('skin')} stroke="none">
-          <path d={SKIN_MASK} fillRule="evenodd" />
+          <path d={SKIN_MASK} fillRule="nonzero" />
         </g>
 
         {/* Exact traced black line art from the supplied Martin of Tours image.

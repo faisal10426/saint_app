@@ -47,35 +47,35 @@ export default function Agatha({
         </g>
 
         <g {...p('cloud')} stroke="none">
-          <path d={CLOUD_MASK} fillRule="evenodd" />
+          <path d={CLOUD_MASK} fillRule="nonzero" />
         </g>
 
         <g {...p('halo')} stroke="none">
-          <path d={HALO_MASK} fillRule="evenodd" />
+          <path d={HALO_MASK} fillRule="nonzero" />
         </g>
 
         <g {...p('mantle')} stroke="none">
-          <path d={MANTLE_MASK} fillRule="evenodd" />
+          <path d={MANTLE_MASK} fillRule="nonzero" />
         </g>
 
         <g {...p('robe')} stroke="none">
-          <path d={ROBE_MASK} fillRule="evenodd" />
+          <path d={ROBE_MASK} fillRule="nonzero" />
         </g>
 
         <g {...p('skin')} stroke="none">
-          <path d={SKIN_MASK} fillRule="evenodd" />
+          <path d={SKIN_MASK} fillRule="nonzero" />
         </g>
 
         <g {...p('hair')} stroke="none">
-          <path d={HAIR_MASK} fillRule="evenodd" />
+          <path d={HAIR_MASK} fillRule="nonzero" />
         </g>
 
         <g {...p('accent')} stroke="none">
-          <path d={ACCENT_MASK} fillRule="evenodd" />
+          <path d={ACCENT_MASK} fillRule="nonzero" />
         </g>
 
         <g {...p('symbol')} stroke="none">
-          <path d={SYMBOL_MASK} fillRule="evenodd" />
+          <path d={SYMBOL_MASK} fillRule="nonzero" />
         </g>
 
         <path

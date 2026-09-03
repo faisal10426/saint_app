@@ -39,42 +39,42 @@ export default function CatherineOfSiena({ p, detail }: PortraitProps) {
 
         {/* Cloud banks surrounding the portrait. */}
         <g {...p('cloud')} stroke="none">
-          <path d={CLOUD_MASK} fillRule="evenodd" />
+          <path d={CLOUD_MASK} fillRule="nonzero" />
         </g>
 
         {/* Thin halo ring behind Catherine. */}
         <g {...p('halo')} stroke="none">
-          <path d={HALO_MASK} fillRule="evenodd" />
+          <path d={HALO_MASK} fillRule="nonzero" />
         </g>
 
         {/* Outer Dominican veil, mantle, and broad sleeves. */}
         <g {...p('mantle')} stroke="none">
-          <path d={MANTLE_MASK} fillRule="evenodd" />
+          <path d={MANTLE_MASK} fillRule="nonzero" />
         </g>
 
         {/* Wimple, center habit, and inner sleeve areas. */}
         <g {...p('robe')} stroke="none">
-          <path d={ROBE_MASK} fillRule="evenodd" />
+          <path d={ROBE_MASK} fillRule="nonzero" />
         </g>
 
         {/* Small visible hair section beneath the veil. */}
         <g {...p('hair')} stroke="none">
-          <path d={HAIR_MASK} fillRule="evenodd" />
+          <path d={HAIR_MASK} fillRule="nonzero" />
         </g>
 
         {/* Face, neck, and both visible hands. */}
         <g {...p('skin')} stroke="none">
-          <path d={SKIN_MASK} fillRule="evenodd" />
+          <path d={SKIN_MASK} fillRule="nonzero" />
         </g>
 
         {/* Crucifix and prayer book. */}
         <g {...p('accent')} stroke="none">
-          <path d={ACCENT_MASK} fillRule="evenodd" />
+          <path d={ACCENT_MASK} fillRule="nonzero" />
         </g>
 
         {/* Lilies, buds, leaves, and stems. */}
         <g {...p('symbol')} stroke="none">
-          <path d={SYMBOL_MASK} fillRule="evenodd" />
+          <path d={SYMBOL_MASK} fillRule="nonzero" />
         </g>
 
         {/* Exact monochrome outline; deliberately non-interactive. */}

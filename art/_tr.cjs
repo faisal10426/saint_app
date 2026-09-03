@@ -1,0 +1,1 @@
+const potrace=require('potrace');potrace.trace(process.argv[2],{"turdSize": 14, "alphaMax": 1, "optCurve": true, "optTolerance": 0.25, "turnPolicy": "minority", "threshold": 128},(e,s)=>{if(e){console.error(e);process.exit(1)}const m=s.match(/ d="([^"]+)"/);process.stdout.write(m?m[1]:'')});

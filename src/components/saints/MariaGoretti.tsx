@@ -47,37 +47,37 @@ export default function MariaGoretti({ p, detail }: PortraitProps) {
 
         {/* Cloud banks left and right. */}
         <g {...p('cloud')} stroke="none">
-          <path d={CLOUD_MASK} fillRule="evenodd" />
+          <path d={CLOUD_MASK} fillRule="nonzero" />
         </g>
 
         {/* Halo behind St. Maria Goretti. */}
         <g {...p('halo')} stroke="none">
-          <path d={HALO_MASK} fillRule="evenodd" />
+          <path d={HALO_MASK} fillRule="nonzero" />
         </g>
 
         {/* Trees, fence, shrubs, and garden beds. */}
         <g {...p('garden')} stroke="none">
-          <path d={GARDEN_MASK} fillRule="evenodd" />
+          <path d={GARDEN_MASK} fillRule="nonzero" />
         </g>
 
         {/* Main dress and sleeves. */}
         <g {...p('robe')} stroke="none">
-          <path d={ROBE_MASK} fillRule="evenodd" />
+          <path d={ROBE_MASK} fillRule="nonzero" />
         </g>
 
         {/* Face, neck, and both hands. */}
         <g {...p('skin')} stroke="none">
-          <path d={SKIN_MASK} fillRule="evenodd" />
+          <path d={SKIN_MASK} fillRule="nonzero" />
         </g>
 
         {/* Hair mass. */}
         <g {...p('hair')} stroke="none">
-          <path d={HAIR_MASK} fillRule="evenodd" />
+          <path d={HAIR_MASK} fillRule="nonzero" />
         </g>
 
         {/* Lilies, stems, and palm branch bouquet. */}
         <g {...p('flowers')} stroke="none">
-          <path d={BOUQUET_MASK} fillRule="evenodd" />
+          <path d={BOUQUET_MASK} fillRule="nonzero" />
         </g>
 
         {/* Exact traced black line art from the supplied Maria Goretti image. */}
