@@ -1,3 +1,7 @@
+git pull
+npm run build
+pm2 restart saint-app
+
 # Paint a Saint
 
 A mobile-first **React + TypeScript + Vite** application for a child-friendly Catholic coloring experience. Children select a saint, pick a color, and tap defined SVG regions—such as robes, halos, wings, symbols, and backgrounds—to color them.

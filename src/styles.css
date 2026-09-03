@@ -310,6 +310,16 @@ p {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
+.saint-card:disabled,
+.saint-card--disabled {
+  cursor: default;
+  pointer-events: none;
+}
+.saint-card:disabled:hover,
+.saint-card--disabled:hover {
+  transform: none;
+  box-shadow: var(--shadow-sm);
+}
 .saint-card__art {
   position: relative;
   display: block;

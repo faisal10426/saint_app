@@ -36,6 +36,7 @@ const LEGACY_ARTWORK_KEY = 'paint-a-saint-artwork-v2';
 const PREMIUM_STORAGE_KEY = 'paint-a-saint-premium-v1';
 const SVG_ID = 'paint-a-saint-export-art';
 const EMPTY_COLOR = '#fffdf8';
+const HOME_CLICKABLE_SAINT_ID = 'mary-mother-of-god';
 
 type Artwork = {
   id: string;
@@ -742,8 +743,19 @@ export default function App() {
                 {filteredSaints.map((saint) => {
                   const unlocked = isSaintUnlocked(saint);
                   const started = artworks.some((item) => item.saintId === saint.id);
+                  const clickable = saint.id === HOME_CLICKABLE_SAINT_ID;
                   return (
-                    <button className="saint-card" key={saint.id} onClick={() => chooseSaint(saint)}>
+                    <button
+                      className={`saint-card ${clickable ? '' : 'saint-card--disabled'}`}
+                      key={saint.id}
+                      type="button"
+                      disabled={!clickable}
+                      aria-disabled={!clickable}
+                      onClick={() => {
+                        if (!clickable) return;
+                        chooseSaint(saint);
+                      }}
+                    >
                       <span className="saint-card__art">
                         {saint.cardImage && <img src={saint.cardImage} alt={saint.name} loading="lazy" />}
                         {saint.free && <span className="badge badge--free">FREE</span>}
