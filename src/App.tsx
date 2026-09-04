@@ -26,6 +26,7 @@ import {
   TrashIcon,
   UndoIcon,
 } from './components/icons';
+import { bonusColors, saintColorPlans } from './data/artColors';
 import { publishedSaints } from './data/saints';
 import { LIFETIME_PRICE_LABEL, isPaidFreeTestUnlock, purchaseLifetimeUnlock, restoreLifetimeUnlock, verifyEntitlement } from './lib/commerce';
 import { printColoringPage } from './lib/printing';
@@ -60,25 +61,29 @@ type PaletteColor = {
   premium?: boolean;
 };
 
-const palette: PaletteColor[] = [
-  { name: 'Red', value: '#ef4b3d' },
-  { name: 'Orange', value: '#f79432' },
-  { name: 'Yellow', value: '#ffe58a' },
-  { name: 'Leaf green', value: '#4caf50' },
-  { name: 'Sky blue', value: '#6db0ff' },
-  { name: 'Blue', value: '#1b60d6' },
-  { name: 'Soft brown', value: '#8c6a30' },
-  { name: 'White', value: '#fffdf8' },
-  { name: 'Gold', value: '#f3c44e', premium: true },
-  { name: 'Forest green', value: '#2c9364', premium: true },
-  { name: 'Navy', value: '#203c85', premium: true },
-  { name: 'Lavender', value: '#9c7bff', premium: true },
-  { name: 'Violet', value: '#7149aa', premium: true },
-  { name: 'Coral', value: '#ff6d6b', premium: true },
-  { name: 'Sand', value: '#d8b481', premium: true },
-  { name: 'Slate gray', value: '#5a6b7c', premium: true },
-  { name: 'Black', value: '#151515', premium: true },
-];
+// The colours offered while colouring a saint are that saint's own colours, read
+// off its devotional card (see data/artColors.ts), followed by the bonus colours
+// for free play. Everything needed to finish a picture is therefore unlocked.
+function paletteFor(saintId: string): PaletteColor[] {
+  const plan = saintColorPlans[saintId];
+  const picture: PaletteColor[] = (plan?.palette ?? []).map((color) => ({ ...color }));
+  const used = new Set(picture.map((color) => color.value.toLowerCase()));
+  const bonus: PaletteColor[] = bonusColors
+    .filter((color) => !used.has(color.value.toLowerCase()))
+    .map((color) => ({ ...color, premium: true }));
+  return [...picture, ...bonus];
+}
+
+/** How many regions already wear the colour they wear on the card. */
+function completionOf(saintId: string, colors: PaintMap): { done: number; total: number } {
+  const targets = saintColorPlans[saintId]?.targets ?? {};
+  const entries = Object.entries(targets) as [RegionId, string][];
+  const done = entries.filter(([region, want]) => (colors[region] ?? '').toLowerCase() === want.toLowerCase()).length;
+  return { done, total: entries.length };
+}
+
+// Below this the meter would be a formality — one or two taps to full.
+const MIN_METER_REGIONS = 4;
 
 const LOGO_COLORS = ['#e8623d', '#f0a83c', '#efc63f', '#4caf50', '#1b60d6', '#9c7bff', '#d9569e'];
 
@@ -202,7 +207,7 @@ export default function App() {
   const [artworks, setArtworks] = useState<Artwork[]>(readArtworks);
   const [activeArtworkId, setActiveArtworkId] = useState<string | null>(null);
   const [history, setHistory] = useState<HistoryEntry[]>([]);
-  const [activeColor, setActiveColor] = useState(palette[5].value);
+  const [activeColor, setActiveColor] = useState('');
   const [eraserMode, setEraserMode] = useState(false);
   const [search, setSearch] = useState('');
   const [homeFilter, setHomeFilter] = useState<HomeFilter>('all');
@@ -239,6 +244,21 @@ export default function App() {
   const actionsArtwork = artworks.find((item) => item.id === actionsForId) ?? null;
   const deleteArtworkTarget = artworks.find((item) => item.id === deleteForId) ?? null;
   const fileArtwork = artworks.find((item) => item.id === fileForId) ?? null;
+
+  const palette = useMemo(() => paletteFor(activeSaint.id), [activeSaint.id]);
+  const completion = useMemo(() => completionOf(activeSaint.id, activeColors), [activeSaint.id, activeColors]);
+  const completionPct = completion.total ? Math.round((completion.done / completion.total) * 100) : 0;
+  const showMeter = completion.total >= MIN_METER_REGIONS;
+
+  // Each saint brings its own colours, so the brush in hand may not exist on the
+  // next page. Fall back to that saint's first colour rather than painting with
+  // something that is no longer on the tray.
+  useEffect(() => {
+    const usable = palette.some((color) => color.value === activeColor && !(color.premium && !hasPremium));
+    if (usable) return;
+    const first = palette.find((color) => !color.premium) ?? palette[0];
+    if (first) setActiveColor(first.value);
+  }, [palette, activeColor, hasPremium]);
 
   const freeSaintCount = publishedSaints.filter((saint) => saint.free).length;
   const premiumSaintCount = publishedSaints.length - freeSaintCount;
@@ -829,6 +849,40 @@ export default function App() {
                         <span className="instruction-number">2</span>
                         <strong>Touch a picture part</strong>
                       </div>
+                      {showMeter && (
+                        <div
+                          className={`match-meter ${completionPct === 100 ? 'match-meter--done' : ''}`}
+                          aria-live="polite"
+                        >
+                          <div className="match-meter__head">
+                            <span className="match-meter__title">
+                              {completionPct === 100
+                                ? `You matched every part of ${shortName(activeSaint)}!`
+                                : 'Matching the real picture'}
+                            </span>
+                            <span className="match-meter__count">
+                              {completion.done} of {completion.total}
+                            </span>
+                          </div>
+                          <div
+                            className="match-meter__track"
+                            role="progressbar"
+                            aria-valuemin={0}
+                            aria-valuemax={100}
+                            aria-valuenow={completionPct}
+                            aria-label="Picture completed"
+                          >
+                            <div className="match-meter__fill" style={{ width: `${completionPct}%` }}>
+                              <span className="match-meter__shine" />
+                            </div>
+                          </div>
+                          <p className="match-meter__hint">
+                            {completionPct === 100
+                              ? 'Every color is the same as the holy card. Save or print your picture!'
+                              : 'Pick the color a part really wears and the bar fills up.'}
+                          </p>
+                        </div>
+                      )}
                       <SaintArt saint={activeSaint} colors={activeColors} onPaint={paintRegion} svgId={SVG_ID} />
 
                       <details className="about-saint" open={aboutOpen}>
@@ -893,12 +947,15 @@ export default function App() {
                         />
                         <span>{eraserMode ? 'Eraser — tap a part to clear it' : 'Now painting with this color'}</span>
                       </div>
+                      <p className="palette-caption">
+                        These are the real colors of {shortName(activeSaint)}&rsquo;s holy card.
+                      </p>
                       <div className="palette">
                         {palette.map((color) => {
                           const locked = Boolean(color.premium && !hasPremium);
                           return (
                             <button
-                              key={color.name}
+                              key={`${color.name}-${color.value}`}
                               className={`color-swatch ${
                                 !eraserMode && color.value === activeColor ? 'color-swatch--active' : ''
                               } ${locked ? 'color-swatch--locked' : ''}`}
