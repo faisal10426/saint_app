@@ -5,11 +5,13 @@ RAW = json.load(open('/tmp/pal/targets_raw.json'))
 MAN = json.load(open('/tmp/pal/regionsvg/manifest.json'))
 
 MIN_PX = 700           # a sliver too small to find with a fingertip is not a puzzle piece
+# Masks that sit almost entirely under other regions: nothing of them is visible to
+# tap, so they get no target and are left out of the meter.
 DROP = {
-    ('therese-of-lisieux', 'garden'),
     ('francis-xavier', 'water'),
     ('francis-xavier', 'garden'),
     ('francis-xavier', 'innerCollar'),
+    ('francis-xavier', 'emblem'),
 }
 
 NAMED = [

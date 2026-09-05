@@ -27,19 +27,19 @@ def sheet(sid, out):
             continue
         vis = (w * 0.22 + 40).astype(np.uint8)
         vis[mask] = w[mask].astype(np.uint8)
-        im = Image.fromarray(vis).resize((190, 226))
+        im = Image.fromarray(vis).resize((156, 186))
         d = ImageDraw.Draw(im)
         hexv = raw[sid]['regions'].get(name, {}).get('hex', '?')
-        d.rectangle([0, 206, 190, 226], fill='black')
-        d.text((4, 210), f'{name} {hexv}', fill='white')
+        d.rectangle([0, 168, 156, 186], fill='black')
+        d.text((3, 172), f'{name} {hexv}', fill='white')
         if hexv != '?':
-            d.rectangle([150, 208, 186, 224], fill=hexv)
+            d.rectangle([126, 170, 154, 184], fill=hexv)
         tiles.append(im)
-    cols = 5
+    cols = 6
     rows = (len(tiles) + cols - 1) // cols
-    sh = Image.new('RGB', (cols * 190, rows * 226), 'white')
+    sh = Image.new('RGB', (cols * 156, rows * 186), 'white')
     for i, t in enumerate(tiles):
-        sh.paste(t, ((i % cols) * 190, (i // cols) * 226))
+        sh.paste(t, ((i % cols) * 156, (i // cols) * 186))
     sh.save(out)
 
 

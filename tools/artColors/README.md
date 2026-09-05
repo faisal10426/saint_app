@@ -26,7 +26,8 @@ card**, not chosen by hand. The pipeline:
    `src/data/artColors.ts`.
 
 `regioninspect.py <saint-id> <out.png>` draws every mask over the registered card
-with the sampled hex — the fastest way to see *why* a colour came out wrong.
+with the sampled hex — the fastest way to see *why* a colour came out wrong. All 34
+saints were reviewed this way; `review.md` records what each correction fixes.
 
 ## Judgement calls worth knowing
 
