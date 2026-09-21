@@ -635,8 +635,11 @@ p {
 }
 
 @media (min-width: 900px) {
+  .color-screen {
+    padding-bottom: 118px;
+  }
   .color-screen__panels {
-    grid-template-columns: 96px minmax(0, 1fr) 250px;
+    grid-template-columns: 96px minmax(0, 1fr);
     align-items: start;
   }
 }
@@ -830,7 +833,15 @@ p {
   margin: 0 auto;
   border-radius: var(--radius-md);
   overflow: hidden;
+  touch-action: none;
+  user-select: none;
+}
+.saint-art--compact {
   touch-action: manipulation;
+}
+.brush-layer {
+  mix-blend-mode: multiply;
+  pointer-events: none;
 }
 .saint-art__label {
   fill: var(--ink);
@@ -937,116 +948,151 @@ p {
   color: var(--ink);
 }
 
-/* Colors panel */
+/* Colors panel — paintbrush tray on every screen */
 .colors-panel {
-  padding: 18px;
-  border: 1px solid var(--card-border);
+  padding: 10px 12px 12px;
+  border: 0;
   border-radius: var(--radius-md);
-  background: #fff;
+  background:
+    linear-gradient(180deg, #d7a056 0%, #b47832 36%, #8a5318 100%);
   box-shadow: var(--shadow-sm);
+  overflow: visible;
 }
 @media (min-width: 900px) {
   .colors-panel {
-    position: sticky;
-    top: 84px;
+    position: fixed;
+    left: 50%;
+    bottom: 64px;
+    z-index: 20;
+    width: min(920px, calc(100vw - 40px));
+    transform: translateX(-50%);
+    padding: 10px 28px 12px;
+    border-radius: 22px 22px 0 0;
+    box-shadow: 0 -10px 24px rgba(80, 42, 8, 0.2);
+  }
+  .palette {
+    flex-wrap: nowrap;
+    justify-content: center;
   }
 }
-.colors-panel h2 {
-  margin: 0;
-  font-weight: 800;
-  font-size: 1.2rem;
-  color: var(--ink-strong);
-}
-.selected-color {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 12px 0;
-  border: 1px solid var(--frame-border);
-  border-radius: var(--radius-sm);
-  padding: 10px;
-  background: var(--frame);
-  color: var(--ink-soft);
-  font-size: 0.82rem;
-  font-weight: 700;
-}
-.selected-color__swatch {
-  width: 26px;
-  height: 26px;
-  flex: none;
-  border: 2px solid #6a5b4b;
-  border-radius: 50%;
+.colors-panel h2,
+.selected-color,
+.palette-caption,
+.palette-tip,
+.colors-panel .link-button {
+  display: none;
 }
 .palette {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 9px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  min-height: 72px;
+  overflow-x: auto;
+  padding: 0 4px;
+  scrollbar-width: none;
 }
-@media (min-width: 900px) {
-  .palette {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.palette::-webkit-scrollbar {
+  display: none;
 }
 .color-swatch {
   position: relative;
   display: grid;
-  aspect-ratio: 1;
-  place-items: center;
-  border: 3px solid rgba(48, 42, 40, 0.18);
-  border-radius: 50%;
-  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.38), 0 2px 5px rgba(55, 35, 10, 0.16);
-  color: #33220a;
+  place-items: end center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 86px;
+  margin: 0 -4px;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none;
+  color: transparent;
+  overflow: visible;
+  z-index: 1;
+}
+.color-swatch:hover,
+.color-swatch:focus-visible {
+  z-index: 3;
+}
+.color-swatch:focus-visible {
+  outline: 3px solid #fff8e8;
+  outline-offset: 3px;
 }
 .color-swatch--active {
-  outline: 3px solid var(--blue);
-  outline-offset: 2px;
-  transform: scale(1.12);
+  outline: none;
+  transform: translateY(-12px);
+  z-index: 2;
+}
+.color-swatch.color-swatch--locked {
+  display: none;
 }
 .color-swatch--locked::after {
   position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: rgba(255, 255, 255, 0.42);
+  inset: 2px -6px auto;
+  height: 22px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.28);
   content: "";
 }
 .color-swatch--locked span {
   position: relative;
   z-index: 1;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.75));
 }
 .color-swatch--add {
-  border-style: dashed;
-  border-color: var(--blue-border);
-  background: var(--blue-soft);
-  color: var(--blue);
-  box-shadow: none;
+  flex-basis: 30px;
+  width: 30px;
+  height: 30px;
+  margin: 0 8px 18px;
+  border: 2px dashed rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22) !important;
+  color: #6a4a1a;
 }
 .color-swatch--add svg {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   stroke-width: 2.4;
+  color: #6a4a1a;
 }
-.colors-panel .link-button {
-  display: block;
-  margin: 12px 0 0;
+.paintbrush {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 42px;
+  height: 84px;
 }
-.palette-caption {
-  margin: 0 0 10px;
-  color: var(--ink-soft);
-  font-size: 0.78rem;
-  font-weight: 700;
-  line-height: 1.35;
+.paintbrush__bristles {
+  width: 40px;
+  height: 26px;
+  border-radius: 8px 8px 2px 2px;
+  background-color: var(--paint, #245fc2);
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0 18%, transparent 40%);
+  box-shadow:
+    inset 0 -2px 0 rgba(0, 0, 0, 0.16),
+    1px 0 0 rgba(255, 255, 255, 0.2);
 }
-.palette-tip {
-  margin-top: 16px;
-  border-left: 4px solid var(--gold);
-  border-radius: 8px;
-  padding: 11px;
-  background: var(--gold-soft);
-  color: var(--ink-soft);
-  font-size: 0.82rem;
-  line-height: 1.45;
+.paintbrush__ferrule {
+  width: 18px;
+  height: 9px;
+  background: linear-gradient(90deg, #c9c4bc, #f4f1ea 48%, #a8a29a);
+  box-shadow: inset 0 0 0 1px rgba(80, 70, 50, 0.2);
+}
+.paintbrush__handle {
+  flex: 1;
+  width: 15px;
+  border-radius: 0 0 7px 7px;
+  background: linear-gradient(90deg, #e4c089, #f8e7c4 40%, #d2a45a);
+  box-shadow: inset -2px 0 0 rgba(255, 255, 255, 0.3);
+}
+@media (prefers-reduced-motion: reduce) {
+  .color-swatch--active {
+    transform: none;
+  }
 }
 
 /* ---------- My Artwork ---------- */
@@ -1498,5 +1544,23 @@ p {
   }
   .canvas-controls .button {
     flex: 1 1 44%;
+  }
+}
+
+@media (max-width: 899px) {
+  .colors-panel {
+    position: sticky;
+    bottom: 68px;
+    z-index: 20;
+    margin: 16px -12px 0;
+    padding: 0 18px 8px;
+    border-radius: 0;
+    box-shadow: 0 -8px 18px rgba(80, 42, 8, 0.2);
+  }
+  .palette {
+    flex-wrap: nowrap;
+  }
+  .color-swatch--locked {
+    display: none;
   }
 }

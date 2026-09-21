@@ -1,0 +1,216 @@
+- generic [ref=f18e3]:
+  - generic [ref=f18e4]:
+    - banner [ref=f18e5]:
+      - generic [ref=f18e73]:
+        - button "Back" [ref=f18e74] [cursor=pointer]
+        - button "Home" [ref=f18e77] [cursor=pointer]
+      - button "Paint a Saint — go home" [ref=f18e10] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f18e11]: 🖌️
+        - generic [aria-hidden] [ref=f18e12]: Paint a Saint
+      - button "Account" [ref=f18e13] [cursor=pointer]
+    - region "Coloring" [ref=f18e81]:
+      - generic [ref=f18e82]:
+        - heading "Mary, Mother of God" [level=1] [ref=f18e83]
+        - paragraph [ref=f18e84]: January 1
+      - generic [ref=f18e85]:
+        - complementary "Coloring tools" [ref=f18e86]:
+          - button "Brush" [pressed] [ref=f18e87] [cursor=pointer]
+          - button "Undo" [ref=f18e93] [cursor=pointer]
+          - button "Erase" [ref=f18e98] [cursor=pointer]
+          - button "Clear" [ref=f18e103] [cursor=pointer]
+          - button "Save" [ref=f18e109] [cursor=pointer]
+          - button "Print" [ref=f18e114] [cursor=pointer]
+        - region "Coloring canvas" [ref=f18e120]:
+          - generic [ref=f18e121]:
+            - generic [ref=f18e122]: "1"
+            - strong [ref=f18e123]: Choose a color
+            - generic [ref=f18e124]: "2"
+            - strong [ref=f18e125]: Touch a picture part
+            - generic [ref=f18e126]: "3"
+            - strong [ref=f18e127]: Drag stays inside the lines
+          - generic [ref=f18e128]:
+            - generic [ref=f18e129]:
+              - generic [ref=f18e130]: Matching the real picture
+              - generic [ref=f18e131]: 2 of 9
+            - progressbar "Picture completed" [ref=f18e132]
+            - paragraph [ref=f18e135]: Pick the color a part really wears and the bar fills up.
+          - img "Coloring page for Mary, Mother of God" [ref=f18e136]:
+            - generic [ref=f18e137]:
+              - button "Color background" [ref=f18e138] [cursor=pointer]
+              - generic [ref=f18e140]:
+                - button "Color cloud" [ref=f18e141] [cursor=pointer]
+                - button "Color cloud" [ref=f18e142] [cursor=pointer]
+                - button "Color cloud" [ref=f18e143] [cursor=pointer]
+                - button "Color cloud" [ref=f18e144] [cursor=pointer]
+                - button "Color cloud" [ref=f18e145] [cursor=pointer]
+                - button "Color cloud" [ref=f18e146] [cursor=pointer]
+                - button "Color cloud" [ref=f18e147] [cursor=pointer]
+                - button "Color halo" [ref=f18e148] [cursor=pointer]
+                - button "Color symbol" [ref=f18e151] [cursor=pointer]
+                - button "Color symbol" [ref=f18e152] [cursor=pointer]
+                - button "Color symbol" [ref=f18e153] [cursor=pointer]
+                - button "Color symbol" [ref=f18e154] [cursor=pointer]
+                - button "Color symbol" [ref=f18e155] [cursor=pointer]
+                - button "Color symbol" [ref=f18e156] [cursor=pointer]
+                - button "Color symbol" [ref=f18e157] [cursor=pointer]
+                - button "Color symbol" [ref=f18e158] [cursor=pointer]
+                - button "Color symbol" [ref=f18e159] [cursor=pointer]
+                - button "Color symbol" [ref=f18e160] [cursor=pointer]
+                - button "Color mantle" [ref=f18e161] [cursor=pointer]
+                - button "Color mantle" [ref=f18e162] [cursor=pointer]
+                - button "Color robe" [ref=f18e163] [cursor=pointer]
+                - button "Color robe" [ref=f18e164] [cursor=pointer]
+                - button "Color robe" [ref=f18e165] [cursor=pointer]
+                - button "Color robe" [ref=f18e166] [cursor=pointer]
+                - button "Color robe" [ref=f18e167] [cursor=pointer]
+                - button "Color robe" [ref=f18e168] [cursor=pointer]
+                - button "Color robe" [ref=f18e169] [cursor=pointer]
+                - button "Color robe" [ref=f18e170] [cursor=pointer]
+                - button "Color robe" [ref=f18e171] [cursor=pointer]
+                - button "Color robe" [ref=f18e172] [cursor=pointer]
+                - button "Color robe" [ref=f18e173] [cursor=pointer]
+                - button "Color robe" [ref=f18e174] [cursor=pointer]
+                - button "Color accent" [ref=f18e175] [cursor=pointer]
+                - button "Color accent" [ref=f18e176] [cursor=pointer]
+                - button "Color accent" [ref=f18e177] [cursor=pointer]
+                - button "Color accent" [ref=f18e178] [cursor=pointer]
+                - button "Color accent" [ref=f18e179] [cursor=pointer]
+                - button "Color accent" [ref=f18e180] [cursor=pointer]
+                - button "Color accent" [ref=f18e181] [cursor=pointer]
+                - button "Color accent" [ref=f18e182] [cursor=pointer]
+                - button "Color accent" [ref=f18e183] [cursor=pointer]
+                - button "Color accent" [ref=f18e184] [cursor=pointer]
+                - button "Color accent" [ref=f18e185] [cursor=pointer]
+                - button "Color accent" [ref=f18e186] [cursor=pointer]
+                - button "Color accent" [ref=f18e187] [cursor=pointer]
+                - button "Color accent" [ref=f18e188] [cursor=pointer]
+                - button "Color accent" [ref=f18e189] [cursor=pointer]
+                - button "Color accent" [ref=f18e190] [cursor=pointer]
+                - button "Color accent" [ref=f18e191] [cursor=pointer]
+                - button "Color accent" [ref=f18e192] [cursor=pointer]
+                - button "Color accent" [ref=f18e193] [cursor=pointer]
+                - button "Color accent" [ref=f18e194] [cursor=pointer]
+                - button "Color accent" [ref=f18e195] [cursor=pointer]
+                - button "Color accent" [ref=f18e196] [cursor=pointer]
+                - button "Color accent" [ref=f18e197] [cursor=pointer]
+                - button "Color accent" [ref=f18e198] [cursor=pointer]
+                - button "Color accent" [ref=f18e199] [cursor=pointer]
+                - button "Color accent" [ref=f18e200] [cursor=pointer]
+                - button "Color accent" [ref=f18e201] [cursor=pointer]
+                - button "Color accent" [ref=f18e202] [cursor=pointer]
+                - button "Color accent" [ref=f18e203] [cursor=pointer]
+                - button "Color accent" [ref=f18e204] [cursor=pointer]
+                - button "Color accent" [ref=f18e205] [cursor=pointer]
+                - button "Color accent" [ref=f18e206] [cursor=pointer]
+                - button "Color hair" [ref=f18e207] [cursor=pointer]
+                - button "Color hair" [ref=f18e208] [cursor=pointer]
+                - button "Color hair" [ref=f18e209] [cursor=pointer]
+                - button "Color hair" [ref=f18e210] [cursor=pointer]
+                - button "Color hair" [ref=f18e211] [cursor=pointer]
+                - button "Color hair" [ref=f18e212] [cursor=pointer]
+                - button "Color hair" [ref=f18e213] [cursor=pointer]
+                - button "Color hair" [ref=f18e214] [cursor=pointer]
+                - button "Color hair" [ref=f18e215] [cursor=pointer]
+                - button "Color hair" [ref=f18e216] [cursor=pointer]
+                - button "Color skin" [ref=f18e217] [cursor=pointer]
+                - button "Color skin" [ref=f18e218] [cursor=pointer]
+                - button "Color skin" [ref=f18e219] [cursor=pointer]
+                - button "Color skin" [ref=f18e220] [cursor=pointer]
+                - button "Color skin" [ref=f18e221] [cursor=pointer]
+                - button "Color skin" [ref=f18e222] [cursor=pointer]
+                - button "Color skin" [ref=f18e223] [cursor=pointer]
+                - button "Color skin" [ref=f18e224] [cursor=pointer]
+                - button "Color skin" [ref=f18e225] [cursor=pointer]
+                - button "Color skin" [ref=f18e226] [cursor=pointer]
+                - button "Color skin" [ref=f18e227] [cursor=pointer]
+                - button "Color skin" [ref=f18e228] [cursor=pointer]
+                - button "Color skin" [ref=f18e229] [cursor=pointer]
+                - button "Color skin" [ref=f18e230] [cursor=pointer]
+            - generic: Mary
+          - group [ref=f18e232]:
+            - generic "About This Saint" [ref=f18e233] [cursor=pointer]
+            - generic [ref=f18e237]:
+              - paragraph [ref=f18e238]: Mary is the Mother of Jesus and the greatest example of trust, humility, and love for God. She said yes to God and helps lead all Christians closer to her Son.
+              - generic [ref=f18e239]:
+                - generic [ref=f18e240]:
+                  - generic [ref=f18e241]: Feast day
+                  - strong [ref=f18e242]: January 1
+                - generic [ref=f18e243]:
+                  - generic [ref=f18e244]: Special symbols
+                  - strong [ref=f18e245]: Blue mantle; white veil; lily; stars; crown or halo; infant Jesus optional.
+                - generic [ref=f18e246]:
+                  - generic [ref=f18e247]: Category
+                  - strong [ref=f18e248]: Marian / Holy Family
+              - generic [ref=f18e249]:
+                - generic [ref=f18e250]: Choose another saint
+                - combobox "Choose another saint" [ref=f18e251]:
+                  - option "Mary, Mother of God" [selected]
+                  - option "St. Joseph"
+                  - option "St. Francis of Assisi"
+                  - option "St. Thérèse of Lisieux (The Little Flower)"
+                  - option "St. John Bosco · Premium" [disabled]
+                  - option "St. Francis Xavier · Premium" [disabled]
+                  - option "St. Dominic · Premium" [disabled]
+                  - option "St. Monica · Premium" [disabled]
+                  - option "St. Thomas Aquinas · Premium" [disabled]
+                  - option "St. Catherine of Siena · Premium" [disabled]
+                  - option "St. Juan Diego · Premium" [disabled]
+                  - option "St. Kateri Tekakwitha · Premium" [disabled]
+                  - option "St. Martin of Tours · Premium" [disabled]
+                  - option "St. Vincent de Paul · Premium" [disabled]
+                  - option "St. Elizabeth Ann Seton · Premium" [disabled]
+                  - option "St. Maria Goretti · Premium" [disabled]
+                  - option "St. Lucy · Premium" [disabled]
+                  - option "St. Cecilia · Premium" [disabled]
+                  - option "St. Agatha · Premium" [disabled]
+                  - option "St. Anne · Premium" [disabled]
+                  - option "St. Joachim · Premium" [disabled]
+                  - option "St. John the Baptist · Premium" [disabled]
+                  - option "St. George · Premium" [disabled]
+                  - option "St. Christopher · Premium" [disabled]
+                  - option "St. Sebastian · Premium" [disabled]
+                  - option "St. Felicity · Premium" [disabled]
+                  - option "St. Maximilian Kolbe · Premium" [disabled]
+                  - option "St. José Sánchez del Río · Premium" [disabled]
+                  - option "St. Carlo Acutis · Premium" [disabled]
+                  - option "St. Paul · Premium" [disabled]
+                  - option "St. Andrew · Premium" [disabled]
+                  - option "St. James the Greater · Premium" [disabled]
+                  - option "St. Faustina Kowalska · Premium" [disabled]
+                  - option "St. Mary Magdalene · Premium" [disabled]
+              - button "Unlock all 34 saints · $4.99" [ref=f18e252] [cursor=pointer]
+        - complementary "Color palette" [ref=f18e253]:
+          - generic [ref=f18e254]:
+            - button "Select Pale blue" [ref=f18e255] [cursor=pointer]
+            - button "Select Ivory" [ref=f18e260] [cursor=pointer]
+            - button "Select Blue" [ref=f18e265] [cursor=pointer]
+            - button "Select Skin" [ref=f18e270] [cursor=pointer]
+            - button "Select Chestnut" [ref=f18e275] [cursor=pointer]
+            - button "Select Tan" [ref=f18e280] [cursor=pointer]
+            - button "Select Gold" [ref=f18e285] [cursor=pointer]
+            - button "Select Deep gold" [ref=f18e290] [cursor=pointer]
+            - button "Unlock Gold with premium" [ref=f18e295] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f18e300]: 🔒
+            - button "Unlock Forest green with premium" [ref=f18e301] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f18e306]: 🔒
+            - button "Unlock Navy with premium" [ref=f18e307] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f18e312]: 🔒
+            - button "Unlock Lavender with premium" [ref=f18e313] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f18e318]: 🔒
+            - button "Unlock Violet with premium" [ref=f18e319] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f18e324]: 🔒
+            - button "Unlock Coral with premium" [ref=f18e325] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f18e330]: 🔒
+            - button "Unlock Sand with premium" [ref=f18e331] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f18e336]: 🔒
+            - button "Unlock Slate gray with premium" [ref=f18e337] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f18e342]: 🔒
+            - button "Unlock Black with premium" [ref=f18e343] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f18e348]: 🔒
+            - button "Unlock 9 more colors" [ref=f18e349] [cursor=pointer]
+    - navigation "Main navigation" [ref=f18e51]:
+      - button "Home" [ref=f18e52] [cursor=pointer]
+      - button "Color" [ref=f18e57] [cursor=pointer]
+      - button "My Artwork" [ref=f18e63] [cursor=pointer]
+      - button "More" [ref=f18e67] [cursor=pointer]
+  - status [ref=f18e352]: Mary, Mother of God is ready to color.

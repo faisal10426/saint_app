@@ -28,6 +28,7 @@ import {
 } from './components/icons';
 import { bonusColors, saintColorPlans } from './data/artColors';
 import { publishedSaints } from './data/saints';
+import { latestStrokeColor, type BrushStroke } from './lib/brush';
 import { LIFETIME_PRICE_LABEL, isPaidFreeTestUnlock, purchaseLifetimeUnlock, restoreLifetimeUnlock, verifyEntitlement } from './lib/commerce';
 import { printColoringPage } from './lib/printing';
 import type { PaintMap, RegionId, Saint } from './types';
@@ -44,11 +45,12 @@ type Artwork = {
   saintId: string;
   title: string;
   colors: PaintMap;
+  strokes: BrushStroke[];
   createdAt: number;
   updatedAt: number;
 };
 
-type HistoryEntry = { artworkId: string; previous: PaintMap };
+type HistoryEntry = { artworkId: string; previous: PaintMap; previousStrokes: BrushStroke[] };
 type Screen = 'home' | 'color' | 'artwork' | 'more';
 type HomeFilter = 'all' | 'free' | 'premium';
 type ArtworkSort = 'recent' | 'oldest' | 'name';
@@ -74,11 +76,17 @@ function paletteFor(saintId: string): PaletteColor[] {
   return [...picture, ...bonus];
 }
 
+function wornColor(region: RegionId, colors: PaintMap, strokes: BrushStroke[]): string {
+  const painted = colors[region] ?? '';
+  if (painted && painted.toLowerCase() !== EMPTY_COLOR) return painted;
+  return latestStrokeColor(region, strokes);
+}
+
 /** How many regions already wear the colour they wear on the card. */
-function completionOf(saintId: string, colors: PaintMap): { done: number; total: number } {
+function completionOf(saintId: string, colors: PaintMap, strokes: BrushStroke[] = []): { done: number; total: number } {
   const targets = saintColorPlans[saintId]?.targets ?? {};
   const entries = Object.entries(targets) as [RegionId, string][];
-  const done = entries.filter(([region, want]) => (colors[region] ?? '').toLowerCase() === want.toLowerCase()).length;
+  const done = entries.filter(([region, want]) => wornColor(region, colors, strokes).toLowerCase() === want.toLowerCase()).length;
   return { done, total: entries.length };
 }
 
@@ -138,12 +146,29 @@ function isArtwork(value: unknown): value is Artwork {
   );
 }
 
+function readStrokes(value: unknown): BrushStroke[] {
+  if (!Array.isArray(value)) return [];
+  return value.filter((item): item is BrushStroke => {
+    if (!item || typeof item !== 'object') return false;
+    const stroke = item as BrushStroke;
+    return (
+      typeof stroke.id === 'string' &&
+      typeof stroke.region === 'string' &&
+      typeof stroke.color === 'string' &&
+      Array.isArray(stroke.points) &&
+      typeof stroke.width === 'number'
+    );
+  });
+}
+
 function readArtworks(): Artwork[] {
   try {
     const stored = localStorage.getItem(ARTWORK_STORAGE_KEY);
     if (stored) {
       const parsed = JSON.parse(stored) as unknown;
-      if (Array.isArray(parsed)) return parsed.filter(isArtwork);
+      if (Array.isArray(parsed)) {
+        return parsed.filter(isArtwork).map((item) => ({ ...item, strokes: readStrokes(item.strokes) }));
+      }
     }
 
     const legacy = localStorage.getItem(LEGACY_ARTWORK_KEY);
@@ -166,6 +191,7 @@ function readArtworks(): Artwork[] {
               saintId,
               title: shortName(saint),
               colors,
+              strokes: [],
               createdAt: now - index,
               updatedAt: now - index,
             };
@@ -246,7 +272,11 @@ export default function App() {
   const fileArtwork = artworks.find((item) => item.id === fileForId) ?? null;
 
   const palette = useMemo(() => paletteFor(activeSaint.id), [activeSaint.id]);
-  const completion = useMemo(() => completionOf(activeSaint.id, activeColors), [activeSaint.id, activeColors]);
+  const activeStrokes = activeArtwork?.strokes ?? [];
+  const completion = useMemo(
+    () => completionOf(activeSaint.id, activeColors, activeStrokes),
+    [activeSaint.id, activeColors, activeStrokes],
+  );
   const completionPct = completion.total ? Math.round((completion.done / completion.total) * 100) : 0;
   const showMeter = completion.total >= MIN_METER_REGIONS;
 
@@ -454,6 +484,7 @@ export default function App() {
       saintId: saint.id,
       title: title ?? shortName(saint),
       colors,
+      strokes: [],
       createdAt: now,
       updatedAt: now,
     };
@@ -510,6 +541,7 @@ export default function App() {
       id: uid(),
       title: `${artwork.title} (copy)`,
       colors: { ...artwork.colors },
+      strokes: artwork.strokes.map((stroke) => ({ ...stroke, id: uid(), points: [...stroke.points] })),
       createdAt: now,
       updatedAt: now,
     };
@@ -530,18 +562,37 @@ export default function App() {
 
   // ---------- Coloring ----------
 
+  function snapshotHistory(artwork: Artwork) {
+    setHistory((stack) => [
+      ...stack.slice(-79),
+      { artworkId: artwork.id, previous: { ...artwork.colors }, previousStrokes: artwork.strokes.map((stroke) => ({ ...stroke, points: [...stroke.points] })) },
+    ]);
+  }
+
   function paintRegion(region: RegionId) {
     if (!activeArtwork) return;
     const saint = saintById(activeArtwork.saintId);
     if (!saint.regions.includes(region)) return;
     const previous = { ...activeArtwork.colors };
     const nextColor = eraserMode ? EMPTY_COLOR : activeColor;
-    if (previous[region] === nextColor) return;
+    const nextStrokes = eraserMode ? activeArtwork.strokes.filter((stroke) => stroke.region !== region) : activeArtwork.strokes;
+    if (previous[region] === nextColor && nextStrokes.length === activeArtwork.strokes.length) return;
 
-    setHistory((stack) => [...stack.slice(-79), { artworkId: activeArtwork.id, previous }]);
+    snapshotHistory(activeArtwork);
     updateArtwork(activeArtwork.id, (item) => ({
       ...item,
       colors: { ...previous, [region]: nextColor },
+      strokes: nextStrokes,
+      updatedAt: Date.now(),
+    }));
+  }
+
+  function addBrushStroke(stroke: BrushStroke) {
+    if (!activeArtwork || eraserMode) return;
+    snapshotHistory(activeArtwork);
+    updateArtwork(activeArtwork.id, (item) => ({
+      ...item,
+      strokes: [...item.strokes, stroke],
       updatedAt: Date.now(),
     }));
   }
@@ -561,17 +612,22 @@ export default function App() {
       setNotice('There is nothing to undo yet.');
       return;
     }
-    updateArtwork(latest.artworkId, (item) => ({ ...item, colors: latest.previous, updatedAt: Date.now() }));
+    updateArtwork(latest.artworkId, (item) => ({
+      ...item,
+      colors: latest.previous,
+      strokes: latest.previousStrokes ?? [],
+      updatedAt: Date.now(),
+    }));
     setHistory((stack) => stack.slice(0, -1));
   }
 
   function clearCurrent() {
-    if (!activeArtwork || !Object.keys(activeArtwork.colors).length) {
+    if (!activeArtwork || (!Object.keys(activeArtwork.colors).length && !activeArtwork.strokes.length)) {
       setNotice('This page is already blank.');
       return;
     }
-    setHistory((stack) => [...stack.slice(-79), { artworkId: activeArtwork.id, previous: { ...activeArtwork.colors } }]);
-    updateArtwork(activeArtwork.id, (item) => ({ ...item, colors: {}, updatedAt: Date.now() }));
+    snapshotHistory(activeArtwork);
+    updateArtwork(activeArtwork.id, (item) => ({ ...item, colors: {}, strokes: [], updatedAt: Date.now() }));
     setNotice('This coloring page has been cleared.');
   }
 
@@ -816,6 +872,14 @@ export default function App() {
                   </div>
                   <div className="color-screen__panels">
                     <aside className="tool-rail" aria-label="Coloring tools">
+                      <button
+                        className={`tool ${!eraserMode ? 'tool--active' : ''}`}
+                        onClick={() => setEraserMode(false)}
+                        aria-pressed={!eraserMode}
+                      >
+                        <BrushIcon />
+                        <span>Brush</span>
+                      </button>
                       <button className="tool" onClick={undo}>
                         <UndoIcon />
                         <span>Undo</span>
@@ -848,6 +912,8 @@ export default function App() {
                         <strong>Choose a color</strong>
                         <span className="instruction-number">2</span>
                         <strong>Touch a picture part</strong>
+                        <span className="instruction-number">3</span>
+                        <strong>Drag stays inside the lines</strong>
                       </div>
                       {showMeter && (
                         <div
@@ -883,7 +949,15 @@ export default function App() {
                           </p>
                         </div>
                       )}
-                      <SaintArt saint={activeSaint} colors={activeColors} onPaint={paintRegion} svgId={SVG_ID} />
+                      <SaintArt
+                        saint={activeSaint}
+                        colors={activeColors}
+                        strokes={activeStrokes}
+                        brushColor={eraserMode ? EMPTY_COLOR : activeColor}
+                        onPaint={paintRegion}
+                        onBrushStroke={addBrushStroke}
+                        svgId={SVG_ID}
+                      />
 
                       <details className="about-saint" open={aboutOpen}>
                         <summary
@@ -945,7 +1019,11 @@ export default function App() {
                           className="selected-color__swatch"
                           style={{ background: eraserMode ? EMPTY_COLOR : activeColor }}
                         />
-                        <span>{eraserMode ? 'Eraser — tap a part to clear it' : 'Now painting with this color'}</span>
+                        <span>
+                          {eraserMode
+                            ? 'Eraser — tap a part to clear it'
+                            : 'Brush ready — tap to fill, or drag inside the lines'}
+                        </span>
                       </div>
                       <p className="palette-caption">
                         These are the real colors of {shortName(activeSaint)}&rsquo;s holy card.
@@ -959,11 +1037,16 @@ export default function App() {
                               className={`color-swatch ${
                                 !eraserMode && color.value === activeColor ? 'color-swatch--active' : ''
                               } ${locked ? 'color-swatch--locked' : ''}`}
-                              style={{ backgroundColor: color.value }}
+                              style={{ backgroundColor: color.value, ['--paint' as string]: color.value }}
                               aria-label={locked ? `Unlock ${color.name} with premium` : `Select ${color.name}`}
                               title={locked ? `${color.name} — Premium` : color.name}
                               onClick={() => selectColor(color)}
                             >
+                              <span className="paintbrush" aria-hidden="true">
+                                <span className="paintbrush__bristles" />
+                                <span className="paintbrush__ferrule" />
+                                <span className="paintbrush__handle" />
+                              </span>
                               {locked && <span aria-hidden="true">🔒</span>}
                             </button>
                           );
@@ -1028,8 +1111,10 @@ export default function App() {
                           <SaintArt
                             saint={saint}
                             colors={artwork.colors}
+                            strokes={artwork.strokes}
                             onPaint={() => {}}
                             svgId={`art-thumb-${artwork.id}`}
+                            compact
                           />
                         </span>
                         <span className="artwork-card__name">{artwork.title}</span>
@@ -1143,6 +1228,7 @@ export default function App() {
           <SaintArt
             saint={saintById(fileArtwork.saintId)}
             colors={fileArtwork.colors}
+            strokes={fileArtwork.strokes}
             onPaint={() => {}}
             svgId={SVG_ID}
           />
@@ -1170,8 +1256,10 @@ export default function App() {
                 <SaintArt
                   saint={saintById(actionsArtwork.saintId)}
                   colors={actionsArtwork.colors}
+                  strokes={actionsArtwork.strokes}
                   onPaint={() => {}}
                   svgId={`action-thumb-${actionsArtwork.id}`}
+                  compact
                 />
               </span>
               <div>

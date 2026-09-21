@@ -1,0 +1,410 @@
+- generic [ref=f1e3]:
+  - generic [ref=f1e4]:
+    - banner [ref=f1e5]:
+      - generic [ref=f1e73]:
+        - button "Back" [ref=f1e74] [cursor=pointer]
+        - button "Home" [ref=f1e77] [cursor=pointer]
+      - button "Paint a Saint — go home" [ref=f1e10] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f1e11]: 🖌️
+        - generic [aria-hidden] [ref=f1e12]: Paint a Saint
+      - button "Account" [ref=f1e13] [cursor=pointer]
+    - region "Coloring" [ref=f1e81]:
+      - generic [ref=f1e82]:
+        - heading "Mary, Mother of God" [level=1] [ref=f1e83]
+        - paragraph [ref=f1e84]: January 1
+      - generic [ref=f1e85]:
+        - complementary "Coloring tools" [ref=f1e86]:
+          - button "Brush" [pressed] [ref=f1e87] [cursor=pointer]
+          - button "Undo" [ref=f1e93] [cursor=pointer]
+          - button "Erase" [ref=f1e98] [cursor=pointer]
+          - button "Clear" [ref=f1e103] [cursor=pointer]
+          - button "Save" [ref=f1e109] [cursor=pointer]
+          - button "Print" [ref=f1e114] [cursor=pointer]
+        - region "Coloring canvas" [ref=f1e120]:
+          - generic [ref=f1e121]:
+            - generic [ref=f1e122]: "1"
+            - strong [ref=f1e123]: Choose a color
+            - generic [ref=f1e124]: "2"
+            - strong [ref=f1e125]: Touch a picture part
+            - generic [ref=f1e126]: "3"
+            - strong [ref=f1e127]: Drag stays inside the lines
+          - generic [ref=f1e128]:
+            - generic [ref=f1e129]:
+              - generic [ref=f1e130]: Matching the real picture
+              - generic [ref=f1e131]: 0 of 9
+            - progressbar "Picture completed" [ref=f1e132]
+            - paragraph [ref=f1e133]: Pick the color a part really wears and the bar fills up.
+          - img "Coloring page for Mary, Mother of God" [ref=f1e134]:
+            - generic:
+              - generic:
+                - generic "Color background"
+              - generic:
+                - generic:
+                  - generic "Color cloud"
+                - generic:
+                  - generic "Color cloud"
+                - generic:
+                  - generic "Color cloud"
+                - generic:
+                  - generic "Color cloud"
+                - generic:
+                  - generic "Color cloud"
+                - generic:
+                  - generic "Color cloud"
+                - generic:
+                  - generic "Color cloud"
+              - generic:
+                - generic:
+                  - generic "Color halo"
+              - generic:
+                - generic:
+                  - generic "Color symbol"
+                - generic:
+                  - generic "Color symbol"
+                - generic:
+                  - generic "Color symbol"
+                - generic:
+                  - generic "Color symbol"
+                - generic:
+                  - generic "Color symbol"
+                - generic:
+                  - generic "Color symbol"
+                - generic:
+                  - generic "Color symbol"
+                - generic:
+                  - generic "Color symbol"
+                - generic:
+                  - generic "Color symbol"
+                - generic:
+                  - generic "Color symbol"
+              - generic:
+                - generic:
+                  - generic "Color mantle"
+                - generic:
+                  - generic "Color mantle"
+              - generic:
+                - generic:
+                  - generic "Color robe"
+                - generic:
+                  - generic "Color robe"
+                - generic:
+                  - generic "Color robe"
+                - generic:
+                  - generic "Color robe"
+                - generic:
+                  - generic "Color robe"
+                - generic:
+                  - generic "Color robe"
+                - generic:
+                  - generic "Color robe"
+                - generic:
+                  - generic "Color robe"
+                - generic:
+                  - generic "Color robe"
+                - generic:
+                  - generic "Color robe"
+                - generic:
+                  - generic "Color robe"
+                - generic:
+                  - generic "Color robe"
+              - generic:
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+                - generic:
+                  - generic "Color accent"
+              - generic:
+                - generic:
+                  - generic "Color hair"
+                - generic:
+                  - generic "Color hair"
+                - generic:
+                  - generic "Color hair"
+                - generic:
+                  - generic "Color hair"
+                - generic:
+                  - generic "Color hair"
+                - generic:
+                  - generic "Color hair"
+                - generic:
+                  - generic "Color hair"
+                - generic:
+                  - generic "Color hair"
+                - generic:
+                  - generic "Color hair"
+                - generic:
+                  - generic "Color hair"
+              - generic:
+                - generic:
+                  - generic "Color skin"
+                - generic:
+                  - generic "Color skin"
+                - generic:
+                  - generic "Color skin"
+                - generic:
+                  - generic "Color skin"
+                - generic:
+                  - generic "Color skin"
+                - generic:
+                  - generic "Color skin"
+                - generic:
+                  - generic "Color skin"
+                - generic:
+                  - generic "Color skin"
+                - generic:
+                  - generic "Color skin"
+                - generic:
+                  - generic "Color skin"
+                - generic:
+                  - generic "Color skin"
+                - generic:
+                  - generic "Color skin"
+                - generic:
+                  - generic "Color skin"
+                - generic:
+                  - generic "Color skin"
+            - generic [ref=f1e135]:
+              - button "Color background" [ref=f1e136] [cursor=pointer]
+              - generic [ref=f1e138]:
+                - button "Color cloud" [ref=f1e139] [cursor=pointer]
+                - button "Color cloud" [ref=f1e140] [cursor=pointer]
+                - button "Color cloud" [ref=f1e141] [cursor=pointer]
+                - button "Color cloud" [ref=f1e142] [cursor=pointer]
+                - button "Color cloud" [ref=f1e143] [cursor=pointer]
+                - button "Color cloud" [ref=f1e144] [cursor=pointer]
+                - button "Color cloud" [ref=f1e145] [cursor=pointer]
+                - button "Color halo" [ref=f1e146] [cursor=pointer]
+                - button "Color symbol" [ref=f1e149] [cursor=pointer]
+                - button "Color symbol" [ref=f1e150] [cursor=pointer]
+                - button "Color symbol" [ref=f1e151] [cursor=pointer]
+                - button "Color symbol" [ref=f1e152] [cursor=pointer]
+                - button "Color symbol" [ref=f1e153] [cursor=pointer]
+                - button "Color symbol" [ref=f1e154] [cursor=pointer]
+                - button "Color symbol" [ref=f1e155] [cursor=pointer]
+                - button "Color symbol" [ref=f1e156] [cursor=pointer]
+                - button "Color symbol" [ref=f1e157] [cursor=pointer]
+                - button "Color symbol" [ref=f1e158] [cursor=pointer]
+                - button "Color mantle" [ref=f1e159] [cursor=pointer]
+                - button "Color mantle" [ref=f1e160] [cursor=pointer]
+                - button "Color robe" [ref=f1e161] [cursor=pointer]
+                - button "Color robe" [ref=f1e162] [cursor=pointer]
+                - button "Color robe" [ref=f1e163] [cursor=pointer]
+                - button "Color robe" [ref=f1e164] [cursor=pointer]
+                - button "Color robe" [ref=f1e165] [cursor=pointer]
+                - button "Color robe" [ref=f1e166] [cursor=pointer]
+                - button "Color robe" [ref=f1e167] [cursor=pointer]
+                - button "Color robe" [ref=f1e168] [cursor=pointer]
+                - button "Color robe" [ref=f1e169] [cursor=pointer]
+                - button "Color robe" [ref=f1e170] [cursor=pointer]
+                - button "Color robe" [ref=f1e171] [cursor=pointer]
+                - button "Color robe" [ref=f1e172] [cursor=pointer]
+                - button "Color accent" [ref=f1e173] [cursor=pointer]
+                - button "Color accent" [ref=f1e174] [cursor=pointer]
+                - button "Color accent" [ref=f1e175] [cursor=pointer]
+                - button "Color accent" [ref=f1e176] [cursor=pointer]
+                - button "Color accent" [ref=f1e177] [cursor=pointer]
+                - button "Color accent" [ref=f1e178] [cursor=pointer]
+                - button "Color accent" [ref=f1e179] [cursor=pointer]
+                - button "Color accent" [ref=f1e180] [cursor=pointer]
+                - button "Color accent" [ref=f1e181] [cursor=pointer]
+                - button "Color accent" [ref=f1e182] [cursor=pointer]
+                - button "Color accent" [ref=f1e183] [cursor=pointer]
+                - button "Color accent" [ref=f1e184] [cursor=pointer]
+                - button "Color accent" [ref=f1e185] [cursor=pointer]
+                - button "Color accent" [ref=f1e186] [cursor=pointer]
+                - button "Color accent" [ref=f1e187] [cursor=pointer]
+                - button "Color accent" [ref=f1e188] [cursor=pointer]
+                - button "Color accent" [ref=f1e189] [cursor=pointer]
+                - button "Color accent" [ref=f1e190] [cursor=pointer]
+                - button "Color accent" [ref=f1e191] [cursor=pointer]
+                - button "Color accent" [ref=f1e192] [cursor=pointer]
+                - button "Color accent" [ref=f1e193] [cursor=pointer]
+                - button "Color accent" [ref=f1e194] [cursor=pointer]
+                - button "Color accent" [ref=f1e195] [cursor=pointer]
+                - button "Color accent" [ref=f1e196] [cursor=pointer]
+                - button "Color accent" [ref=f1e197] [cursor=pointer]
+                - button "Color accent" [ref=f1e198] [cursor=pointer]
+                - button "Color accent" [ref=f1e199] [cursor=pointer]
+                - button "Color accent" [ref=f1e200] [cursor=pointer]
+                - button "Color accent" [ref=f1e201] [cursor=pointer]
+                - button "Color accent" [ref=f1e202] [cursor=pointer]
+                - button "Color accent" [ref=f1e203] [cursor=pointer]
+                - button "Color accent" [ref=f1e204] [cursor=pointer]
+                - button "Color hair" [ref=f1e205] [cursor=pointer]
+                - button "Color hair" [ref=f1e206] [cursor=pointer]
+                - button "Color hair" [ref=f1e207] [cursor=pointer]
+                - button "Color hair" [ref=f1e208] [cursor=pointer]
+                - button "Color hair" [ref=f1e209] [cursor=pointer]
+                - button "Color hair" [ref=f1e210] [cursor=pointer]
+                - button "Color hair" [ref=f1e211] [cursor=pointer]
+                - button "Color hair" [ref=f1e212] [cursor=pointer]
+                - button "Color hair" [ref=f1e213] [cursor=pointer]
+                - button "Color hair" [ref=f1e214] [cursor=pointer]
+                - button "Color skin" [ref=f1e215] [cursor=pointer]
+                - button "Color skin" [ref=f1e216] [cursor=pointer]
+                - button "Color skin" [ref=f1e217] [cursor=pointer]
+                - button "Color skin" [ref=f1e218] [cursor=pointer]
+                - button "Color skin" [ref=f1e219] [cursor=pointer]
+                - button "Color skin" [ref=f1e220] [cursor=pointer]
+                - button "Color skin" [ref=f1e221] [cursor=pointer]
+                - button "Color skin" [ref=f1e222] [cursor=pointer]
+                - button "Color skin" [ref=f1e223] [cursor=pointer]
+                - button "Color skin" [ref=f1e224] [cursor=pointer]
+                - button "Color skin" [ref=f1e225] [cursor=pointer]
+                - button "Color skin" [ref=f1e226] [cursor=pointer]
+                - button "Color skin" [ref=f1e227] [cursor=pointer]
+                - button "Color skin" [ref=f1e228] [cursor=pointer]
+            - generic: Mary
+          - group [ref=f1e230]:
+            - generic "About This Saint" [ref=f1e231] [cursor=pointer]
+            - generic [ref=f1e235]:
+              - paragraph [ref=f1e236]: Mary is the Mother of Jesus and the greatest example of trust, humility, and love for God. She said yes to God and helps lead all Christians closer to her Son.
+              - generic [ref=f1e237]:
+                - generic [ref=f1e238]:
+                  - generic [ref=f1e239]: Feast day
+                  - strong [ref=f1e240]: January 1
+                - generic [ref=f1e241]:
+                  - generic [ref=f1e242]: Special symbols
+                  - strong [ref=f1e243]: Blue mantle; white veil; lily; stars; crown or halo; infant Jesus optional.
+                - generic [ref=f1e244]:
+                  - generic [ref=f1e245]: Category
+                  - strong [ref=f1e246]: Marian / Holy Family
+              - generic [ref=f1e247]:
+                - generic [ref=f1e248]: Choose another saint
+                - combobox "Choose another saint" [ref=f1e249]:
+                  - option "Mary, Mother of God" [selected]
+                  - option "St. Joseph"
+                  - option "St. Francis of Assisi"
+                  - option "St. Thérèse of Lisieux (The Little Flower)"
+                  - option "St. John Bosco · Premium" [disabled]
+                  - option "St. Francis Xavier · Premium" [disabled]
+                  - option "St. Dominic · Premium" [disabled]
+                  - option "St. Monica · Premium" [disabled]
+                  - option "St. Thomas Aquinas · Premium" [disabled]
+                  - option "St. Catherine of Siena · Premium" [disabled]
+                  - option "St. Juan Diego · Premium" [disabled]
+                  - option "St. Kateri Tekakwitha · Premium" [disabled]
+                  - option "St. Martin of Tours · Premium" [disabled]
+                  - option "St. Vincent de Paul · Premium" [disabled]
+                  - option "St. Elizabeth Ann Seton · Premium" [disabled]
+                  - option "St. Maria Goretti · Premium" [disabled]
+                  - option "St. Lucy · Premium" [disabled]
+                  - option "St. Cecilia · Premium" [disabled]
+                  - option "St. Agatha · Premium" [disabled]
+                  - option "St. Anne · Premium" [disabled]
+                  - option "St. Joachim · Premium" [disabled]
+                  - option "St. John the Baptist · Premium" [disabled]
+                  - option "St. George · Premium" [disabled]
+                  - option "St. Christopher · Premium" [disabled]
+                  - option "St. Sebastian · Premium" [disabled]
+                  - option "St. Felicity · Premium" [disabled]
+                  - option "St. Maximilian Kolbe · Premium" [disabled]
+                  - option "St. José Sánchez del Río · Premium" [disabled]
+                  - option "St. Carlo Acutis · Premium" [disabled]
+                  - option "St. Paul · Premium" [disabled]
+                  - option "St. Andrew · Premium" [disabled]
+                  - option "St. James the Greater · Premium" [disabled]
+                  - option "St. Faustina Kowalska · Premium" [disabled]
+                  - option "St. Mary Magdalene · Premium" [disabled]
+              - button "Unlock all 34 saints · $4.99" [ref=f1e250] [cursor=pointer]
+        - complementary "Color palette" [ref=f1e251]:
+          - heading "Colors" [level=2] [ref=f1e252]
+          - generic [ref=f1e253]: Brush ready — tap to fill, or drag inside the lines
+          - paragraph [ref=f1e256]: These are the real colors of Mary, Mother of God’s holy card.
+          - generic [ref=f1e257]:
+            - button "Select Pale blue" [ref=f1e258] [cursor=pointer]
+            - button "Select Ivory" [ref=f1e259] [cursor=pointer]
+            - button "Select Blue" [ref=f1e260] [cursor=pointer]
+            - button "Select Skin" [ref=f1e261] [cursor=pointer]
+            - button "Select Chestnut" [ref=f1e262] [cursor=pointer]
+            - button "Select Tan" [ref=f1e263] [cursor=pointer]
+            - button "Select Gold" [ref=f1e264] [cursor=pointer]
+            - button "Select Deep gold" [ref=f1e265] [cursor=pointer]
+            - button "Unlock Gold with premium" [ref=f1e266] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f1e267]: 🔒
+            - button "Unlock Forest green with premium" [ref=f1e268] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f1e269]: 🔒
+            - button "Unlock Navy with premium" [ref=f1e270] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f1e271]: 🔒
+            - button "Unlock Lavender with premium" [ref=f1e272] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f1e273]: 🔒
+            - button "Unlock Violet with premium" [ref=f1e274] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f1e275]: 🔒
+            - button "Unlock Coral with premium" [ref=f1e276] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f1e277]: 🔒
+            - button "Unlock Sand with premium" [ref=f1e278] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f1e279]: 🔒
+            - button "Unlock Slate gray with premium" [ref=f1e280] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f1e281]: 🔒
+            - button "Unlock Black with premium" [ref=f1e282] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f1e283]: 🔒
+            - button "Unlock 9 more colors" [ref=f1e284] [cursor=pointer]
+          - button "Unlock 9 more colors · $4.99" [ref=f1e287] [cursor=pointer]
+          - generic [ref=f1e288]:
+            - strong [ref=f1e289]: "Tip:"
+            - text: Recolor any part as many times as you like. Undo remembers your last 80 changes.
+    - navigation "Main navigation" [ref=f1e51]:
+      - button "Home" [ref=f1e52] [cursor=pointer]
+      - button "Color" [ref=f1e57] [cursor=pointer]
+      - button "My Artwork" [ref=f1e63] [cursor=pointer]
+      - button "More" [ref=f1e67] [cursor=pointer]
+  - status [ref=f1e290]: Mary, Mother of God is ready to color.

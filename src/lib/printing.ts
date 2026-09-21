@@ -47,6 +47,7 @@ export function printColoringPage(saint: Saint, artwork: PaintMap, blank: boolea
     clone.querySelectorAll<SVGElement>('.paint-region').forEach((region) => {
       region.setAttribute('fill', '#fffdf8');
     });
+    clone.querySelectorAll('.brush-layer').forEach((layer) => layer.remove());
   }
 
   const markup = new XMLSerializer().serializeToString(clone);
