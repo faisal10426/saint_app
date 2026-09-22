@@ -1,0 +1,164 @@
+- generic [ref=e4]:
+  - banner [ref=e5]:
+    - button "Settings" [ref=e6] [cursor=pointer]
+    - button "Paint a Saint — go home" [ref=e10] [cursor=pointer]:
+      - generic [aria-hidden] [ref=e11]: 🖌️
+      - generic [aria-hidden] [ref=e12]: Paint a Saint
+    - button "Account" [ref=e13] [cursor=pointer]
+  - region "Saint library" [ref=e18]:
+    - generic [ref=e19]:
+      - generic [ref=e20]: Search saints
+      - searchbox "Search saints" [ref=e21]
+    - tablist "Filter saints" [ref=e22]:
+      - tab "All Saints" [selected] [ref=e23] [cursor=pointer]
+      - tab "Free" [ref=e29] [cursor=pointer]
+      - tab "Premium" [ref=e34] [cursor=pointer]
+    - generic [ref=e37]:
+      - button "Mary, Mother of God FREE Mary, Mother of God" [ref=e38] [cursor=pointer]:
+        - generic [ref=e39]:
+          - img "Mary, Mother of God" [ref=e40]
+          - generic [ref=e41]: FREE
+        - generic [ref=e45]: Mary, Mother of God
+      - button "St. Joseph FREE St. Joseph" [disabled]:
+        - generic:
+          - img "St. Joseph"
+          - generic: FREE
+        - generic: St. Joseph
+      - button "St. Francis of Assisi FREE St. Francis of Assisi" [disabled]:
+        - generic:
+          - img "St. Francis of Assisi"
+          - generic: FREE
+        - generic: St. Francis of Assisi
+      - button "St. Thérèse of Lisieux (The Little Flower) FREE St. Thérèse of Lisieux" [disabled]:
+        - generic:
+          - img "St. Thérèse of Lisieux (The Little Flower)"
+          - generic: FREE
+        - generic: St. Thérèse of Lisieux
+      - button "St. John Bosco St. John Bosco" [disabled]:
+        - generic:
+          - img "St. John Bosco"
+        - generic: St. John Bosco
+      - button "St. Francis Xavier St. Francis Xavier" [disabled]:
+        - generic:
+          - img "St. Francis Xavier"
+        - generic: St. Francis Xavier
+      - button "St. Dominic St. Dominic" [disabled]:
+        - generic:
+          - img "St. Dominic"
+        - generic: St. Dominic
+      - button "St. Monica St. Monica" [disabled]:
+        - generic:
+          - img "St. Monica"
+        - generic: St. Monica
+      - button "St. Thomas Aquinas St. Thomas Aquinas" [disabled]:
+        - generic:
+          - img "St. Thomas Aquinas"
+        - generic: St. Thomas Aquinas
+      - button "St. Catherine of Siena St. Catherine of Siena" [disabled]:
+        - generic:
+          - img "St. Catherine of Siena"
+        - generic: St. Catherine of Siena
+      - button "St. Juan Diego St. Juan Diego" [disabled]:
+        - generic:
+          - img "St. Juan Diego"
+        - generic: St. Juan Diego
+      - button "St. Kateri Tekakwitha St. Kateri Tekakwitha" [disabled]:
+        - generic:
+          - img "St. Kateri Tekakwitha"
+        - generic: St. Kateri Tekakwitha
+      - button "St. Martin of Tours St. Martin of Tours" [disabled]:
+        - generic:
+          - img "St. Martin of Tours"
+        - generic: St. Martin of Tours
+      - button "St. Vincent de Paul St. Vincent de Paul" [disabled]:
+        - generic:
+          - img "St. Vincent de Paul"
+        - generic: St. Vincent de Paul
+      - button "St. Elizabeth Ann Seton St. Elizabeth Ann Seton" [disabled]:
+        - generic:
+          - img "St. Elizabeth Ann Seton"
+        - generic: St. Elizabeth Ann Seton
+      - button "St. Maria Goretti St. Maria Goretti" [disabled]:
+        - generic:
+          - img "St. Maria Goretti"
+        - generic: St. Maria Goretti
+      - button "St. Lucy St. Lucy" [disabled]:
+        - generic:
+          - img "St. Lucy"
+        - generic: St. Lucy
+      - button "St. Cecilia St. Cecilia" [disabled]:
+        - generic:
+          - img "St. Cecilia"
+        - generic: St. Cecilia
+      - button "St. Agatha St. Agatha" [disabled]:
+        - generic:
+          - img "St. Agatha"
+        - generic: St. Agatha
+      - button "St. Anne St. Anne" [disabled]:
+        - generic:
+          - img "St. Anne"
+        - generic: St. Anne
+      - button "St. Joachim St. Joachim" [disabled]:
+        - generic:
+          - img "St. Joachim"
+        - generic: St. Joachim
+      - button "St. John the Baptist St. John the Baptist" [disabled]:
+        - generic:
+          - img "St. John the Baptist"
+        - generic: St. John the Baptist
+      - button "St. George St. George" [disabled]:
+        - generic:
+          - img "St. George"
+        - generic: St. George
+      - button "St. Christopher St. Christopher" [disabled]:
+        - generic:
+          - img "St. Christopher"
+        - generic: St. Christopher
+      - button "St. Sebastian St. Sebastian" [disabled]:
+        - generic:
+          - img "St. Sebastian"
+        - generic: St. Sebastian
+      - button "St. Felicity St. Felicity" [disabled]:
+        - generic:
+          - img "St. Felicity"
+        - generic: St. Felicity
+      - button "St. Maximilian Kolbe St. Maximilian Kolbe" [disabled]:
+        - generic:
+          - img "St. Maximilian Kolbe"
+        - generic: St. Maximilian Kolbe
+      - button "St. José Sánchez del Río St. José Sánchez del Río" [disabled]:
+        - generic:
+          - img "St. José Sánchez del Río"
+        - generic: St. José Sánchez del Río
+      - button "St. Carlo Acutis St. Carlo Acutis" [disabled]:
+        - generic:
+          - img "St. Carlo Acutis"
+        - generic: St. Carlo Acutis
+      - button "St. Paul St. Paul" [disabled]:
+        - generic:
+          - img "St. Paul"
+        - generic: St. Paul
+      - button "St. Andrew St. Andrew" [disabled]:
+        - generic:
+          - img "St. Andrew"
+        - generic: St. Andrew
+      - button "St. James the Greater St. James the Greater" [disabled]:
+        - generic:
+          - img "St. James the Greater"
+        - generic: St. James the Greater
+      - button "St. Faustina Kowalska St. Faustina Kowalska" [disabled]:
+        - generic:
+          - img "St. Faustina Kowalska"
+        - generic: St. Faustina Kowalska
+      - button "St. Mary Magdalene St. Mary Magdalene" [disabled]:
+        - generic:
+          - img "St. Mary Magdalene"
+        - generic: St. Mary Magdalene
+  - button "Unlock All Saints + More Colors + Print $4.99" [ref=e46] [cursor=pointer]:
+    - generic [ref=e49]: Unlock All Saints + More Colors + Print
+    - generic [ref=e50]: $4.99
+  - navigation "Main navigation" [ref=e51]:
+    - button "Home" [ref=e52] [cursor=pointer]
+    - button "Color" [ref=e57] [cursor=pointer]
+    - button "My Artwork" [ref=e63] [cursor=pointer]
+    - button "More" [ref=e67] [cursor=pointer]

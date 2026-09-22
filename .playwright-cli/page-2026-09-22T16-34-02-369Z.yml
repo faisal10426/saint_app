@@ -1,0 +1,198 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - banner [ref=e5]:
+      - generic [ref=e73]:
+        - button "Back" [ref=e74] [cursor=pointer]
+        - button "Home" [ref=e77] [cursor=pointer]
+      - button "Paint a Saint — go home" [ref=e10] [cursor=pointer]:
+        - generic [aria-hidden] [ref=e11]: 🖌️
+        - generic [aria-hidden] [ref=e12]: Paint a Saint
+      - button "Account" [ref=e13] [cursor=pointer]
+    - region "Coloring" [ref=e81]:
+      - generic [ref=e82]:
+        - heading "Mary, Mother of God" [level=1] [ref=e83]
+        - paragraph [ref=e84]: January 1
+      - generic [ref=e85]:
+        - complementary "Coloring tools" [ref=e86]:
+          - button "Brush" [pressed] [ref=e87] [cursor=pointer]
+          - button "Undo" [ref=e93] [cursor=pointer]
+          - button "Erase" [ref=e98] [cursor=pointer]
+          - button "Clear" [active] [ref=e103] [cursor=pointer]
+          - button "Save" [ref=e109] [cursor=pointer]
+          - button "Print" [ref=e114] [cursor=pointer]
+        - region "Coloring canvas" [ref=e120]:
+          - generic [ref=e121]:
+            - generic [ref=e122]: "1"
+            - strong [ref=e123]: Choose a color
+            - generic [ref=e124]: "2"
+            - strong [ref=e125]: Touch a picture part
+            - generic [ref=e126]: "3"
+            - strong [ref=e127]: Drag stays inside the lines
+          - generic [ref=e128]:
+            - generic [ref=e129]:
+              - generic [ref=e130]: Matching the real picture
+              - generic [ref=e131]: 0 of 9
+            - progressbar "Picture completed" [ref=e132]
+            - paragraph [ref=e133]: Pick the color a part really wears and the bar fills up.
+          - img "Coloring page for Mary, Mother of God" [ref=e134]:
+            - generic [ref=e135]:
+              - button "Color background" [ref=e136] [cursor=pointer]
+              - generic [ref=e138]:
+                - button "Color cloud" [ref=e139] [cursor=pointer]
+                - button "Color cloud" [ref=e140] [cursor=pointer]
+                - button "Color cloud" [ref=e141] [cursor=pointer]
+                - button "Color cloud" [ref=e142] [cursor=pointer]
+                - button "Color cloud" [ref=e143] [cursor=pointer]
+                - button "Color cloud" [ref=e144] [cursor=pointer]
+                - button "Color cloud" [ref=e145] [cursor=pointer]
+                - button "Color halo" [ref=e146] [cursor=pointer]
+                - button "Color symbol" [ref=e149] [cursor=pointer]
+                - button "Color symbol" [ref=e150] [cursor=pointer]
+                - button "Color symbol" [ref=e151] [cursor=pointer]
+                - button "Color symbol" [ref=e152] [cursor=pointer]
+                - button "Color symbol" [ref=e153] [cursor=pointer]
+                - button "Color symbol" [ref=e154] [cursor=pointer]
+                - button "Color symbol" [ref=e155] [cursor=pointer]
+                - button "Color symbol" [ref=e156] [cursor=pointer]
+                - button "Color symbol" [ref=e157] [cursor=pointer]
+                - button "Color symbol" [ref=e158] [cursor=pointer]
+                - button "Color mantle" [ref=e159] [cursor=pointer]
+                - button "Color mantle" [ref=e160] [cursor=pointer]
+                - button "Color robe" [ref=e161] [cursor=pointer]
+                - button "Color robe" [ref=e162] [cursor=pointer]
+                - button "Color robe" [ref=e163] [cursor=pointer]
+                - button "Color robe" [ref=e164] [cursor=pointer]
+                - button "Color robe" [ref=e165] [cursor=pointer]
+                - button "Color robe" [ref=e166] [cursor=pointer]
+                - button "Color robe" [ref=e167] [cursor=pointer]
+                - button "Color robe" [ref=e168] [cursor=pointer]
+                - button "Color robe" [ref=e169] [cursor=pointer]
+                - button "Color robe" [ref=e170] [cursor=pointer]
+                - button "Color robe" [ref=e171] [cursor=pointer]
+                - button "Color robe" [ref=e172] [cursor=pointer]
+                - button "Color accent" [ref=e173] [cursor=pointer]
+                - button "Color accent" [ref=e174] [cursor=pointer]
+                - button "Color accent" [ref=e175] [cursor=pointer]
+                - button "Color accent" [ref=e176] [cursor=pointer]
+                - button "Color accent" [ref=e177] [cursor=pointer]
+                - button "Color accent" [ref=e178] [cursor=pointer]
+                - button "Color accent" [ref=e179] [cursor=pointer]
+                - button "Color accent" [ref=e180] [cursor=pointer]
+                - button "Color accent" [ref=e181] [cursor=pointer]
+                - button "Color accent" [ref=e182] [cursor=pointer]
+                - button "Color accent" [ref=e183] [cursor=pointer]
+                - button "Color accent" [ref=e184] [cursor=pointer]
+                - button "Color accent" [ref=e185] [cursor=pointer]
+                - button "Color accent" [ref=e186] [cursor=pointer]
+                - button "Color accent" [ref=e187] [cursor=pointer]
+                - button "Color accent" [ref=e188] [cursor=pointer]
+                - button "Color accent" [ref=e189] [cursor=pointer]
+                - button "Color accent" [ref=e190] [cursor=pointer]
+                - button "Color accent" [ref=e191] [cursor=pointer]
+                - button "Color accent" [ref=e192] [cursor=pointer]
+                - button "Color accent" [ref=e193] [cursor=pointer]
+                - button "Color accent" [ref=e194] [cursor=pointer]
+                - button "Color accent" [ref=e195] [cursor=pointer]
+                - button "Color accent" [ref=e196] [cursor=pointer]
+                - button "Color accent" [ref=e197] [cursor=pointer]
+                - button "Color accent" [ref=e198] [cursor=pointer]
+                - button "Color accent" [ref=e199] [cursor=pointer]
+                - button "Color accent" [ref=e200] [cursor=pointer]
+                - button "Color accent" [ref=e201] [cursor=pointer]
+                - button "Color accent" [ref=e202] [cursor=pointer]
+                - button "Color accent" [ref=e203] [cursor=pointer]
+                - button "Color accent" [ref=e204] [cursor=pointer]
+                - button "Color hair" [ref=e205] [cursor=pointer]
+                - button "Color hair" [ref=e206] [cursor=pointer]
+                - button "Color hair" [ref=e207] [cursor=pointer]
+                - button "Color hair" [ref=e208] [cursor=pointer]
+                - button "Color hair" [ref=e209] [cursor=pointer]
+                - button "Color hair" [ref=e210] [cursor=pointer]
+                - button "Color hair" [ref=e211] [cursor=pointer]
+                - button "Color hair" [ref=e212] [cursor=pointer]
+                - button "Color hair" [ref=e213] [cursor=pointer]
+                - button "Color hair" [ref=e214] [cursor=pointer]
+                - button "Color skin" [ref=e215] [cursor=pointer]
+                - button "Color skin" [ref=e216] [cursor=pointer]
+                - button "Color skin" [ref=e217] [cursor=pointer]
+                - button "Color skin" [ref=e218] [cursor=pointer]
+                - button "Color skin" [ref=e219] [cursor=pointer]
+                - button "Color skin" [ref=e220] [cursor=pointer]
+                - button "Color skin" [ref=e221] [cursor=pointer]
+                - button "Color skin" [ref=e222] [cursor=pointer]
+                - button "Color skin" [ref=e223] [cursor=pointer]
+                - button "Color skin" [ref=e224] [cursor=pointer]
+                - button "Color skin" [ref=e225] [cursor=pointer]
+                - button "Color skin" [ref=e226] [cursor=pointer]
+                - button "Color skin" [ref=e227] [cursor=pointer]
+                - button "Color skin" [ref=e228] [cursor=pointer]
+            - generic: Mary
+          - group [ref=e230]:
+            - generic "About This Saint" [ref=e231] [cursor=pointer]
+            - generic [ref=e235]:
+              - paragraph [ref=e236]: Mary is the Mother of Jesus and the greatest example of trust, humility, and love for God. She said yes to God and helps lead all Christians closer to her Son.
+              - generic [ref=e237]:
+                - generic [ref=e238]:
+                  - generic [ref=e239]: Feast day
+                  - strong [ref=e240]: January 1
+                - generic [ref=e241]:
+                  - generic [ref=e242]: Special symbols
+                  - strong [ref=e243]: Blue mantle; white veil; lily; stars; crown or halo; infant Jesus optional.
+                - generic [ref=e244]:
+                  - generic [ref=e245]: Category
+                  - strong [ref=e246]: Marian / Holy Family
+              - generic [ref=e247]:
+                - generic [ref=e248]: Choose another saint
+                - combobox "Choose another saint" [ref=e249]:
+                  - option "Mary, Mother of God" [selected]
+                  - option "St. Joseph"
+                  - option "St. Francis of Assisi"
+                  - option "St. Thérèse of Lisieux (The Little Flower)"
+                  - option "St. John Bosco · Premium" [disabled]
+                  - option "St. Francis Xavier · Premium" [disabled]
+                  - option "St. Dominic · Premium" [disabled]
+                  - option "St. Monica · Premium" [disabled]
+                  - option "St. Thomas Aquinas · Premium" [disabled]
+                  - option "St. Catherine of Siena · Premium" [disabled]
+                  - option "St. Juan Diego · Premium" [disabled]
+                  - option "St. Kateri Tekakwitha · Premium" [disabled]
+                  - option "St. Martin of Tours · Premium" [disabled]
+                  - option "St. Vincent de Paul · Premium" [disabled]
+                  - option "St. Elizabeth Ann Seton · Premium" [disabled]
+                  - option "St. Maria Goretti · Premium" [disabled]
+                  - option "St. Lucy · Premium" [disabled]
+                  - option "St. Cecilia · Premium" [disabled]
+                  - option "St. Agatha · Premium" [disabled]
+                  - option "St. Anne · Premium" [disabled]
+                  - option "St. Joachim · Premium" [disabled]
+                  - option "St. John the Baptist · Premium" [disabled]
+                  - option "St. George · Premium" [disabled]
+                  - option "St. Christopher · Premium" [disabled]
+                  - option "St. Sebastian · Premium" [disabled]
+                  - option "St. Felicity · Premium" [disabled]
+                  - option "St. Maximilian Kolbe · Premium" [disabled]
+                  - option "St. José Sánchez del Río · Premium" [disabled]
+                  - option "St. Carlo Acutis · Premium" [disabled]
+                  - option "St. Paul · Premium" [disabled]
+                  - option "St. Andrew · Premium" [disabled]
+                  - option "St. James the Greater · Premium" [disabled]
+                  - option "St. Faustina Kowalska · Premium" [disabled]
+                  - option "St. Mary Magdalene · Premium" [disabled]
+              - button "Unlock all 34 saints · $4.99" [ref=e250] [cursor=pointer]
+        - complementary "Color palette" [ref=e251]:
+          - generic [ref=e252]:
+            - button "Select Pale blue" [ref=e253] [cursor=pointer]
+            - button "Select Ivory" [ref=e258] [cursor=pointer]
+            - button "Select Blue" [ref=e263] [cursor=pointer]
+            - button "Select Skin" [ref=e268] [cursor=pointer]
+            - button "Select Chestnut" [ref=e273] [cursor=pointer]
+            - button "Select Tan" [ref=e278] [cursor=pointer]
+            - button "Select Gold" [ref=e283] [cursor=pointer]
+            - button "Select Deep gold" [ref=e288] [cursor=pointer]
+            - button "Unlock 9 more colors" [ref=e293] [cursor=pointer]
+    - navigation "Main navigation" [ref=e51]:
+      - button "Home" [ref=e52] [cursor=pointer]
+      - button "Color" [ref=e57] [cursor=pointer]
+      - button "My Artwork" [ref=e63] [cursor=pointer]
+      - button "More" [ref=e67] [cursor=pointer]
+  - status [ref=e297]: This page is already blank.

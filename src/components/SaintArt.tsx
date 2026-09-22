@@ -17,6 +17,7 @@ type Props = {
 const DEFAULT = '#fffdf8';
 const STROKE = '#302a28';
 const SVG_NS = 'http://www.w3.org/2000/svg';
+const UNDERLAY_REGIONS = new Set<RegionId>(['background']);
 
 function clipIdFor(svgId: string, region: RegionId) {
   return `${svgId}-brush-${region}`;
@@ -65,6 +66,7 @@ export default function SaintArt({
 }: Props) {
   const svgRef = useRef<SVGSVGElement>(null);
   const lock = useRef<RegionId | null>(null);
+  const pageTouch = useRef<RegionId | null>(null);
   const livePoints = useRef<number[]>([]);
   const dragged = useRef(false);
   const suppressClick = useRef(false);
@@ -104,6 +106,28 @@ export default function SaintArt({
   const frameClipId = `${svgId}-frame`;
   const allStrokes = draft ? [...strokes, draft] : strokes;
   const strokeRegions = [...new Set(allStrokes.map((item) => item.region))];
+  const underlayRegions = strokeRegions.filter((region) => UNDERLAY_REGIONS.has(region));
+  const overlayRegions = strokeRegions.filter((region) => !UNDERLAY_REGIONS.has(region));
+
+  function renderStrokes(regions: RegionId[]) {
+    return regions.map((region) => (
+      <g key={region} clipPath={`url(#${clipIdFor(svgId, region)})`} className="brush-layer" pointerEvents="none">
+        {allStrokes
+          .filter((item) => item.region === region)
+          .map((item) => (
+            <polyline
+              key={item.id}
+              points={pointsAttr(item.points)}
+              fill="none"
+              stroke={item.color || 'currentColor'}
+              strokeWidth={item.width}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          ))}
+      </g>
+    ));
+  }
 
   useLayoutEffect(() => {
     const svg = svgRef.current;
@@ -132,11 +156,17 @@ export default function SaintArt({
     const region = hitRegion(event.clientX, event.clientY);
     const point = clientToSvgPoint(event.currentTarget, event.clientX, event.clientY);
     if (!region || !point) return;
-    lock.current = region;
+    event.preventDefault();
     dragged.current = false;
     suppressClick.current = true;
     livePoints.current = [point.x, point.y];
     event.currentTarget.setPointerCapture(event.pointerId);
+    if (UNDERLAY_REGIONS.has(region)) {
+      pageTouch.current = region;
+      lock.current = null;
+      return;
+    }
+    lock.current = region;
     setDraft({
       id: `live-${region}`,
       region,
@@ -147,7 +177,7 @@ export default function SaintArt({
   }
 
   function moveStroke(event: PointerEvent<SVGSVGElement>) {
-    if (!lock.current) return;
+    if (!lock.current && !pageTouch.current) return;
     const point = clientToSvgPoint(event.currentTarget, event.clientX, event.clientY);
     if (!point) return;
     livePoints.current.push(point.x, point.y);
@@ -161,17 +191,21 @@ export default function SaintArt({
 
   function endStroke(event: PointerEvent<SVGSVGElement>) {
     const region = lock.current;
+    const board = pageTouch.current;
     const points = livePoints.current.slice();
     const didDrag = dragged.current;
-    if (region && event.currentTarget.hasPointerCapture(event.pointerId)) {
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
       event.currentTarget.releasePointerCapture(event.pointerId);
     }
     lock.current = null;
+    pageTouch.current = null;
     livePoints.current = [];
     dragged.current = false;
     setDraft(null);
 
-    if (region) {
+    if (board) {
+      if (!didDrag) onPaint(board);
+    } else if (region) {
       if (didDrag && onBrushStroke && points.length >= 2) {
         onBrushStroke({
           id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
@@ -213,24 +247,9 @@ export default function SaintArt({
         <g {...p('background')} stroke="none">
           <rect x="14" y="14" width="612" height="732" rx="40" />
         </g>
+        {renderStrokes(underlayRegions)}
         {Portrait ? <Portrait p={p} detail={detail} /> : null}
-        {strokeRegions.map((region) => (
-          <g key={region} clipPath={`url(#${clipIdFor(svgId, region)})`} className="brush-layer" pointerEvents="none">
-            {allStrokes
-              .filter((item) => item.region === region)
-              .map((item) => (
-                <polyline
-                  key={item.id}
-                  points={pointsAttr(item.points)}
-                  fill="none"
-                  stroke={item.color || 'currentColor'}
-                  strokeWidth={item.width}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              ))}
-          </g>
-        ))}
+        {renderStrokes(overlayRegions)}
       </g>
       <rect x="14" y="14" width="612" height="732" rx="40" fill="none" stroke={STROKE} strokeWidth={6} pointerEvents="none" />
       <text x="320" y="729" textAnchor="middle" className="saint-art__label" pointerEvents="none">{saint.shortName}</text>
