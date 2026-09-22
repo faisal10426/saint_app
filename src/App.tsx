@@ -541,7 +541,12 @@ export default function App() {
       id: uid(),
       title: `${artwork.title} (copy)`,
       colors: { ...artwork.colors },
-      strokes: artwork.strokes.map((stroke) => ({ ...stroke, id: uid(), points: [...stroke.points] })),
+      strokes: artwork.strokes.map((stroke) => ({
+        ...stroke,
+        id: uid(),
+        points: [...stroke.points],
+        segments: stroke.segments?.map((part) => [...part]),
+      })),
       createdAt: now,
       updatedAt: now,
     };
@@ -565,7 +570,11 @@ export default function App() {
   function snapshotHistory(artwork: Artwork) {
     setHistory((stack) => [
       ...stack.slice(-79),
-      { artworkId: artwork.id, previous: { ...artwork.colors }, previousStrokes: artwork.strokes.map((stroke) => ({ ...stroke, points: [...stroke.points] })) },
+      { artworkId: artwork.id, previous: { ...artwork.colors }, previousStrokes: artwork.strokes.map((stroke) => ({
+        ...stroke,
+        points: [...stroke.points],
+        segments: stroke.segments?.map((part) => [...part]),
+      })) },
     ]);
   }
 
@@ -583,16 +592,6 @@ export default function App() {
       ...item,
       colors: { ...previous, [region]: nextColor },
       strokes: nextStrokes,
-      updatedAt: Date.now(),
-    }));
-  }
-
-  function addBrushStroke(stroke: BrushStroke) {
-    if (!activeArtwork || eraserMode) return;
-    snapshotHistory(activeArtwork);
-    updateArtwork(activeArtwork.id, (item) => ({
-      ...item,
-      strokes: [...item.strokes, stroke],
       updatedAt: Date.now(),
     }));
   }
@@ -913,7 +912,7 @@ export default function App() {
                         <span className="instruction-number">2</span>
                         <strong>Touch a picture part</strong>
                         <span className="instruction-number">3</span>
-                        <strong>Drag stays inside the lines</strong>
+                        <strong>The whole part fills in</strong>
                       </div>
                       {showMeter && (
                         <div
@@ -953,9 +952,7 @@ export default function App() {
                         saint={activeSaint}
                         colors={activeColors}
                         strokes={activeStrokes}
-                        brushColor={eraserMode ? EMPTY_COLOR : activeColor}
                         onPaint={paintRegion}
-                        onBrushStroke={addBrushStroke}
                         svgId={SVG_ID}
                       />
 
@@ -1022,7 +1019,7 @@ export default function App() {
                         <span>
                           {eraserMode
                             ? 'Eraser — tap a part to clear it'
-                            : 'Brush ready — tap to fill, or drag inside the lines'}
+                            : 'Color ready — tap a part to fill it'}
                         </span>
                       </div>
                       <p className="palette-caption">

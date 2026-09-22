@@ -6,10 +6,12 @@ export type BrushStroke = {
   color: string;
   points: number[];
   width: number;
+  segments?: number[][];
 };
 
 export const BRUSH_WIDTH = 22;
 export const BRUSH_TAP_SLOP = 9;
+const SAMPLE_STEP = 5;
 
 export function clientToSvgPoint(svg: SVGSVGElement, clientX: number, clientY: number): { x: number; y: number } | null {
   const ctm = svg.getScreenCTM();
@@ -55,4 +57,50 @@ export function pointsAttr(points: number[]): string {
     pairs.push(`${points[i]},${points[i + 1]}`);
   }
   return pairs.join(' ');
+}
+
+export function strokeSegments(stroke: BrushStroke): number[][] {
+  const parts = stroke.segments?.length ? stroke.segments : [stroke.points];
+  return parts.filter((part) => part.length >= 2);
+}
+
+export function flattenSegments(segments: number[][]): number[] {
+  return segments.flatMap((part) => part);
+}
+
+export function interpolateClients(
+  from: { x: number; y: number },
+  to: { x: number; y: number },
+): { x: number; y: number }[] {
+  const distance = Math.hypot(to.x - from.x, to.y - from.y);
+  const count = Math.max(1, Math.ceil(distance / SAMPLE_STEP));
+  const points: { x: number; y: number }[] = [];
+  for (let index = 1; index <= count; index += 1) {
+    const t = index / count;
+    points.push({
+      x: from.x + (to.x - from.x) * t,
+      y: from.y + (to.y - from.y) * t,
+    });
+  }
+  return points;
+}
+
+export function appendLockedSamples(
+  segments: number[][],
+  svg: SVGSVGElement,
+  samples: { x: number; y: number }[],
+  lock: RegionId,
+): number[][] {
+  const next = segments.map((part) => part.slice());
+  for (const sample of samples) {
+    if (hitRegion(sample.x, sample.y) !== lock) {
+      if (next.length && next[next.length - 1].length) next.push([]);
+      continue;
+    }
+    const point = clientToSvgPoint(svg, sample.x, sample.y);
+    if (!point) continue;
+    if (!next.length) next.push([]);
+    next[next.length - 1].push(point.x, point.y);
+  }
+  return next;
 }

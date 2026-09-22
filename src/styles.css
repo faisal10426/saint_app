@@ -833,7 +833,7 @@ p {
   margin: 0 auto;
   border-radius: var(--radius-md);
   overflow: hidden;
-  touch-action: none;
+  touch-action: manipulation;
   user-select: none;
 }
 .saint-art--compact {

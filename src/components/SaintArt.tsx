@@ -1,5 +1,5 @@
-import { useLayoutEffect, useRef, useState, type KeyboardEvent, type PointerEvent } from 'react';
-import { BRUSH_TAP_SLOP, BRUSH_WIDTH, clientToSvgPoint, hitRegion, pointsAttr, strokeLength, type BrushStroke } from '../lib/brush';
+import { useLayoutEffect, useRef, type KeyboardEvent } from 'react';
+import { pointsAttr, strokeSegments, type BrushStroke } from '../lib/brush';
 import type { PaintMap, RegionId, Saint } from '../types';
 import { portraits } from './saints';
 
@@ -7,9 +7,7 @@ type Props = {
   saint: Saint;
   colors: PaintMap;
   onPaint: (region: RegionId) => void;
-  onBrushStroke?: (stroke: BrushStroke) => void;
   strokes?: BrushStroke[];
-  brushColor?: string;
   svgId: string;
   compact?: boolean;
 };
@@ -58,19 +56,11 @@ export default function SaintArt({
   saint,
   colors,
   onPaint,
-  onBrushStroke,
   strokes = [],
-  brushColor = '#245fc2',
   svgId,
   compact = false,
 }: Props) {
   const svgRef = useRef<SVGSVGElement>(null);
-  const lock = useRef<RegionId | null>(null);
-  const pageTouch = useRef<RegionId | null>(null);
-  const livePoints = useRef<number[]>([]);
-  const dragged = useRef(false);
-  const suppressClick = useRef(false);
-  const [draft, setDraft] = useState<BrushStroke | null>(null);
 
   const color = (region: RegionId) => colors[region] ?? DEFAULT;
   const interactive = (region: RegionId) => ({
@@ -78,10 +68,7 @@ export default function SaintArt({
     tabIndex: 0,
     'data-region': region,
     'aria-label': `Color ${region}`,
-    onClick: () => {
-      if (suppressClick.current) return;
-      onPaint(region);
-    },
+    onClick: () => onPaint(region),
     onKeyDown: (event: KeyboardEvent<SVGGElement>) => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
@@ -104,27 +91,28 @@ export default function SaintArt({
   const detail = { fill: 'none', stroke: STROKE, strokeWidth: 6, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, pointerEvents: 'none' as const };
   const Portrait = portraits[saint.id];
   const frameClipId = `${svgId}-frame`;
-  const allStrokes = draft ? [...strokes, draft] : strokes;
-  const strokeRegions = [...new Set(allStrokes.map((item) => item.region))];
+  const strokeRegions = [...new Set(strokes.map((item) => item.region))];
   const underlayRegions = strokeRegions.filter((region) => UNDERLAY_REGIONS.has(region));
   const overlayRegions = strokeRegions.filter((region) => !UNDERLAY_REGIONS.has(region));
 
   function renderStrokes(regions: RegionId[]) {
     return regions.map((region) => (
       <g key={region} clipPath={`url(#${clipIdFor(svgId, region)})`} className="brush-layer" pointerEvents="none">
-        {allStrokes
+        {strokes
           .filter((item) => item.region === region)
-          .map((item) => (
-            <polyline
-              key={item.id}
-              points={pointsAttr(item.points)}
-              fill="none"
-              stroke={item.color || 'currentColor'}
-              strokeWidth={item.width}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          ))}
+          .map((item) =>
+            strokeSegments(item).map((points, index) => (
+              <polyline
+                key={`${item.id}-${index}`}
+                points={pointsAttr(points)}
+                fill="none"
+                stroke={item.color || 'currentColor'}
+                strokeWidth={item.width}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            )),
+          )}
       </g>
     ));
   }
@@ -132,7 +120,7 @@ export default function SaintArt({
   useLayoutEffect(() => {
     const svg = svgRef.current;
     const defs = svg?.querySelector('defs');
-    if (!svg || !defs) return;
+    if (!svg || !defs || !strokes.length) return;
     defs.querySelectorAll('[data-brush-clip]').forEach((node) => node.remove());
     svg.querySelectorAll('[data-region]').forEach((group) => {
       if (group.closest('[data-brush-clip]')) return;
@@ -149,80 +137,7 @@ export default function SaintArt({
       }
       cloneClipShapes(group, svg).forEach((shape) => clip.appendChild(shape));
     });
-  }, [saint.id, svgId, compact]);
-
-  function beginStroke(event: PointerEvent<SVGSVGElement>) {
-    if (compact || event.button > 0) return;
-    const region = hitRegion(event.clientX, event.clientY);
-    const point = clientToSvgPoint(event.currentTarget, event.clientX, event.clientY);
-    if (!region || !point) return;
-    event.preventDefault();
-    dragged.current = false;
-    suppressClick.current = true;
-    livePoints.current = [point.x, point.y];
-    event.currentTarget.setPointerCapture(event.pointerId);
-    if (UNDERLAY_REGIONS.has(region)) {
-      pageTouch.current = region;
-      lock.current = null;
-      return;
-    }
-    lock.current = region;
-    setDraft({
-      id: `live-${region}`,
-      region,
-      color: brushColor,
-      points: [point.x, point.y, point.x, point.y],
-      width: BRUSH_WIDTH,
-    });
-  }
-
-  function moveStroke(event: PointerEvent<SVGSVGElement>) {
-    if (!lock.current && !pageTouch.current) return;
-    const point = clientToSvgPoint(event.currentTarget, event.clientX, event.clientY);
-    if (!point) return;
-    livePoints.current.push(point.x, point.y);
-    if (strokeLength(livePoints.current) > BRUSH_TAP_SLOP) dragged.current = true;
-    setDraft((current) =>
-      current
-        ? { ...current, points: livePoints.current.slice() }
-        : current,
-    );
-  }
-
-  function endStroke(event: PointerEvent<SVGSVGElement>) {
-    const region = lock.current;
-    const board = pageTouch.current;
-    const points = livePoints.current.slice();
-    const didDrag = dragged.current;
-    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
-      event.currentTarget.releasePointerCapture(event.pointerId);
-    }
-    lock.current = null;
-    pageTouch.current = null;
-    livePoints.current = [];
-    dragged.current = false;
-    setDraft(null);
-
-    if (board) {
-      if (!didDrag) onPaint(board);
-    } else if (region) {
-      if (didDrag && onBrushStroke && points.length >= 2) {
-        onBrushStroke({
-          id: `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
-          region,
-          color: brushColor,
-          points,
-          width: BRUSH_WIDTH,
-        });
-      } else {
-        onPaint(region);
-      }
-    }
-
-    window.setTimeout(() => {
-      suppressClick.current = false;
-    }, 0);
-  }
+  }, [saint.id, svgId, compact, strokes.length]);
 
   return (
     <svg
@@ -233,10 +148,6 @@ export default function SaintArt({
       role="img"
       aria-label={`Coloring page for ${saint.name}`}
       xmlns="http://www.w3.org/2000/svg"
-      onPointerDown={beginStroke}
-      onPointerMove={moveStroke}
-      onPointerUp={endStroke}
-      onPointerCancel={endStroke}
     >
       <defs>
         <clipPath id={frameClipId}>
